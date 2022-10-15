@@ -1,0 +1,100 @@
+/*
+ * Copyright (C) 2022 Benzo Rom
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+syntax = "proto3";
+
+package systemui;
+
+option java_package = "com.android.systemui.smartspace";
+option java_outer_classname = "SmartspaceProto";
+
+message SmartSpaceCardMetadata {
+    int32 instanceId = 1;
+    int32 cardTypeId = 2;
+}
+
+message SmartSpaceSubcards {
+    repeated SmartSpaceCardMetadata subcards = 1;
+    int32 clickedSubcardIndex = 2;
+}
+
+message SmartspaceUpdate {
+
+    message SmartspaceCard {
+
+        message ExpiryCriteria {
+            int64 expirationTimeMillis = 1;
+            int32 maxImpressions = 2;
+        }
+
+        message Image {
+            string key = 1;
+            string gsaResourceName = 2;
+            string uri = 3;
+        }
+
+        message Message {
+
+            message FormattedText {
+
+                message FormatParam {
+                    string text = 1;
+                    int32 truncateLocation = 2;
+                    int32 formatParamArgs = 3;
+                    bool updateTimeLocally = 4;
+                }
+
+                string text = 1;
+                int32 truncateLocation = 2;
+                repeated FormatParam formatParam = 3;
+            }
+
+            FormattedText title = 1;
+            FormattedText subtitle = 2;
+        }
+
+        message TapAction {
+            int32 actionType = 1;
+            string intent = 2;
+        }
+
+        bool shouldDiscard = 1;
+        int32 cardId = 2;
+        Message preEvent = 3;
+        Message duringEvent = 4;
+        Message postEvent = 5;
+        Image icon = 6;
+        int32 cardType = 7;
+        TapAction tapAction = 8;
+        int64 updateTimeMillis = 9;
+        int64 eventTimeMillis = 10;
+        int64 eventDurationMillis = 11;
+        ExpiryCriteria expiryCriteria = 12;
+        int32 cardPriority = 13;
+        bool isSensitive = 14;
+        bool isWorkProfile = 15;
+    }
+
+    repeated SmartspaceCard card = 1;
+}
+
+message CardWrapper {
+    SmartspaceUpdate.SmartspaceCard card = 1;
+    int64 publishTime = 2;
+    int64 gsaUpdateTime = 3;
+    int32 gsaVersionCode = 4;
+    bytes icon = 5;
+    bool isIconGrayscale = 6;
+}
