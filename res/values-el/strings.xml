@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="accessibility_next_alarm">Επόμενο ξυπνητήρι στις %s</string>
+    <string name="accessibility_settings_gear">Ρυθμίσεις Pixel Stand</string>
+    <string name="accessibility_smartspace_page">Σελίδα %1$d από %2$d</string>
+    <string name="adaptive_charging_notify_des">Η μπαταρία θα φορτιστεί πλήρως σε %1$s. Σταθερή φόρτιση για την επιμήκυνση του χρόνου ζωής της μπαταρίας.</string>
+    <string name="adaptive_charging_notify_title">Η προσαρμοστική φόρτιση είναι ενεργή</string>
+    <string name="adaptive_charging_notify_turn_off_once">Απενεργοποίηση μία φορά</string>
+    <string name="adaptive_charging_time_estimate">%1$s • Προσαρμοστική φόρτιση (πλήρης φόρτιση στις %2$s)</string>
+    <string name="battery_health_notify_learn_more">Μάθετε περισσότερα</string>
+    <string name="charging_reverse_text">Κοινή χρήση μπαταρίας σε εξέλιξη</string>
+    <string name="copied_text_label">Αντιγραμμένο κείμενο</string>
+    <string name="copy_url_description">Το κείμενο αντιγράφηκε</string>
+    <string name="defender_notify_des">Το τηλέφωνο περιορίζει τη φόρτιση, προκειμένου να διατηρηθεί η εύρυθμη λειτουργία της μπαταρίας.</string>
+    <string name="defender_notify_resume_charge">Συνέχιση φόρτισης</string>
+    <string name="defender_notify_title">Προσωρινός περιορισμός φόρτισης</string>
+    <string name="defender_post_notify_des">Η φόρτιση περιορίστηκε στο %1$s από τις %2$s έως τις %3$s για τη διατήρηση της καλής κατάστασης της μπαταρίας.</string>
+    <string name="defender_post_notify_title">Κανονική φόρτιση</string>
+    <string name="extreme_battery_saver_text">Μέγιστη</string>
+    <string name="generic_smartspace_concatenated_desc">%1$s, %2$s</string>
+    <string name="home_controls_tile_title">Αρχική σελίδα</string>
+    <string name="keyguard_indication_trust_unlocked">Διατήρηση ξεκλειδώματος με Smart Lock</string>
+    <string name="low_battery_label">Χαμηλή στάθμη μπαταρίας</string>
+    <string name="no_content_in_select_mode">Δεν υπάρχει κείμενο ή εικόνα για επιλογή.</string>
+    <string name="quick_settings_rotation_posture_folded">διπλωμένη</string>
+    <string name="quick_settings_rotation_posture_unfolded">ξεδιπλωμένη</string>
+    <string name="reverse_charging_device_name_text">Άλλο Pixel</string>
+    <string name="reverse_charging_device_providing_charge_text">Η συσκευή %1$s παρέχει φόρτιση (%2$s)</string>
+    <string name="reverse_charging_on_notification_title">Η Κοινή χρήση μπαταρίας είναι ενεργή</string>
+    <string name="reverse_charging_title">Κοινή χρήση μπαταρίας</string>
+    <string name="saver_confirmation_dialog_text">Η Μέγιστη εξοικονόμηση μπαταρίας θα θέσει σε παύση τις περισσότερες εφαρμογές και ειδοποιήσεις.</string>
+    <string name="selectable_url_description">Επιλέξιμο URL</string>
+    <string name="severe_low_battery_dialog_checkbox_title">Να μην ερωτηθώ ξανά</string>
+    <string name="severe_low_battery_dialog_text">Απομένει %s μπαταρία. Η Μέγιστη εξοικονόμηση μπαταρίας θα θέσει σε παύση τις περισσότερες εφαρμογές και ειδοποιήσεις.</string>
+    <string name="severe_low_battery_dialog_title">Ενεργοποίηση Μέγιστης εξοικονόμησης μπαταρίας;</string>
+    <string name="smartspace_flight_card_gate_header">Πύλη</string>
+    <string name="smartspace_flight_card_seat_header">Θέση</string>
+    <string name="smartspace_flight_qr_code">Κωδικός QR</string>
+    <string name="smartspace_hours_mins">%1$s %2$s</string>
+    <string name="smartspace_now">Τώρα</string>
+    <string name="smartspace_shopping_list_overflow">+ %1$d ακόμα</string>
+    <string name="too_hot_label">Το Pixel είναι πολύ ζεστό</string>
+    <string name="url_menu_copy">Αντιγραφή</string>
+    <string name="url_menu_share">Κοινοποίηση</string>
+    <string name="wireless_charging_label">Ασύρματη φόρτιση</string>
+</resources>

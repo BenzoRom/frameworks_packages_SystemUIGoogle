@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="accessibility_next_alarm">Кийинки ойготкуч саат %s иштейт</string>
+    <string name="accessibility_settings_gear">Pixel Stand жөндөөлөрү</string>
+    <string name="accessibility_smartspace_page">%2$d беттин %1$d-бети</string>
+    <string name="adaptive_charging_notify_des">Батарея cаат %1$s толук кубатталат. Батареянын иштөө мөөнөтүн узартуу максатында туруктуу кубатталууда.</string>
+    <string name="adaptive_charging_notify_title">Ыңгайлаштырылган кубаттоо күйүк</string>
+    <string name="adaptive_charging_notify_turn_off_once">Бир жолу өчүрүү</string>
+    <string name="adaptive_charging_time_estimate">%1$s • Ыңгайлаштырылуучу кубаттоо (саат %2$s кубатталат)</string>
+    <string name="battery_health_notify_learn_more">Кененирээк</string>
+    <string name="charging_reverse_text">Батареянын кубатын бөлүшүү</string>
+    <string name="copied_text_label">Текст көчүрүлдү</string>
+    <string name="copy_url_description">Текст көчүрүлдү</string>
+    <string name="defender_notify_des">Батареяны көбүрөөк убакытка жеткирүү үчүн телефонуңуз кубатты чектеп жатат</string>
+    <string name="defender_notify_resume_charge">Кубаттоону улантуу</string>
+    <string name="defender_notify_title">Кубаттоо убактылуу чектелген</string>
+    <string name="defender_post_notify_des">Батареяны көбүрөөк убакытка жеткирүү үчүн саат %2$s баштап, %3$s чейин кубаттоо %1$s менен чектелди</string>
+    <string name="defender_post_notify_title">Кадимкидей кубатталууда</string>
+    <string name="extreme_battery_saver_text">Кескин</string>
+    <string name="generic_smartspace_concatenated_desc">%1$s, %2$s</string>
+    <string name="home_controls_tile_title">Башкы бет</string>
+    <string name="keyguard_indication_trust_unlocked">Smart Lock кулпусун ачты</string>
+    <string name="low_battery_label">Батареянын кубаты төмөн</string>
+    <string name="no_content_in_select_mode">Тандоо үчүн текст же сүрөт жок</string>
+    <string name="quick_settings_rotation_posture_folded">бүктөлгөн</string>
+    <string name="quick_settings_rotation_posture_unfolded">бүктөлгөн эмес</string>
+    <string name="reverse_charging_device_name_text">Башка Pixel</string>
+    <string name="reverse_charging_device_providing_charge_text">%1$s кубатын бөлүшүп жатат (%2$s)</string>
+    <string name="reverse_charging_on_notification_title">Батареяны бөлүшүү күйүк</string>
+    <string name="reverse_charging_title">Батареяны бөлүшүү</string>
+    <string name="saver_confirmation_dialog_text">Батареяны кескин үнөмдөө режими көбүнчө колдонмолор менен билдирмелерди тындырат.</string>
+    <string name="selectable_url_description">Тандала турган URL</string>
+    <string name="severe_low_battery_dialog_checkbox_title">Экинчи суралбасын</string>
+    <string name="severe_low_battery_dialog_text">Батареянын деңгээли: %s. Батареяны кескин үнөмдөө режими көбүнчө колдонмолор менен билдирмелерди тындырат.</string>
+    <string name="severe_low_battery_dialog_title">Батареяны кескин үнөмдөө режими күйгүзүлсүнбү?</string>
+    <string name="smartspace_flight_card_gate_header">Дарбаза</string>
+    <string name="smartspace_flight_card_seat_header">Орун</string>
+    <string name="smartspace_flight_qr_code">QR коду</string>
+    <string name="smartspace_hours_mins">%1$s %2$s</string>
+    <string name="smartspace_now">Азыр</string>
+    <string name="smartspace_shopping_list_overflow">дагы %1$d</string>
+    <string name="too_hot_label">Pixel өтө ысып кетти</string>
+    <string name="url_menu_copy">Көчүрүү</string>
+    <string name="url_menu_share">Бөлүшүү</string>
+    <string name="wireless_charging_label">Зымсыз кубатталууда</string>
+</resources>

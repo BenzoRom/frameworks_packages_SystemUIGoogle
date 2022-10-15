@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2022 Benzo Rom
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <item type="id" name="alarm_icon"/>
+    <item type="id" name="alarm_text"/>
+    <item type="id" name="ambient_indication"/>
+    <item type="id" name="ambient_indication_icon"/>
+    <item type="id" name="ambient_indication_text"/>
+    <item type="id" name="base_action_icon_subtitle"/>
+    <item type="id" name="bc_smartspace_view"/>
+    <item type="id" name="card_prompt"/>
+    <item type="id" name="card_prompt_icon"/>
+    <item type="id" name="charging_status_text_view"/>
+    <item type="id" name="chip_container"/>
+    <item type="id" name="chips_inline_container"/>
+    <item type="id" name="debug_container"/>
+    <item type="id" name="docked_top_icon"/>
+    <item type="id" name="empty_list_message"/>
+    <item type="id" name="first_competitor_icon"/>
+    <item type="id" name="first_competitor_logo"/>
+    <item type="id" name="first_competitor_score"/>
+    <item type="id" name="first_competitor_text"/>
+    <item type="id" name="first_sub_card"/>
+    <item type="id" name="first_sub_card_container"/>
+    <item type="id" name="flight_qr_code"/>
+    <item type="id" name="gleam_container"/>
+    <item type="id" name="head_to_head_title"/>
+    <item type="id" name="image_view"/>
+    <item type="id" name="indeterminateBar"/>
+    <item type="id" name="list_icon"/>
+    <item type="id" name="list_item_1"/>
+    <item type="id" name="list_item_2"/>
+    <item type="id" name="list_item_3"/>
+    <item type="id" name="loading_screen"/>
+    <item type="id" name="loading_screen_icon"/>
+    <item type="id" name="lower_text"/>
+    <item type="id" name="loyalty_program_logo"/>
+    <item type="id" name="loyalty_program_name"/>
+    <item type="id" name="match_time_summary"/>
+    <item type="id" name="negative_button"/>
+    <item type="id" name="positive_button"/>
+    <item type="id" name="secondary_card_group"/>
+    <item type="id" name="second_competitor_icon"/>
+    <item type="id" name="second_competitor_logo"/>
+    <item type="id" name="second_competitor_score"/>
+    <item type="id" name="second_competitor_text"/>
+    <item type="id" name="second_sub_card"/>
+    <item type="id" name="second_sub_card_container"/>
+    <item type="id" name="selection_container"/>
+    <item type="id" name="selection_override_container"/>
+    <item type="id" name="smartspace_card_pager"/>
+    <item type="id" name="smartspace_extras_group"/>
+    <item type="id" name="smartspace_page_indicator"/>
+    <item type="id" name="smartspace_subtitle_group"/>
+    <item type="id" name="sub_card_icon"/>
+    <item type="id" name="sub_card_text"/>
+    <item type="id" name="subtitle_text"/>
+    <item type="id" name="supplemental_line_text"/>
+    <item type="id" name="temperature_value"/>
+    <item type="id" name="text_group"/>
+    <item type="id" name="timestamp"/>
+    <item type="id" name="upper_text"/>
+    <item type="id" name="url_container"/>
+    <item type="id" name="url_copy"/>
+    <item type="id" name="url_indicator"/>
+    <item type="id" name="url_share"/>
+    <item type="id" name="url_text"/>
+    <item type="id" name="weather_icon"/>
+</resources>

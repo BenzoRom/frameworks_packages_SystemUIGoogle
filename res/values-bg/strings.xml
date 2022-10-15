@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="accessibility_next_alarm">Следващият будилник е в %s</string>
+    <string name="accessibility_settings_gear">Настройки за Pixel Stand</string>
+    <string name="accessibility_smartspace_page">Страница %1$d от %2$d</string>
+    <string name="adaptive_charging_notify_des">Батерията ще се зареди напълно до %1$s. Зарежда се равномерно с цел удължаване на живота на батерията.</string>
+    <string name="adaptive_charging_notify_title">Функцията за адаптивно зареждане е включена</string>
+    <string name="adaptive_charging_notify_turn_off_once">Изключване веднъж</string>
+    <string name="adaptive_charging_time_estimate">%1$s • Адаптивно зареждане (ще се зареди напълно до %2$s)</string>
+    <string name="battery_health_notify_learn_more">Научете повече</string>
+    <string name="charging_reverse_text">Батерията се споделя</string>
+    <string name="copied_text_label">Текстът бе копиран</string>
+    <string name="copy_url_description">Текстът бе копиран</string>
+    <string name="defender_notify_des">Телефонът ограничава зареждането, за да запази състоянието на батерията</string>
+    <string name="defender_notify_resume_charge">Възобновяване на зареждането</string>
+    <string name="defender_notify_title">Зареждането временно е ограничено</string>
+    <string name="defender_post_notify_des">Зареждането бе ограничено до %1$s от %2$s до %3$s с цел запазване на състоянието на батерията</string>
+    <string name="defender_post_notify_title">Зарежда се нормално</string>
+    <string name="extreme_battery_saver_text">Екстремен режим</string>
+    <string name="generic_smartspace_concatenated_desc">%1$s, %2$s</string>
+    <string name="home_controls_tile_title">Начало</string>
+    <string name="keyguard_indication_trust_unlocked">Поддържа се отключено от Smart Lock</string>
+    <string name="low_battery_label">Ниско ниво на батерията</string>
+    <string name="no_content_in_select_mode">Няма текст или изображение за избиране</string>
+    <string name="quick_settings_rotation_posture_folded">сгънато</string>
+    <string name="quick_settings_rotation_posture_unfolded">разгънато</string>
+    <string name="reverse_charging_device_name_text">Друг телефон Pixel</string>
+    <string name="reverse_charging_device_providing_charge_text">%1$s предоставя зареждане (%2$s)</string>
+    <string name="reverse_charging_on_notification_title">Функцията за споделяне на батерията е включена</string>
+    <string name="reverse_charging_title">Споделяне на батерията</string>
+    <string name="saver_confirmation_dialog_text">Екстремният режим за запазване на батерията ще постави на пауза повечето приложения и известия.</string>
+    <string name="selectable_url_description">URL адресът може да се избира</string>
+    <string name="severe_low_battery_dialog_checkbox_title">Без повторно питане</string>
+    <string name="severe_low_battery_dialog_text">Оставащ заряд на батерията: %s. Екстремният режим за запазване на батерията ще постави на пауза повечето приложения и известия.</string>
+    <string name="severe_low_battery_dialog_title">Да се включи ли екстремният режим за запазване на батерията?</string>
+    <string name="smartspace_flight_card_gate_header">Изход</string>
+    <string name="smartspace_flight_card_seat_header">Място</string>
+    <string name="smartspace_flight_qr_code">QR код</string>
+    <string name="smartspace_hours_mins">%1$s и %2$s</string>
+    <string name="smartspace_now">Сега</string>
+    <string name="smartspace_shopping_list_overflow">+ още %1$d</string>
+    <string name="too_hot_label">Pixel е твърде горещ</string>
+    <string name="url_menu_copy">Копиране</string>
+    <string name="url_menu_share">Споделяне</string>
+    <string name="wireless_charging_label">Зарежда се безжично</string>
+</resources>

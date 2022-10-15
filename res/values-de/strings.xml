@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="accessibility_next_alarm">Nächster Wecker um %s</string>
+    <string name="accessibility_settings_gear">Einstellungen für Pixel Stand</string>
+    <string name="accessibility_smartspace_page">Seite %1$d von %2$d</string>
+    <string name="adaptive_charging_notify_des">Akku um %1$s vollständig geladen. Konstantes Laden, um Lebensdauer des Akkus zu erhöhen.</string>
+    <string name="adaptive_charging_notify_title">Adaptives Laden ist aktiviert</string>
+    <string name="adaptive_charging_notify_turn_off_once">Dieses Mal deaktivieren</string>
+    <string name="adaptive_charging_time_estimate">%1$s • Adaptives Laden (vollständig aufgeladen bis %2$s)</string>
+    <string name="battery_health_notify_learn_more">Weitere Informationen</string>
+    <string name="charging_reverse_text">Akku wird geteilt</string>
+    <string name="copied_text_label">Kopierter Text</string>
+    <string name="copy_url_description">Text kopiert</string>
+    <string name="defender_notify_des">Dein Smartphone schränkt das Laden ein, um deinen Akku zu schonen</string>
+    <string name="defender_notify_resume_charge">Ladevorgang fortsetzen</string>
+    <string name="defender_notify_title">Laden vorübergehend eingeschränkt</string>
+    <string name="defender_post_notify_des">Das Aufladen wurde von %2$s bis %3$s auf %1$s eingeschränkt, um den Akku zu schützen</string>
+    <string name="defender_post_notify_title">Wird normal geladen</string>
+    <string name="extreme_battery_saver_text">Extrem</string>
+    <string name="generic_smartspace_concatenated_desc">%1$s, %2$s</string>
+    <string name="home_controls_tile_title">Startbildschirm</string>
+    <string name="keyguard_indication_trust_unlocked">Durch Smart Lock entsperrt</string>
+    <string name="low_battery_label">Niedriger Akkustand</string>
+    <string name="no_content_in_select_mode">Es gibt keinen Text und kein Bild, die ausgewählt werden können</string>
+    <string name="quick_settings_rotation_posture_folded">geschlossen</string>
+    <string name="quick_settings_rotation_posture_unfolded">geöffnet</string>
+    <string name="reverse_charging_device_name_text">Anderes Pixel</string>
+    <string name="reverse_charging_device_providing_charge_text">%1$s lädt dieses Pixel (%2$s)</string>
+    <string name="reverse_charging_on_notification_title">„Akku teilen“ aktiviert</string>
+    <string name="reverse_charging_title">Akku teilen</string>
+    <string name="saver_confirmation_dialog_text">Der Extrem-Energiesparmodus pausiert die meisten Apps und Benachrichtigungen.</string>
+    <string name="selectable_url_description">Auswählbare URL</string>
+    <string name="severe_low_battery_dialog_checkbox_title">Nicht mehr fragen</string>
+    <string name="severe_low_battery_dialog_text">Dein Akkustand beträgt %s. Der Extrem-Energiesparmodus pausiert die meisten Apps und Benachrichtigungen.</string>
+    <string name="severe_low_battery_dialog_title">Extrem-Energiesparmodus aktivieren?</string>
+    <string name="smartspace_flight_card_gate_header">Gate</string>
+    <string name="smartspace_flight_card_seat_header">Sitz</string>
+    <string name="smartspace_flight_qr_code">QR-Code</string>
+    <string name="smartspace_hours_mins">%1$s %2$s</string>
+    <string name="smartspace_now">Jetzt</string>
+    <string name="smartspace_shopping_list_overflow">+ %1$d weitere</string>
+    <string name="too_hot_label">Pixel zu heiß</string>
+    <string name="url_menu_copy">Kopieren</string>
+    <string name="url_menu_share">Teilen</string>
+    <string name="wireless_charging_label">Kabelloses Laden</string>
+</resources>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2022 Benzo Rom
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+        android:height="32dp"
+        android:width="32dp"
+        android:viewportWidth="32"
+        android:viewportHeight="32">
+    <path
+        android:fillColor="@color/indicator_icon_color"
+        android:pathData="M14.667,19.9999H9.3337C7.1337,19.9999 5.3337,18.1999 5.3337,15.9999C5.3337,13.7999 7.1337,11.9999 9.3337,11.9999H14.667V9.3333H9.3337C5.6537,9.3333 2.667,12.3199 2.667,15.9999C2.667,19.6799 5.6537,22.6666 9.3337,22.6666H14.667V19.9999ZM22.667,9.3333H17.3337V11.9999H22.667C24.867,11.9999 26.667,13.7999 26.667,15.9999C26.667,18.1999 24.867,19.9999 22.667,19.9999H17.3337V22.6666H22.667C26.347,22.6666 29.3337,19.6799 29.3337,15.9999C29.3337,12.3199 26.347,9.3333 22.667,9.3333ZM21.3337,14.6666H10.667V17.3333H21.3337V14.6666Z"
+        android:fillType="evenOdd"/>
+</vector>

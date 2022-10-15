@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="accessibility_next_alarm">Seuraava hälytys klo %s</string>
+    <string name="accessibility_settings_gear">Pixel Stand: asetukset</string>
+    <string name="accessibility_smartspace_page">Sivu %1$d/%2$d</string>
+    <string name="adaptive_charging_notify_des">Akku täynnä klo %1$s mennessä. Akkua ladataan hiljalleen, jotta se kestää pidempään.</string>
+    <string name="adaptive_charging_notify_title">Mukautuva lataus on päällä</string>
+    <string name="adaptive_charging_notify_turn_off_once">Laita kerran pois päältä</string>
+    <string name="adaptive_charging_time_estimate">%1$s • Mukautuva lataus (täynnä klo %2$s mennessä)</string>
+    <string name="battery_health_notify_learn_more">Lue lisää</string>
+    <string name="charging_reverse_text">Virtaa jaetaan</string>
+    <string name="copied_text_label">Kopioitu teksti</string>
+    <string name="copy_url_description">Teksti kopioitu</string>
+    <string name="defender_notify_des">Puhelimesi rajoittaa latausta, jotta akku pysyy hyvässä kunnossa</string>
+    <string name="defender_notify_resume_charge">Jatka lataamista</string>
+    <string name="defender_notify_title">Lataamista rajoitettu väliaikaisesti</string>
+    <string name="defender_post_notify_des">Lataus on rajoitettu %1$s:iin klo %2$s–%3$s, jotta akku pysyy hyvässä kunnossa</string>
+    <string name="defender_post_notify_title">Normaali lataus</string>
+    <string name="extreme_battery_saver_text">Extreme</string>
+    <string name="generic_smartspace_concatenated_desc">%1$s, %2$s</string>
+    <string name="home_controls_tile_title">Aloitusnäyttö</string>
+    <string name="keyguard_indication_trust_unlocked">Smart Lock pitää lukitusta avattuna</string>
+    <string name="low_battery_label">Akku vähissä</string>
+    <string name="no_content_in_select_mode">Ei valittavaa tekstiä tai kuvaa</string>
+    <string name="quick_settings_rotation_posture_folded">Taitettu</string>
+    <string name="quick_settings_rotation_posture_unfolded">Taittamaton</string>
+    <string name="reverse_charging_device_name_text">Muu Pixel</string>
+    <string name="reverse_charging_device_providing_charge_text">%1$s toimii virtalähteenä (%2$s)</string>
+    <string name="reverse_charging_on_notification_title">Akunjako on päällä</string>
+    <string name="reverse_charging_title">Akunjako</string>
+    <string name="saver_confirmation_dialog_text">Akun tehosäästö keskeyttää useampia sovelluksia ja ilmoituksia.</string>
+    <string name="selectable_url_description">Valittavissa oleva URL-osoite</string>
+    <string name="severe_low_battery_dialog_checkbox_title">Älä kysy uudestaan</string>
+    <string name="severe_low_battery_dialog_text">Akkua jäljellä %s. Akun tehosäästö keskeyttää useimmat sovellukset ja ilmoitukset.</string>
+    <string name="severe_low_battery_dialog_title">Laitetaanko akun tehosäästö päälle?</string>
+    <string name="smartspace_flight_card_gate_header">Portti</string>
+    <string name="smartspace_flight_card_seat_header">Paikka</string>
+    <string name="smartspace_flight_qr_code">QR-koodi</string>
+    <string name="smartspace_hours_mins">%1$s %2$s</string>
+    <string name="smartspace_now">Nyt</string>
+    <string name="smartspace_shopping_list_overflow">+ %1$d muuta</string>
+    <string name="too_hot_label">Pixel liian kuuma</string>
+    <string name="url_menu_copy">Kopioi</string>
+    <string name="url_menu_share">Jaa</string>
+    <string name="wireless_charging_label">Ladataan langattomasti</string>
+</resources>

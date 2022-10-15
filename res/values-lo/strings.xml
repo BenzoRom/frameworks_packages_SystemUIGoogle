@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="accessibility_next_alarm">ໂມງປຸກຕໍ່ໄປແມ່ນ %s</string>
+    <string name="accessibility_settings_gear">ການຕັ້ງຄ່າ Pixel Stand</string>
+    <string name="accessibility_smartspace_page">ໜ້າທີ %1$d ຈາກທັງໝົດ %2$d</string>
+    <string name="adaptive_charging_notify_des">ແບັດເຕີຣີຈະເຕັມພາຍໃນ %1$s. ກຳລັງສາກໄຟຢ່າງຕໍ່ເນື່ອງເພື່ອຍືດອາຍຸແບັດເຕີຣີ.</string>
+    <string name="adaptive_charging_notify_title">ເປີດໃຊ້ການສາກໄຟແບບປັບອັດຕະໂນມັດແລ້ວ</string>
+    <string name="adaptive_charging_notify_turn_off_once">ປິດເທື່ອດຽວ</string>
+    <string name="adaptive_charging_time_estimate">%1$s • ກຳລັງສາກໄຟແບບປັບອັດຕະໂນມັດ (ຈະເຕັມເວລາ %2$s)</string>
+    <string name="battery_health_notify_learn_more">ສຶກສາເພີ່ມເຕີມ</string>
+    <string name="charging_reverse_text">ກຳລັງແບ່ງປັນແບັດເຕີຣີ</string>
+    <string name="copied_text_label">ສຳເນົາຂໍ້ຄວາມແລ້ວ</string>
+    <string name="copy_url_description">ສຳເນົາຂໍ້ຄວາມແລ້ວ</string>
+    <string name="defender_notify_des">ໂທລະສັບຂອງທ່ານກຳລັງຈຳກັດການສາກໄຟເພື່ອຊ່ວຍຖະໜອມສຸຂະພາບບັດເຕີຣີ</string>
+    <string name="defender_notify_resume_charge">ສືບຕໍ່ການສາກໄຟ</string>
+    <string name="defender_notify_title">ຈຳກັດການສາກໄຟຊົ່ວຄາວແລ້ວ</string>
+    <string name="defender_post_notify_des">ການສາກໄຟຖືກຈຳກັດໄວ້ເປັນ %1$s ຈາກ %2$s ຫາ %3$s ເພື່ອຖະໜອມອາຍຸແບັດເຕີຣີ</string>
+    <string name="defender_post_notify_title">ກຳລັງສາກໄຟປົກກະຕິ</string>
+    <string name="extreme_battery_saver_text">ສຸດຂີດ</string>
+    <string name="generic_smartspace_concatenated_desc">%1$s, %2$s</string>
+    <string name="home_controls_tile_title">ໂຮມ</string>
+    <string name="keyguard_indication_trust_unlocked">ປົດລັອກປະໄວ້ດ້ວຍ Smart Lock</string>
+    <string name="low_battery_label">ແບັດເຕີຣີເຫຼືອໜ້ອຍ</string>
+    <string name="no_content_in_select_mode">ບໍ່ມີຂໍ້ຄວາມ ຫຼື ຮູບໃຫ້ເລືອກ</string>
+    <string name="quick_settings_rotation_posture_folded">ພັບແລ້ວ</string>
+    <string name="quick_settings_rotation_posture_unfolded">ກາງແລ້ວ</string>
+    <string name="reverse_charging_device_name_text">Pixel ອື່ນ</string>
+    <string name="reverse_charging_device_providing_charge_text">%1$s ກຳລັງຈ່າຍໄຟ (%2$s)</string>
+    <string name="reverse_charging_on_notification_title">ເປີດໃຊ້ການແບ່ງປັນແບັດເຕີຣີແລ້ວ</string>
+    <string name="reverse_charging_title">ການແບ່ງປັນແບັດເຕີຣີ</string>
+    <string name="saver_confirmation_dialog_text">ຕົວປະຢັດແບັດເຕີຣີຂັ້ນສຸດຂີດຈະຢຸດແອັບ ແລະ ການແຈ້ງເຕືອນສ່ວນໃຫຍ່ໄວ້ຊົ່ວຄາວ.</string>
+    <string name="selectable_url_description">URL ທີ່ເລືອກໄດ້</string>
+    <string name="severe_low_battery_dialog_checkbox_title">ບໍ່ຕ້ອງຖາມອີກ</string>
+    <string name="severe_low_battery_dialog_text">ທ່ານມີແບັດເຕີຣີເຫຼືອ %s. ຕົວປະຢັດແບັດເຕີຣີຂັ້ນສຸດຂີດຈະຢຸດແອັບ ແລະ ການແຈ້ງເຕືອນສ່ວນໃຫຍ່ໄວ້ຊົ່ວຄາວ.</string>
+    <string name="severe_low_battery_dialog_title">ເປີດໃຊ້ຕົວປະຢັດແບັດເຕີຣີຂັ້ນສຸດຂີດບໍ?</string>
+    <string name="smartspace_flight_card_gate_header">ປະຕູ</string>
+    <string name="smartspace_flight_card_seat_header">ບ່ອນນັ່ງ</string>
+    <string name="smartspace_flight_qr_code">ລະຫັດ QR</string>
+    <string name="smartspace_hours_mins">%1$s %2$s</string>
+    <string name="smartspace_now">ຕອນນີ້</string>
+    <string name="smartspace_shopping_list_overflow">ອີກ + %1$d</string>
+    <string name="too_hot_label">Pixel ຮ້ອນເກີນໄປ</string>
+    <string name="url_menu_copy">ສຳເນົາ</string>
+    <string name="url_menu_share">ແບ່ງປັນ</string>
+    <string name="wireless_charging_label">ກຳ​ລັງ​ສາກ​ໄຮ້​ສາຍ</string>
+</resources>

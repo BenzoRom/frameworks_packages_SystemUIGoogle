@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="accessibility_next_alarm">زنگ ساعت بعدی: %s</string>
+    <string name="accessibility_settings_gear">تنظیمات Pixel Stand</string>
+    <string name="accessibility_smartspace_page">صفحه %1$d از %2$d</string>
+    <string name="adaptive_charging_notify_des">شارژ باتری در ساعت %1$s کامل می‌شود. برای افزایش طول عمر باتری، شارژ پیوسته انجام می‌شود.</string>
+    <string name="adaptive_charging_notify_title">«شارژ تطبیقی» روشن است</string>
+    <string name="adaptive_charging_notify_turn_off_once">یک‌بار خاموش شود</string>
+    <string name="adaptive_charging_time_estimate">%1$s • شارژ تطبیقی (تا %2$s کامل می‌شود)</string>
+    <string name="battery_health_notify_learn_more">بیشتر بدانید</string>
+    <string name="charging_reverse_text">درحال اشتراک‌گذاری باتری</string>
+    <string name="copied_text_label">نوشتار کپی‌شده</string>
+    <string name="copy_url_description">نوشتار کپی شد</string>
+    <string name="defender_notify_des">تلفنتان شارژ کردن را محدود می‌کند تا به حفظ سلامت باتری کمک شود</string>
+    <string name="defender_notify_resume_charge">ازسرگیری شارژ شدن</string>
+    <string name="defender_notify_title">شارژ موقتاً محدود شده است</string>
+    <string name="defender_post_notify_des">برای حفظ سلامت باتری، از %2$s تا %3$s باتری تا سطح %1$s شارژ شد</string>
+    <string name="defender_post_notify_title">شارژ شدن عادی</string>
+    <string name="extreme_battery_saver_text">نهایت</string>
+    <string name="generic_smartspace_concatenated_desc">%1$s،%2$s</string>
+    <string name="home_controls_tile_title">صفحه اصلی</string>
+    <string name="keyguard_indication_trust_unlocked">با «قفل هوشمند»، قفل را باز نگه‌دارید</string>
+    <string name="low_battery_label">باتری ضعیف</string>
+    <string name="no_content_in_select_mode">هیچ نوشتار یا تصویری برای انتخاب وجود ندارد</string>
+    <string name="quick_settings_rotation_posture_folded">تاشده</string>
+    <string name="quick_settings_rotation_posture_unfolded">تانشده</string>
+    <string name="reverse_charging_device_name_text">‏Pixel دیگر</string>
+    <string name="reverse_charging_device_providing_charge_text">%1$s درحال انتقال دادن شارژ است (%2$s)</string>
+    <string name="reverse_charging_on_notification_title">«اشتراک باتری» روشن است</string>
+    <string name="reverse_charging_title">اشتراک باتری</string>
+    <string name="saver_confirmation_dialog_text">«نهایت بهینه‌سازی باتری» اکثر برنامه‌ها و اعلان‌ها را موقتاً متوقف می‌کند.</string>
+    <string name="selectable_url_description">نشانی وب قابل‌انتخاب</string>
+    <string name="severe_low_battery_dialog_checkbox_title">دوباره سؤال نشود</string>
+    <string name="severe_low_battery_dialog_text">%s از شارژ باتری باقی مانده است. «نهایت بهینه‌سازی باتری» اکثر برنامه‌ها و اعلان‌ها را موقتاً متوقف می‌کند.</string>
+    <string name="severe_low_battery_dialog_title">«نهایت بهینه‌سازی باتری» روشن شود؟</string>
+    <string name="smartspace_flight_card_gate_header">گیت</string>
+    <string name="smartspace_flight_card_seat_header">صندلی</string>
+    <string name="smartspace_flight_qr_code">رمزینه پاسخ‌سریع</string>
+    <string name="smartspace_hours_mins">%1$s %2$s</string>
+    <string name="smartspace_now">اکنون</string>
+    <string name="smartspace_shopping_list_overflow">+ %1$d مورد دیگر</string>
+    <string name="too_hot_label">‏Pixel بیش‌ازحد داغ شده است</string>
+    <string name="url_menu_copy">کپی</string>
+    <string name="url_menu_share">هم‌رسانی</string>
+    <string name="wireless_charging_label">درحال شارژ شدن به‌صورت بی‌سیم</string>
+</resources>

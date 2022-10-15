@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="accessibility_next_alarm">पुढील अलार्म %s वाजताचा आहे</string>
+    <string name="accessibility_settings_gear">Pixel Stand सेटिंग्ज</string>
+    <string name="accessibility_smartspace_page">%2$d पैकी %1$d पेज</string>
+    <string name="adaptive_charging_notify_des">बॅटरी %1$s पर्यंत पूर्ण चार्ज होईल. बॅटरीचे आयुष्य वाढवण्यासाठी सतत चार्ज करत आहे.</string>
+    <string name="adaptive_charging_notify_title">अडॅप्टिव्ह चार्जिंग सुरू आहे</string>
+    <string name="adaptive_charging_notify_turn_off_once">एकदा बंद करा</string>
+    <string name="adaptive_charging_time_estimate">%1$s • अडॅप्टिव्ह चार्जिंग (%2$s पर्यंत पूर्ण होईल)</string>
+    <string name="battery_health_notify_learn_more">अधिक जाणून घ्या</string>
+    <string name="charging_reverse_text">बॅटरी शेअर करत आहे</string>
+    <string name="copied_text_label">कॉपी केलेला मजकूर</string>
+    <string name="copy_url_description">मजकूर कॉपी केला</string>
+    <string name="defender_notify_des">बॅटरीची क्षमता कायम ठेवण्यात मदत व्हावी यासाठी तुमच्या फोनचे चार्जिंग मर्यादित केले जात आहे</string>
+    <string name="defender_notify_resume_charge">चार्जिंग पुन्हा सुरू करा</string>
+    <string name="defender_notify_title">चार्जिंग तात्पुरते मर्यादित आहे</string>
+    <string name="defender_post_notify_des">बॅटरीची क्षमता टिकवण्यासाठी चार्जिंग %1$s इतके %2$s पासून %3$s पर्यंत मर्यादित केले होते</string>
+    <string name="defender_post_notify_title">सामान्यपणे चार्जिंग होत आहे</string>
+    <string name="extreme_battery_saver_text">एक्स्ट्रीम</string>
+    <string name="generic_smartspace_concatenated_desc">%1$s, %2$s</string>
+    <string name="home_controls_tile_title">होम</string>
+    <string name="keyguard_indication_trust_unlocked">Smart Lock ने अनलॉक ठेवले</string>
+    <string name="low_battery_label">बॅटरी कमी आहे</string>
+    <string name="no_content_in_select_mode">निवडण्यासाठी कोणताही मजकूर किंवा इमेज नाही</string>
+    <string name="quick_settings_rotation_posture_folded">फोल्ड केलेले आहे</string>
+    <string name="quick_settings_rotation_posture_unfolded">फोल्ड केलेले नाही</string>
+    <string name="reverse_charging_device_name_text">इतर Pixel</string>
+    <string name="reverse_charging_device_providing_charge_text">%1$s वरून (%2$s) चार्ज झाले आहे</string>
+    <string name="reverse_charging_on_notification_title">बॅटरी शेअर सुरू आहे</string>
+    <string name="reverse_charging_title">बॅटरी शेअर</string>
+    <string name="saver_confirmation_dialog_text">एक्स्ट्रीम बॅटरी सेव्हर हे बहुतेक ॲप्स आणि सूचना थांबवेल.</string>
+    <string name="selectable_url_description">निवडता येणारी URL</string>
+    <string name="severe_low_battery_dialog_checkbox_title">पुन्हा विचारू नका</string>
+    <string name="severe_low_battery_dialog_text">तुमच्याकडे %s बॅटरी शिल्लक आहे. एक्स्ट्रीम बॅटरी सेव्हर हे बहुतेक ॲप्स आणि सूचना थांबवेल.</string>
+    <string name="severe_low_battery_dialog_title">एक्स्ट्रीम बॅटरी सेव्हर सुरू करायचे आहे का?</string>
+    <string name="smartspace_flight_card_gate_header">गेट</string>
+    <string name="smartspace_flight_card_seat_header">सीट</string>
+    <string name="smartspace_flight_qr_code">QR कोड</string>
+    <string name="smartspace_hours_mins">%1$s %2$s</string>
+    <string name="smartspace_now">Now</string>
+    <string name="smartspace_shopping_list_overflow">आणखी %1$d</string>
+    <string name="too_hot_label">Pixel खूप गरम आहे</string>
+    <string name="url_menu_copy">कॉपी करा</string>
+    <string name="url_menu_share">शेअर करा</string>
+    <string name="wireless_charging_label">वायरलेस पद्धतीने चार्ज करत आहे</string>
+</resources>

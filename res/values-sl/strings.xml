@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="accessibility_next_alarm">Naslednji alarm ob %s</string>
+    <string name="accessibility_settings_gear">Nastavitve za Pixel Stand</string>
+    <string name="accessibility_smartspace_page">Stran %1$d od %2$d</string>
+    <string name="adaptive_charging_notify_des">Baterija bo napolnjena čez %1$s. Poteka enakomerno polnjenje za podaljšanje življenjske dobe baterije.</string>
+    <string name="adaptive_charging_notify_title">Prilagodljivo polnjenje je vklopljeno</string>
+    <string name="adaptive_charging_notify_turn_off_once">Izklopi enkrat</string>
+    <string name="adaptive_charging_time_estimate">%1$s • Prilagodljivo polnjenje (povsem polna bo do %2$s)</string>
+    <string name="battery_health_notify_learn_more">Več o tem</string>
+    <string name="charging_reverse_text">Deljenje energije baterije</string>
+    <string name="copied_text_label">Besedilo je kopirano.</string>
+    <string name="copy_url_description">Besedilo je kopirano</string>
+    <string name="defender_notify_des">Telefon omejuje polnjenje za ohranjanje ustreznega stanja baterije.</string>
+    <string name="defender_notify_resume_charge">Nadaljuj polnjenje</string>
+    <string name="defender_notify_title">Polnjenje začasno omejeno</string>
+    <string name="defender_post_notify_des">Polnjenje je bilo od %2$s do %3$s omejeno na %1$s zaradi ohranjanja baterije.</string>
+    <string name="defender_post_notify_title">Polnjenje poteka kot običajno</string>
+    <string name="extreme_battery_saver_text">Strogo</string>
+    <string name="generic_smartspace_concatenated_desc">%1$s, %2$s</string>
+    <string name="home_controls_tile_title">Dom</string>
+    <string name="keyguard_indication_trust_unlocked">Odklenjeno ohranja funkcija Smart Lock</string>
+    <string name="low_battery_label">Nizka raven energije v bateriji</string>
+    <string name="no_content_in_select_mode">Ni besedila ali slike za izbiranje.</string>
+    <string name="quick_settings_rotation_posture_folded">zaprto</string>
+    <string name="quick_settings_rotation_posture_unfolded">razprto</string>
+    <string name="reverse_charging_device_name_text">Drugi Pixel</string>
+    <string name="reverse_charging_device_providing_charge_text">%1$s zagotavlja polnjenje (%2$s)</string>
+    <string name="reverse_charging_on_notification_title">Deljenje energije baterije je vklopljeno</string>
+    <string name="reverse_charging_title">Deljenje energije baterije</string>
+    <string name="saver_confirmation_dialog_text">Strogo varčevanje z energijo baterije bo začasno zaustavilo večino aplikacij in obvestil.</string>
+    <string name="selectable_url_description">Izberljiv URL</string>
+    <string name="severe_low_battery_dialog_checkbox_title">Ne vprašaj me več</string>
+    <string name="severe_low_battery_dialog_text">Preostala napolnjenost baterije: %s. Strogo varčevanje z energijo baterije bo začasno zaustavilo večino aplikacij in obvestil.</string>
+    <string name="severe_low_battery_dialog_title">Želite vklopiti strogo varčevanje z energijo baterije?</string>
+    <string name="smartspace_flight_card_gate_header">Izhod</string>
+    <string name="smartspace_flight_card_seat_header">Sedež</string>
+    <string name="smartspace_flight_qr_code">Koda QR</string>
+    <string name="smartspace_hours_mins">%1$s %2$s</string>
+    <string name="smartspace_now">Zdaj</string>
+    <string name="smartspace_shopping_list_overflow">+ še %1$d</string>
+    <string name="too_hot_label">Telefon Pixel je prevroč</string>
+    <string name="url_menu_copy">Kopiraj</string>
+    <string name="url_menu_share">Deli</string>
+    <string name="wireless_charging_label">Brezžično polnjenje</string>
+</resources>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="accessibility_next_alarm">%s တွင် နောက်နှိုးစက်</string>
+    <string name="accessibility_settings_gear">Pixel Stand ဆက်တင်များ</string>
+    <string name="accessibility_smartspace_page">စာမျက်နှာ %2$d အနက် %1$d</string>
+    <string name="adaptive_charging_notify_des">%1$s တွင် ဘက်ထရီအားပြည့်မည်။ ဘက်ထရီသက်တမ်း ကြာရှည်စေရန် ပုံမှန်အားသွင်းပါ။</string>
+    <string name="adaptive_charging_notify_title">အလိုက်သင့်အားသွင်းခြင်းကို ဖွင့်ထားသည်</string>
+    <string name="adaptive_charging_notify_turn_off_once">တစ်ကြိမ်ပိတ်ရန်</string>
+    <string name="adaptive_charging_time_estimate">%1$s • အလိုက်သင့်အားသွင်းခြင်း (%2$s တွင်အားပြည့်မည်)</string>
+    <string name="battery_health_notify_learn_more">ပိုမိုလေ့လာရန်</string>
+    <string name="charging_reverse_text">ဘက်ထရီ မျှဝေခြင်း</string>
+    <string name="copied_text_label">မိတ္တူကူးထားသော စာသား</string>
+    <string name="copy_url_description">စာသားကို မိတ္တူကူးပြီးပါပြီ</string>
+    <string name="defender_notify_des">ဘက်ထရီသက်တမ်း ကြာရှည်ခံနိုင်စေရန် သင့်ဖုန်းက အားသွင်းခြင်းကို ကန့်သတ်ထားသည်</string>
+    <string name="defender_notify_resume_charge">ဆက်အားသွင်းရန်</string>
+    <string name="defender_notify_title">အားသွင်းခြင်းကို လောလောဆယ် ကန့်သတ်ထားသည်</string>
+    <string name="defender_post_notify_des">ဘက်ထရီသက်တမ်း ပိုကြာစေရန် %2$s မှ %3$s အတွင်း %1$s အထိသာ အားသွင်းပါမည်</string>
+    <string name="defender_post_notify_title">ပုံမှန်အားသွင်းနေသည်</string>
+    <string name="extreme_battery_saver_text">လွန်ကဲ</string>
+    <string name="generic_smartspace_concatenated_desc">%1$s၊ %2$s</string>
+    <string name="home_controls_tile_title">ပင်မစာမျက်နှာ</string>
+    <string name="keyguard_indication_trust_unlocked">Smart Lock က ဆက်ဖွင့်ပေးထားသည်</string>
+    <string name="low_battery_label">ဘက်ထရီ အားနည်းနေသည်</string>
+    <string name="no_content_in_select_mode">ရွေးချယ်ရန် စာသား သို့မဟုတ် ပုံ မရှိပါ</string>
+    <string name="quick_settings_rotation_posture_folded">ခေါက်ထားသည်</string>
+    <string name="quick_settings_rotation_posture_unfolded">ခေါက်မထားပါ</string>
+    <string name="reverse_charging_device_name_text">အခြား Pixel</string>
+    <string name="reverse_charging_device_providing_charge_text">%1$s က အားသွင်းပေးနေသည် (%2$s)</string>
+    <string name="reverse_charging_on_notification_title">\'ဘက်ထရီမျှဝေခြင်း\' ကို ဖွင့်ထားသည်</string>
+    <string name="reverse_charging_title">ဘက်ထရီ မျှဝေခြင်း</string>
+    <string name="saver_confirmation_dialog_text">‘လွန်ကဲ ဘက်ထရီအားထိန်း’ က အက်ပ်နှင့် အကြောင်းကြားချက်အများစုကို ခဏရပ်ပါမည်။</string>
+    <string name="selectable_url_description">ရွေးချယ်နိုင်သော URL</string>
+    <string name="severe_low_battery_dialog_checkbox_title">ထပ်မမေးပါနှင့်</string>
+    <string name="severe_low_battery_dialog_text">သင့်တွင် ဘက်ထရီ %s ကျန်သည်။ ‘လွန်ကဲ ဘက်ထရီအားထိန်း’ က အက်ပ်နှင့် အကြောင်းကြားချက်အများစုကို ခဏရပ်ပါမည်။</string>
+    <string name="severe_low_battery_dialog_title">‘လွန်ကဲ ဘက်ထရီအားထိန်း’ ဖွင့်မလား။</string>
+    <string name="smartspace_flight_card_gate_header">ဂိတ်</string>
+    <string name="smartspace_flight_card_seat_header">ထိုင်ခုံနံပါတ်</string>
+    <string name="smartspace_flight_qr_code">QR ကုဒ်</string>
+    <string name="smartspace_hours_mins">%1$s %2$s</string>
+    <string name="smartspace_now">ယခု</string>
+    <string name="smartspace_shopping_list_overflow">နောက်ထပ် + %1$d ခု</string>
+    <string name="too_hot_label">Pixel အလွန်ပူနေသည်</string>
+    <string name="url_menu_copy">မိတ္တူကူးရန်</string>
+    <string name="url_menu_share">မျှဝေရန်</string>
+    <string name="wireless_charging_label">ကြိုးမဲ့ အားသွင်းနေသည်</string>
+</resources>

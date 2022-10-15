@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="accessibility_next_alarm">Alarmi tjetër në %s</string>
+    <string name="accessibility_settings_gear">Cilësimet e Pixel Stand</string>
+    <string name="accessibility_smartspace_page">Faqja %1$d nga %2$d</string>
+    <string name="adaptive_charging_notify_des">Bateria do të karikohet plotësisht deri në %1$s. Po karikohet në mënyrë të qëndrueshme për të rritur kohëzgjatjen e baterisë.</string>
+    <string name="adaptive_charging_notify_title">\"Karikimi me përshtatje\" është aktiv</string>
+    <string name="adaptive_charging_notify_turn_off_once">Çaktivizo një herë</string>
+    <string name="adaptive_charging_time_estimate">%1$s • Karikimi me përshtatje (plot deri në %2$s)</string>
+    <string name="battery_health_notify_learn_more">Mëso më shumë</string>
+    <string name="charging_reverse_text">Ndarja e baterisë</string>
+    <string name="copied_text_label">Teksti i kopjuar</string>
+    <string name="copy_url_description">Teksti u kopjua</string>
+    <string name="defender_notify_des">Telefoni yt po e kufizon karikimin për të ndihmuar në ruajtjen e gjendjes së baterisë</string>
+    <string name="defender_notify_resume_charge">Vazhdo karikimin</string>
+    <string name="defender_notify_title">Karikimi përkohësisht i kufizuar</string>
+    <string name="defender_post_notify_des">Karikimi u kufizua në %1$s nga %2$s deri në %3$s për të ruajtur gjendjen e baterisë</string>
+    <string name="defender_post_notify_title">Po karikohet normalisht</string>
+    <string name="extreme_battery_saver_text">Në kushte ekstreme</string>
+    <string name="generic_smartspace_concatenated_desc">%1$s, %2$s</string>
+    <string name="home_controls_tile_title">Faqja kryesore</string>
+    <string name="keyguard_indication_trust_unlocked">Mbaje të shkyçur me Smart Lock</string>
+    <string name="low_battery_label">Bateria në nivel të ulët</string>
+    <string name="no_content_in_select_mode">Nuk ka asnjë tekst ose imazh për të zgjedhur</string>
+    <string name="quick_settings_rotation_posture_folded">palosur</string>
+    <string name="quick_settings_rotation_posture_unfolded">shpalosur</string>
+    <string name="reverse_charging_device_name_text">Pixel tjetër</string>
+    <string name="reverse_charging_device_providing_charge_text">%1$s që ofron karikim (%2$s)</string>
+    <string name="reverse_charging_on_notification_title">\"Ndarja e baterisë\" është aktive</string>
+    <string name="reverse_charging_title">Ndarja e baterisë</string>
+    <string name="saver_confirmation_dialog_text">\"Kursyesi ekstrem i baterisë\" do të vendosë në pauzë shumicën e aplikacioneve dhe njoftimeve.</string>
+    <string name="selectable_url_description">URL që mund të zgjidhet</string>
+    <string name="severe_low_battery_dialog_checkbox_title">Mos pyet më</string>
+    <string name="severe_low_battery_dialog_text">Ke %s bateri të mbetur. \"Kursyesi ekstrem i baterisë\" do të vendosë në pauzë shumicën e aplikacioneve dhe njoftimeve.</string>
+    <string name="severe_low_battery_dialog_title">Të aktivizohet \"Kursyesi ekstrem i baterisë\"?</string>
+    <string name="smartspace_flight_card_gate_header">Porta</string>
+    <string name="smartspace_flight_card_seat_header">Ndenjësja</string>
+    <string name="smartspace_flight_qr_code">Kodi QR</string>
+    <string name="smartspace_hours_mins">%1$s %2$s</string>
+    <string name="smartspace_now">Tani</string>
+    <string name="smartspace_shopping_list_overflow">+ %1$d të tjera</string>
+    <string name="too_hot_label">Pixel është tepër i nxehtë</string>
+    <string name="url_menu_copy">Kopjo</string>
+    <string name="url_menu_share">Ndaj</string>
+    <string name="wireless_charging_label">Po ngarkohet me valë</string>
+</resources>

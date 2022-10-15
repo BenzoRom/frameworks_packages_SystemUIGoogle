@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="accessibility_next_alarm">Következő ébresztés időpontja: %s</string>
+    <string name="accessibility_settings_gear">Pixel Stand beállításai</string>
+    <string name="accessibility_smartspace_page">%1$d. oldal, összesen: %2$d oldal</string>
+    <string name="adaptive_charging_notify_des">A teljes töltöttséget ekkor éri el az akkumulátor: %1$s. Folyamatos töltés az akkumulátor élettartamának megőrzése érdekében.</string>
+    <string name="adaptive_charging_notify_title">Az adaptív töltés be van kapcsolva</string>
+    <string name="adaptive_charging_notify_turn_off_once">Kikapcsolás egyszer</string>
+    <string name="adaptive_charging_time_estimate">%1$s • Adaptív töltés (teljes töltöttség ekkorra: %2$s)</string>
+    <string name="battery_health_notify_learn_more">További információ</string>
+    <string name="charging_reverse_text">Akkumulátor megosztása</string>
+    <string name="copied_text_label">Szöveg vágólapra másolva</string>
+    <string name="copy_url_description">Szöveg sikeresen másolva</string>
+    <string name="defender_notify_des">Az akkumulátor élettartamának megőrzése érdekében telefonja korlátozza a töltést</string>
+    <string name="defender_notify_resume_charge">Töltés folytatása</string>
+    <string name="defender_notify_title">Töltés ideiglenesen korlátozva</string>
+    <string name="defender_post_notify_des">A töltés %1$s százalékra korlátozva %2$s és %3$s között az akkumulátor állapotának megőrzése érdekében.</string>
+    <string name="defender_post_notify_title">Normál töltés</string>
+    <string name="extreme_battery_saver_text">Extrém</string>
+    <string name="generic_smartspace_concatenated_desc">%1$s, %2$s</string>
+    <string name="home_controls_tile_title">Kezdőlap</string>
+    <string name="keyguard_indication_trust_unlocked">Feloldva tartva a Smart Lock által</string>
+    <string name="low_battery_label">Alacsony töltöttség</string>
+    <string name="no_content_in_select_mode">NIncs kijelölhető szöveg vagy kép</string>
+    <string name="quick_settings_rotation_posture_folded">összehajtva</string>
+    <string name="quick_settings_rotation_posture_unfolded">kihajtva</string>
+    <string name="reverse_charging_device_name_text">Másik Pixel</string>
+    <string name="reverse_charging_device_providing_charge_text">A töltést biztosítja: %1$s (%2$s)</string>
+    <string name="reverse_charging_on_notification_title">Az akkumumegosztás be van kapcsolva</string>
+    <string name="reverse_charging_title">Akkumumegosztás</string>
+    <string name="saver_confirmation_dialog_text">Az Extrém akkumulátorkímélő mód szünetelteti a legtöbb alkalmazást és értesítést.</string>
+    <string name="selectable_url_description">Kijelölhető URL</string>
+    <string name="severe_low_battery_dialog_checkbox_title">Ne jelenjen meg többé</string>
+    <string name="severe_low_battery_dialog_text">Az akkumulátor töltöttségi szintje %s. Az Extrém akkumulátorkímélő mód szünetelteti a legtöbb alkalmazást és értesítést.</string>
+    <string name="severe_low_battery_dialog_title">Bekapcsolja az Extrém akkumulátorkímélő módot?</string>
+    <string name="smartspace_flight_card_gate_header">Kapu</string>
+    <string name="smartspace_flight_card_seat_header">Ülés</string>
+    <string name="smartspace_flight_qr_code">QR-kód</string>
+    <string name="smartspace_hours_mins">%1$s %2$s</string>
+    <string name="smartspace_now">Most</string>
+    <string name="smartspace_shopping_list_overflow">és %1$d további</string>
+    <string name="too_hot_label">A Pixel telefon túl forró</string>
+    <string name="url_menu_copy">Másolás</string>
+    <string name="url_menu_share">Megosztás</string>
+    <string name="wireless_charging_label">Vezeték nélküli töltés</string>
+</resources>

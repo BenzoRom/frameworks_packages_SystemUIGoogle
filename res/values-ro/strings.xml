@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="accessibility_next_alarm">Următoarea alarmă la %s</string>
+    <string name="accessibility_settings_gear">Setări Pixel Stand</string>
+    <string name="accessibility_smartspace_page">Pagina %1$d din %2$d</string>
+    <string name="adaptive_charging_notify_des">Bateria se va încărca în %1$s. Încărcarea este constantă, pentru a mări autonomia bateriei.</string>
+    <string name="adaptive_charging_notify_title">S-a activat încărcarea adaptabilă</string>
+    <string name="adaptive_charging_notify_turn_off_once">Dezactivați o dată</string>
+    <string name="adaptive_charging_time_estimate">%1$s • Încărcare adaptativă (timp rămas: %2$s)</string>
+    <string name="battery_health_notify_learn_more">Aflați mai multe</string>
+    <string name="charging_reverse_text">Permiteți accesul la baterie</string>
+    <string name="copied_text_label">S-a copiat textul</string>
+    <string name="copy_url_description">Text copiat</string>
+    <string name="defender_notify_des">Telefonul dvs. limitează încărcarea pentru a conserva buna funcționare a bateriei</string>
+    <string name="defender_notify_resume_charge">Reluați încărcarea</string>
+    <string name="defender_notify_title">Încărcare limitată temporar</string>
+    <string name="defender_post_notify_des">Încărcarea a fost limitată la %1$s între %2$s și %3$s pentru a menține buna funcționare a bateriei</string>
+    <string name="defender_post_notify_title">Se încarcă normal</string>
+    <string name="extreme_battery_saver_text">Extremă</string>
+    <string name="generic_smartspace_concatenated_desc">%1$s %2$s</string>
+    <string name="home_controls_tile_title">Acasă</string>
+    <string name="keyguard_indication_trust_unlocked">Deblocat de Smart Lock</string>
+    <string name="low_battery_label">Nivel scăzut al bateriei</string>
+    <string name="no_content_in_select_mode">Niciun text sau imagine de selectat</string>
+    <string name="quick_settings_rotation_posture_folded">retrasă</string>
+    <string name="quick_settings_rotation_posture_unfolded">extinsă</string>
+    <string name="reverse_charging_device_name_text">Alt dispozitiv Pixel</string>
+    <string name="reverse_charging_device_providing_charge_text">%1$s încarcă (%2$s)</string>
+    <string name="reverse_charging_on_notification_title">Încărcarea în comun a fost activată</string>
+    <string name="reverse_charging_title">Încărcare în comun</string>
+    <string name="saver_confirmation_dialog_text">Economisirea extremă a bateriei va întrerupe majoritatea aplicațiilor și notificărilor.</string>
+    <string name="selectable_url_description">Adresă URL care se poate selecta</string>
+    <string name="severe_low_battery_dialog_checkbox_title">Nu mai întreba</string>
+    <string name="severe_low_battery_dialog_text">Mai aveți %s din baterie. Economisirea extremă a bateriei va întrerupe majoritatea aplicațiilor și notificărilor.</string>
+    <string name="severe_low_battery_dialog_title">Activați Economisirea extremă a bateriei?</string>
+    <string name="smartspace_flight_card_gate_header">Poarta</string>
+    <string name="smartspace_flight_card_seat_header">Locul</string>
+    <string name="smartspace_flight_qr_code">Cod QR</string>
+    <string name="smartspace_hours_mins">%1$s %2$s</string>
+    <string name="smartspace_now">Acum</string>
+    <string name="smartspace_shopping_list_overflow">+ încă %1$d</string>
+    <string name="too_hot_label">Pixel este prea fierbinte</string>
+    <string name="url_menu_copy">Copiați</string>
+    <string name="url_menu_share">Trimiteți</string>
+    <string name="wireless_charging_label">Se încarcă wireless</string>
+</resources>

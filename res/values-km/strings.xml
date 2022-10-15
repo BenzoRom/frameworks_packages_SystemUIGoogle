@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="accessibility_next_alarm">ម៉ោងរោទ៍បន្ទាប់នៅម៉ោង %s</string>
+    <string name="accessibility_settings_gear">ការកំណត់ Pixel Stand</string>
+    <string name="accessibility_smartspace_page">ទំព័រទី %1$d នៃ %2$d</string>
+    <string name="adaptive_charging_notify_des">ថ្មពេញនៅត្រឹមម៉ោង %1$s។ កំពុង​សាកថ្ម​បន្តិចម្ដងៗ ដើម្បីបង្កើន​អាយុកាលថ្ម។</string>
+    <string name="adaptive_charging_notify_title">ការសាកថ្ម​ដែលមាន​ភាពបត់បែន​គឺបើក</string>
+    <string name="adaptive_charging_notify_turn_off_once">បិទម្ដង</string>
+    <string name="adaptive_charging_time_estimate">%1$s • ការសាកថ្មដែលមានភាពបត់បែន (ពេញ​នៅត្រឹមម៉ោង %2$s)</string>
+    <string name="battery_health_notify_learn_more">ស្វែងយល់បន្ថែម</string>
+    <string name="charging_reverse_text">កំពុង​ចែករំលែក​ថ្ម</string>
+    <string name="copied_text_label">បានចម្លង​អត្ថបទ</string>
+    <string name="copy_url_description">បានចម្លង​អត្ថបទ</string>
+    <string name="defender_notify_des">ទូរសព្ទរបស់អ្នក​កំពុងដាក់កំហិតលើ​ការសាកថ្ម ដើម្បីជួយរក្សា​គុណភាពថ្ម</string>
+    <string name="defender_notify_resume_charge">បន្តសាកថ្ម</string>
+    <string name="defender_notify_title">បានដាក់កំហិតលើ​ការសាកថ្មជា​បណ្ដោះអាសន្ន</string>
+    <string name="defender_post_notify_des">ការសាកថ្ម​ត្រូវបាន​កំណត់ត្រឹម %1$s ពីម៉ោង %2$s ដល់ម៉ោង %3$s ដើម្បីរក្សា​គុណភាពថ្ម</string>
+    <string name="defender_post_notify_title">កំពុង​សាកថ្ម​ធម្មតា</string>
+    <string name="extreme_battery_saver_text">ខ្លាំងបំផុត</string>
+    <string name="generic_smartspace_concatenated_desc">%1$s, %2$s</string>
+    <string name="home_controls_tile_title">ផ្ទះ</string>
+    <string name="keyguard_indication_trust_unlocked">បាន​ដោះសោ​ដោយ Smart Lock</string>
+    <string name="low_battery_label">ជិតអស់​ថ្មហើយ</string>
+    <string name="no_content_in_select_mode">គ្មានអត្ថបទ ឬរូបភាព​ដែលត្រូវជ្រើសរើសទេ</string>
+    <string name="quick_settings_rotation_posture_folded">បត់</string>
+    <string name="quick_settings_rotation_posture_unfolded">លា</string>
+    <string name="reverse_charging_device_name_text">Pixel ផ្សេងទៀត</string>
+    <string name="reverse_charging_device_providing_charge_text">%1$s កំពុងផ្ដល់​ការសាកថ្ម (%2$s)</string>
+    <string name="reverse_charging_on_notification_title">ការចែករំលែកថ្ម​ត្រូវបានបើក</string>
+    <string name="reverse_charging_title">ការចែករំលែក​ថ្ម</string>
+    <string name="saver_confirmation_dialog_text">មុខងារសន្សំថ្មខ្លាំង​នឹងផ្អាកកម្មវិធី និងការជូនដំណឹង​ភាគច្រើន។</string>
+    <string name="selectable_url_description">URL ដែលអាច​ជ្រើសរើស​បាន</string>
+    <string name="severe_low_battery_dialog_checkbox_title">កុំ​សួរ​ម្ដងទៀត</string>
+    <string name="severe_low_battery_dialog_text">អ្នក​នៅសល់ថ្ម %s ភាគរយ។ មុខងារសន្សំថ្មខ្លាំង​នឹងផ្អាកកម្មវិធី និងការជូនដំណឹង​ភាគច្រើន។</string>
+    <string name="severe_low_battery_dialog_title">បើក​មុខងារសន្សំថ្ម​ខ្លាំងឬ?</string>
+    <string name="smartspace_flight_card_gate_header">ច្រក</string>
+    <string name="smartspace_flight_card_seat_header">កៅអី</string>
+    <string name="smartspace_flight_qr_code">​កូដ QR</string>
+    <string name="smartspace_hours_mins">%1$s %2$s</string>
+    <string name="smartspace_now">ឥឡូវ​នេះ</string>
+    <string name="smartspace_shopping_list_overflow">+ %1$d ទៀត</string>
+    <string name="too_hot_label">Pixel ក្ដៅពេក</string>
+    <string name="url_menu_copy">ចម្លង</string>
+    <string name="url_menu_share">ចែករំលែក</string>
+    <string name="wireless_charging_label">កំពុង​សាកថ្ម​ឥតខ្សែ</string>
+</resources>

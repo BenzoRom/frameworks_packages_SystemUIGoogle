@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="accessibility_next_alarm">Penggera seterusnya pada pukul %s</string>
+    <string name="accessibility_settings_gear">Tetapan Pixel Stand</string>
+    <string name="accessibility_smartspace_page">Halaman %1$d daripada %2$d</string>
+    <string name="adaptive_charging_notify_des">Bateri penuh dalam %1$s. Pengecasan secara tetap untuk melanjutkan jangka hayat bateri.</string>
+    <string name="adaptive_charging_notify_title">Pengecasan Mudah Suai dihidupkan</string>
+    <string name="adaptive_charging_notify_turn_off_once">Matikan sekali</string>
+    <string name="adaptive_charging_time_estimate">%1$s • Pengecasan mudah suai (penuh sebelum %2$s)</string>
+    <string name="battery_health_notify_learn_more">Ketahui lebih lanjut</string>
+    <string name="charging_reverse_text">Berkongsi bateri</string>
+    <string name="copied_text_label">Teks telah disalin</string>
+    <string name="copy_url_description">Teks disalin</string>
+    <string name="defender_notify_des">Telefon anda mengehadkan pengecasan untuk membantu anda mengekalkan kesihatan bateri</string>
+    <string name="defender_notify_resume_charge">Sambung semula pengecasan</string>
+    <string name="defender_notify_title">Pengecasan terhad sementara</string>
+    <string name="defender_post_notify_des">Pengecasan terhad pada %1$s dari %2$s hingga %3$s untuk mengekalkan kesihatan bateri</string>
+    <string name="defender_post_notify_title">Pengecasan secara normal</string>
+    <string name="extreme_battery_saver_text">Ekstrem</string>
+    <string name="generic_smartspace_concatenated_desc">%1$s, %2$s</string>
+    <string name="home_controls_tile_title">Laman Utama</string>
+    <string name="keyguard_indication_trust_unlocked">Dibiarkan tidak berkunci oleh Smart Lock</string>
+    <string name="low_battery_label">Bateri lemah</string>
+    <string name="no_content_in_select_mode">Tiada teks atau imej untuk dipilih</string>
+    <string name="quick_settings_rotation_posture_folded">terlipat</string>
+    <string name="quick_settings_rotation_posture_unfolded">tidak terlipat</string>
+    <string name="reverse_charging_device_name_text">Pixel lain</string>
+    <string name="reverse_charging_device_providing_charge_text">%1$s menyediakan cas (%2$s)</string>
+    <string name="reverse_charging_on_notification_title">Perkongsian Bateri dihidupkan</string>
+    <string name="reverse_charging_title">Perkongsian Bateri</string>
+    <string name="saver_confirmation_dialog_text">Penjimat Bateri Ekstrem akan menjeda kebanyakan apl dan pemberitahuan.</string>
+    <string name="selectable_url_description">URL yang boleh dipilih</string>
+    <string name="severe_low_battery_dialog_checkbox_title">Jangan tanya lagi</string>
+    <string name="severe_low_battery_dialog_text">Paras bateri anda ialah %s. Penjimat Bateri Ekstrem akan menjeda kebanyakan apl dan pemberitahuan.</string>
+    <string name="severe_low_battery_dialog_title">Hidupkan Penjimat Bateri Ekstrem?</string>
+    <string name="smartspace_flight_card_gate_header">Pintu</string>
+    <string name="smartspace_flight_card_seat_header">Tempat Duduk</string>
+    <string name="smartspace_flight_qr_code">Kod QR</string>
+    <string name="smartspace_hours_mins">%1$s %2$s</string>
+    <string name="smartspace_now">Sekarang</string>
+    <string name="smartspace_shopping_list_overflow">+ %1$d lagi</string>
+    <string name="too_hot_label">Pixel terlalu panas</string>
+    <string name="url_menu_copy">Salin</string>
+    <string name="url_menu_share">Kongsi</string>
+    <string name="wireless_charging_label">Mengecas tanpa wayar</string>
+</resources>

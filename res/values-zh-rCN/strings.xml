@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="accessibility_next_alarm">闹钟的下一次响铃时间是：%s</string>
+    <string name="accessibility_settings_gear">Pixel Stand 设置</string>
+    <string name="accessibility_smartspace_page">第 %1$d 页，共 %2$d 页</string>
+    <string name="adaptive_charging_notify_des">电池将于%1$s充满。目前正在稳定充电，以延长电池续航时间。</string>
+    <string name="adaptive_charging_notify_title">已启用自适应充电功能</string>
+    <string name="adaptive_charging_notify_turn_off_once">关闭一次</string>
+    <string name="adaptive_charging_time_estimate">%1$s • 正在自适应充电（%2$s前充满）</string>
+    <string name="battery_health_notify_learn_more">了解详情</string>
+    <string name="charging_reverse_text">正在共享电池电量</string>
+    <string name="copied_text_label">复制的文字</string>
+    <string name="copy_url_description">文本已复制</string>
+    <string name="defender_notify_des">为了使电池保持良好状况，您的手机目前限制充电</string>
+    <string name="defender_notify_resume_charge">继续充电</string>
+    <string name="defender_notify_title">充电暂时受限</string>
+    <string name="defender_post_notify_des">为了使电池保持良好状况，%2$s 到%3$s 期间的最大充电量已限制在 %1$s</string>
+    <string name="defender_post_notify_title">正常充电</string>
+    <string name="extreme_battery_saver_text">超级</string>
+    <string name="generic_smartspace_concatenated_desc">%1$s，%2$s</string>
+    <string name="home_controls_tile_title">主屏幕</string>
+    <string name="keyguard_indication_trust_unlocked">由 Smart Lock 保持解锁状态</string>
+    <string name="low_battery_label">电量低</string>
+    <string name="no_content_in_select_mode">没有可选择的文本或图片</string>
+    <string name="quick_settings_rotation_posture_folded">折叠时</string>
+    <string name="quick_settings_rotation_posture_unfolded">展开时</string>
+    <string name="reverse_charging_device_name_text">另一台 Pixel</string>
+    <string name="reverse_charging_device_providing_charge_text">%1$s正在为其他设备充电 (%2$s)</string>
+    <string name="reverse_charging_on_notification_title">电池共享功能已开启</string>
+    <string name="reverse_charging_title">电池共享</string>
+    <string name="saver_confirmation_dialog_text">开启超级省电模式将会暂停大多数应用和通知。</string>
+    <string name="selectable_url_description">可选择的网址</string>
+    <string name="severe_low_battery_dialog_checkbox_title">不再询问</string>
+    <string name="severe_low_battery_dialog_text">您的电池还剩 %s 的电量。开启超级省电模式将会暂停大多数应用和通知。</string>
+    <string name="severe_low_battery_dialog_title">要开启超级省电模式吗？</string>
+    <string name="smartspace_flight_card_gate_header">登机口</string>
+    <string name="smartspace_flight_card_seat_header">座位</string>
+    <string name="smartspace_flight_qr_code">二维码</string>
+    <string name="smartspace_hours_mins">%1$s %2$s</string>
+    <string name="smartspace_now">现在</string>
+    <string name="smartspace_shopping_list_overflow">+ 另外 %1$d 个</string>
+    <string name="too_hot_label">Pixel 过热</string>
+    <string name="url_menu_copy">复制</string>
+    <string name="url_menu_share">分享</string>
+    <string name="wireless_charging_label">正在无线充电</string>
+</resources>

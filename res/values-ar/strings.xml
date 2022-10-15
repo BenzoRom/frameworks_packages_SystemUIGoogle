@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="accessibility_next_alarm">المنبّه التالي في %s.</string>
+    <string name="accessibility_settings_gear">إعدادات Pixel Stand</string>
+    <string name="accessibility_smartspace_page">الصفحة %1$d من %2$d</string>
+    <string name="adaptive_charging_notify_des">ستمتلئ البطارية خلال %1$s. احرص على شحن البطارية بوتيرة ثابتة لإطالة عمرها.</string>
+    <string name="adaptive_charging_notify_title">ميزة \"الشحن التكيُّفي\" مفعّلة</string>
+    <string name="adaptive_charging_notify_turn_off_once">الإيقاف مرة واحدة</string>
+    <string name="adaptive_charging_time_estimate">%1$s • الشحن التكيُّفي (سيكتمل الشحن بحلول الساعة %2$s.)</string>
+    <string name="battery_health_notify_learn_more">مزيد من المعلومات</string>
+    <string name="charging_reverse_text">مشاركة البطارية</string>
+    <string name="copied_text_label">النص المنسوخ</string>
+    <string name="copy_url_description">تم نسخ النص.</string>
+    <string name="defender_notify_des">سيتم شحن هاتفك حتّى نسبة معيّنة للمساعدة في الحفاظ على سلامة البطارية.</string>
+    <string name="defender_notify_resume_charge">استئناف الشحن</string>
+    <string name="defender_notify_title">الشحن محدود مؤقتًا</string>
+    <string name="defender_post_notify_des">تم ضبط نسبة الشحن على %1$s من %2$s إلى %3$s للحفاظ على سلامة البطارية.</string>
+    <string name="defender_post_notify_title">الشحن بطريقة عادية</string>
+    <string name="extreme_battery_saver_text">التوفير العالي</string>
+    <string name="generic_smartspace_concatenated_desc">%1$s، %2$s</string>
+    <string name="home_controls_tile_title">الرئيسية</string>
+    <string name="keyguard_indication_trust_unlocked">‏فتح القفل باستمرار بواسطة Smart Lock</string>
+    <string name="low_battery_label">طاقة البطارية منخفضة</string>
+    <string name="no_content_in_select_mode">ما مِن نص لتحديده أو صورة لاختيارها.</string>
+    <string name="quick_settings_rotation_posture_folded">مطوي</string>
+    <string name="quick_settings_rotation_posture_unfolded">غير مطوي</string>
+    <string name="reverse_charging_device_name_text">‏هاتف Pixel الآخر</string>
+    <string name="reverse_charging_device_providing_charge_text">يقدّم جهاز %1$s الشحن (%2$s)</string>
+    <string name="reverse_charging_on_notification_title">ميزة \"مشاركة البطارية\" مفعَّلة</string>
+    <string name="reverse_charging_title">مشاركة البطارية</string>
+    <string name="saver_confirmation_dialog_text">سيؤدي استخدام ميزة \"توفير البطارية العالي\" إلى إيقاف معظم التطبيقات والإشعارات مؤقَّتًا.</string>
+    <string name="selectable_url_description">عنوان URL قابل للاختيار</string>
+    <string name="severe_low_battery_dialog_checkbox_title">لا تسألني مرة أخرى</string>
+    <string name="severe_low_battery_dialog_text">يتبقى لديك %s من شحن البطارية. سيؤدي استخدام ميزة \"توفير البطارية العالي\" إلى إيقاف معظم التطبيقات والإشعارات مؤقَّتًا.</string>
+    <string name="severe_low_battery_dialog_title">هل تريد تفعيل ميزة \"توفير البطارية العالي\"؟</string>
+    <string name="smartspace_flight_card_gate_header">البوّابة</string>
+    <string name="smartspace_flight_card_seat_header">المقعد</string>
+    <string name="smartspace_flight_qr_code">رمز الاستجابة السريعة</string>
+    <string name="smartspace_hours_mins">%1$s %2$s</string>
+    <string name="smartspace_now">الآن</string>
+    <string name="smartspace_shopping_list_overflow">+ %1$d أيضًا</string>
+    <string name="too_hot_label">‏درجة حرارة هاتف Pixel مرتفعة جدًا.</string>
+    <string name="url_menu_copy">نسخ</string>
+    <string name="url_menu_share">مشاركة</string>
+    <string name="wireless_charging_label">جارٍ الشحن لاسلكيًا</string>
+</resources>

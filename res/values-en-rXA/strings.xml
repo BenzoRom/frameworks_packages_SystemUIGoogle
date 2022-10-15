@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="accessibility_next_alarm">[Ñéхţ åļåŕḿ åţ %s one two three]</string>
+    <string name="accessibility_settings_gear">[Pixel Stand šéţţîñĝš one two]</string>
+    <string name="accessibility_smartspace_page">[Þåĝé %1$d öƒ %2$d one two]</string>
+    <string name="adaptive_charging_notify_des">[βåţţéŕý ƒûļļ ɓý %1$s. Çĥåŕĝîñĝ šţéåðîļý ţö éхţéñð ɓåţţéŕý ļîƒéšþåñ. one two three four five six seven]</string>
+    <string name="adaptive_charging_notify_title">[ÅðåþţîVé Çĥåŕĝîñĝ îš öñ one two three]</string>
+    <string name="adaptive_charging_notify_turn_off_once">[Ţûŕñ öƒƒ öñçé one two]</string>
+    <string name="adaptive_charging_time_estimate">[%1$s • ÅðåþţîVé çĥåŕĝîñĝ (ƒûļļ ɓý %2$s) one two three four]</string>
+    <string name="battery_health_notify_learn_more">[Ļéåŕñ ḿöŕé one two]</string>
+    <string name="charging_reverse_text">[Šĥåŕîñĝ ɓåţţéŕý one two three]</string>
+    <string name="copied_text_label">[Çöþîéð ţéхţ one two]</string>
+    <string name="copy_url_description">[Ţéхţ çöþîéð one two]</string>
+    <string name="defender_notify_des">[Ýöûŕ þĥöñé îš ļîḿîţîñĝ çĥåŕĝîñĝ ţö ĥéļþ þŕéšéŕVé ɓåţţéŕý ĥéåļţĥ one two three four five six seven]</string>
+    <string name="defender_notify_resume_charge">[Ŕéšûḿé çĥåŕĝîñĝ one two three]</string>
+    <string name="defender_notify_title">[Çĥåŕĝîñĝ ţéḿþöŕåŕîļý ļîḿîţéð one two three four]</string>
+    <string name="defender_post_notify_des">[Çĥåŕĝîñĝ ŵåš ļîḿîţéð ţö %1$s ƒŕöḿ %2$s ţö %3$s ţö þŕéšéŕVé ɓåţţéŕý ĥéåļţĥ one two three four five six seven]</string>
+    <string name="defender_post_notify_title">[Çĥåŕĝîñĝ ñöŕḿåļļý one two three]</string>
+    <string name="extreme_battery_saver_text">[Éхţŕéḿé one two]</string>
+    <string name="generic_smartspace_concatenated_desc">[%1$s, %2$s one]</string>
+    <string name="home_controls_tile_title">[Ĥöḿé one]</string>
+    <string name="low_battery_label">[Ļöŵ ɓåţţéŕý one two]</string>
+    <string name="no_content_in_select_mode">[Ñö ţéхţ öŕ îḿåĝé ţö ɓé šéļéçţéð one two three four]</string>
+    <string name="quick_settings_rotation_posture_folded">[ƒöļðéð one two]</string>
+    <string name="quick_settings_rotation_posture_unfolded">[ûñƒöļðéð one two]</string>
+    <string name="reverse_charging_device_name_text">[Öţĥéŕ Þîхéļ one two]</string>
+    <string name="reverse_charging_device_providing_charge_text">[%1$s þŕöVîðîñĝ çĥåŕĝé (%2$s) one two three]</string>
+    <string name="reverse_charging_on_notification_title">[βåţţéŕý Šĥåŕé îš öñ one two three]</string>
+    <string name="reverse_charging_title">[βåţţéŕý Šĥåŕé one two]</string>
+    <string name="saver_confirmation_dialog_text">[Éхţŕéḿé βåţţéŕý ŠåVéŕ ŵîļļ þåûšé ḿöšţ åþþš åñð ñöţîƒîçåţîöñš. one two three four five six seven]</string>
+    <string name="selectable_url_description">[Šéļéçţåɓļé ÛŔĻ one two three]</string>
+    <string name="severe_low_battery_dialog_checkbox_title">[Ðöñ’ţ åšķ åĝåîñ one two three]</string>
+    <string name="severe_low_battery_dialog_text">[Ýöû ĥåVé %s ɓåţţéŕý ļéƒţ. Éхţŕéḿé βåţţéŕý ŠåVéŕ ŵîļļ þåûšé ḿöšţ åþþš åñð ñöţîƒîçåţîöñš. one two three four five six seven eight nine]</string>
+    <string name="severe_low_battery_dialog_title">[Ţûŕñ öñ Éхţŕéḿé βåţţéŕý ŠåVéŕ¿ one two three four]</string>
+    <string name="smartspace_flight_card_gate_header">[Ĝåţé one]</string>
+    <string name="smartspace_flight_card_seat_header">[Šéåţ one]</string>
+    <string name="smartspace_flight_qr_code">[qŔ çöðé one two]</string>
+    <string name="smartspace_hours_mins">[%1$s %2$s one]</string>
+    <string name="smartspace_now">[Ñöŵ one]</string>
+    <string name="smartspace_shopping_list_overflow">[+ %1$d ḿöŕé one two]</string>
+    <string name="too_hot_label">[Þîхéļ ţöö ĥöţ one two]</string>
+    <string name="url_menu_copy">[Çöþý one]</string>
+    <string name="url_menu_share">[Šĥåŕé one]</string>
+    <string name="wireless_charging_label">[Çĥåŕĝîñĝ ŵîŕéļéššļý one two three]</string>
+</resources>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="accessibility_next_alarm">Nākamais signāls plkst. %s</string>
+    <string name="accessibility_settings_gear">Pixel Stand iestatījumi</string>
+    <string name="accessibility_smartspace_page">%1$d. lapa no %2$d</string>
+    <string name="adaptive_charging_notify_des">Akumulators būs pilnīgi uzlādēts līdz plkst. %1$s. Notiek nepārtraukta uzlāde, lai paildzinātu akumulatora darbības laiku.</string>
+    <string name="adaptive_charging_notify_title">Adaptīvā uzlāde ir ieslēgta</string>
+    <string name="adaptive_charging_notify_turn_off_once">Izslēgt vienreiz</string>
+    <string name="adaptive_charging_time_estimate">%1$s • Adaptīvā uzlāde (tiks pabeigta līdz: %2$s)</string>
+    <string name="battery_health_notify_learn_more">Uzzināt vairāk</string>
+    <string name="charging_reverse_text">Akumulatora koplietošana</string>
+    <string name="copied_text_label">Nokopētais teksts</string>
+    <string name="copy_url_description">Teksts ir nokopēts</string>
+    <string name="defender_notify_des">Jūsu tālrunis ierobežo uzlādes līmeni, lai palīdzētu uzturēt akumulatoru darba kārtībā.</string>
+    <string name="defender_notify_resume_charge">Atsākt uzlādi</string>
+    <string name="defender_notify_title">Uzlāde īslaicīgi ierobežota</string>
+    <string name="defender_post_notify_des">Lai uzturētu akumulatoru darba kārtībā, uzlādes līmenis no plkst. %2$s līdz plkst. %3$s tika ierobežots līdz %1$s.</string>
+    <string name="defender_post_notify_title">Netraucēta uzlāde</string>
+    <string name="extreme_battery_saver_text">Maks. taupīšana</string>
+    <string name="generic_smartspace_concatenated_desc">%1$s, %2$s</string>
+    <string name="home_controls_tile_title">Sākums</string>
+    <string name="keyguard_indication_trust_unlocked">Bloķēšanu liedza sistēma Smart Lock</string>
+    <string name="low_battery_label">Zems akumulatora uzlādes līmenis</string>
+    <string name="no_content_in_select_mode">Nav teksta vai attēla, ko atlasīt</string>
+    <string name="quick_settings_rotation_posture_folded">salocīta</string>
+    <string name="quick_settings_rotation_posture_unfolded">nesalocīta</string>
+    <string name="reverse_charging_device_name_text">Cita Pixel ierīce</string>
+    <string name="reverse_charging_device_providing_charge_text">%1$s nodrošina uzlādi (%2$s)</string>
+    <string name="reverse_charging_on_notification_title">Akumulatora dalīšana ieslēgta</string>
+    <string name="reverse_charging_title">Akumulatora dalīšana</string>
+    <string name="saver_confirmation_dialog_text">Akumulatora enerģijas maksimālas taupīšanas režīmā tiks apturēta lielākā daļa lietotņu un paziņojumu.</string>
+    <string name="selectable_url_description">Atlasāmais URL</string>
+    <string name="severe_low_battery_dialog_checkbox_title">Vairs nejautāt</string>
+    <string name="severe_low_battery_dialog_text">Atlikušais akumulatora uzlādes līmenis: %s. Akumulatora enerģijas maksimālas taupīšanas režīmā tiks apturēta lielākā daļa lietotņu un paziņojumu.</string>
+    <string name="severe_low_battery_dialog_title">Vai ieslēgt akumulatora enerģijas maksimālas taupīšanas režīmu?</string>
+    <string name="smartspace_flight_card_gate_header">Izeja</string>
+    <string name="smartspace_flight_card_seat_header">Vieta</string>
+    <string name="smartspace_flight_qr_code">Kvadrātkods</string>
+    <string name="smartspace_hours_mins">%1$s %2$s</string>
+    <string name="smartspace_now">Tikko</string>
+    <string name="smartspace_shopping_list_overflow">un vēl %1$d</string>
+    <string name="too_hot_label">Pixel tālrunis ir pārāk karsts</string>
+    <string name="url_menu_copy">Kopēt</string>
+    <string name="url_menu_share">Kopīgot</string>
+    <string name="wireless_charging_label">Bezvadu uzlāde</string>
+</resources>

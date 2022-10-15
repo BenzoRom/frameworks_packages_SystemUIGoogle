@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2022 Benzo Rom
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:androidprv="http://schemas.android.com/apk/prv/res/android"
+          xmlns:tools="http://schemas.android.com/tools"
+          android:sharedUserId="android.uid.systemui"
+          package="com.android.systemui"
+          coreApp="true">
+
+    <permission android:name="com.breel.wallpapers.notifications"/>
+
+    <permission android:name="com.android.systemui.permission.SEND_ALERT_BROADCASTS"
+                android:protectionLevel="preinstalled|signature"/>
+
+    <permission android:name="com.google.android.ambientindication.permission.AMBIENT_INDICATION"
+                android:protectionLevel="system|signature"/>
+
+    <permission android:name="com.google.android.systemui.permission.WIRELESS_CHARGER_STATUS"
+                android:protectionLevel="system|signature"/>
+
+    <protected-broadcast android:name="com.breel.wallpapers.NOTIFICATION_RECEIVED"/>
+    <protected-broadcast android:name="com.google.android.apps.dreamliner.SETTINGS"/>
+    <protected-broadcast android:name="com.google.android.systemui.dreamliner.ACTION_UPDATE_FAN_LEVEL"/>
+    <protected-broadcast android:name="com.google.android.systemui.dreamliner.ALIGNMENT_CHANGE"/>
+    <protected-broadcast android:name="com.google.android.systemui.dreamliner.ASSISTANT_POODLE"/>
+    <protected-broadcast android:name="com.google.android.systemui.dreamliner.FLING_EVENT"/>
+    <protected-broadcast android:name="com.google.android.systemui.dreamliner.PHOTO_EVENT"/>
+    <protected-broadcast android:name="com.google.android.systemui.dreamliner.TOUCH_EVENT"/>
+    <protected-broadcast android:name="com.google.android.systemui.smartspace.CLICK_EVENT"/>
+    <protected-broadcast android:name="com.google.android.systemui.smartspace.ENABLE_UPDATE"/>
+    <protected-broadcast android:name="com.google.android.systemui.smartspace.EXPIRE_EVENT"/>
+    <protected-broadcast android:name="PNW.batteryStatusChanged"/>
+    <protected-broadcast android:name="PNW.bluetoothStatusChanged"/>
+    <protected-broadcast android:name="PNW.defenderResumeCharging.settings"/>
+
+    <uses-permission android:name="android.permission.ACCESS_CONTEXT_HUB"/>
+    <uses-permission android:name="android.permission.ACCESS_FPS_COUNTER"/>
+    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY"/>
+    <uses-permission android:name="android.permission.BATTERY_STATS"/>
+    <uses-permission android:name="android.permission.FORCE_STOP_PACKAGES"/>
+    <uses-permission android:name="android.permission.MANAGE_GAME_MODE"/>
+    <uses-permission android:name="android.permission.REGISTER_STATS_PULL_ATOM"/>
+    <uses-permission android:name="android.permission.SET_WALLPAPER_COMPONENT"/>
+    <uses-permission android:name="android.permission.VIBRATE_ALWAYS_ON"/>
+    <uses-permission android:name="com.android.systemui.permission.PLUGIN"/>
+    <uses-permission android:name="com.breel.wallpapers.notifications"/>
+    <uses-permission android:name="com.google.android.ambientindication.permission.AMBIENT_INDICATION"/>
+    <uses-permission android:name="com.google.android.apps.dreamliner.permission.DREAMLINER_SERVICE"/>
+    <uses-permission android:name="com.google.android.apps.nest.DOCK_MANAGER_SERVICE"/>
+    <uses-permission android:name="com.google.android.apps.nexuslauncher.permission.QSB"/>
+    <uses-permission android:name="com.google.android.deskclock.permission.RECEIVE_ALERT_BROADCASTS"/>
+    <uses-permission android:name="com.google.restricted_assist_gesture.permission.RESTRICTED_ASSIST_GESTURE_PROVIDER"/>
+
+    <application
+        android:backupAgent="com.google.android.systemui.backup.BackupHelperGoogle"
+        tools:replace="android:backupAgent">
+
+        <provider
+            android:name="com.android.systemui.keyguard.KeyguardSliceProvider"
+            tools:node="remove"/>
+
+        <provider
+            android:name="com.google.android.systemui.keyguard.KeyguardSliceProviderGoogle"
+            android:authorities="com.android.systemui.keyguard"
+            android:enabled="true"
+            android:exported="true"
+            android:grantUriPermissions="true" />
+    </application>
+</manifest>

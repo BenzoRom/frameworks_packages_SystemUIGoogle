@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="accessibility_next_alarm">Alarm berikutnya pukul %s</string>
+    <string name="accessibility_settings_gear">Setelan Pixel Stand</string>
+    <string name="accessibility_smartspace_page">Halaman %1$d dari %2$d</string>
+    <string name="adaptive_charging_notify_des">Baterai penuh pada %1$s. Isi daya perlahan untuk memperpanjang masa pakai baterai.</string>
+    <string name="adaptive_charging_notify_title">Pengisian Daya Adaptif aktif</string>
+    <string name="adaptive_charging_notify_turn_off_once">Nonaktifkan sekali</string>
+    <string name="adaptive_charging_time_estimate">%1$s • Pengisian daya adaptif (penuh pukul %2$s)</string>
+    <string name="battery_health_notify_learn_more">Pelajari lebih lanjut</string>
+    <string name="charging_reverse_text">Berbagi baterai</string>
+    <string name="copied_text_label">Teks disalin</string>
+    <string name="copy_url_description">Teks disalin</string>
+    <string name="defender_notify_des">Ponsel Anda membatasi pengisian daya untuk membantu menjaga kesehatan baterai</string>
+    <string name="defender_notify_resume_charge">Lanjutkan pengisian daya</string>
+    <string name="defender_notify_title">Pengisian daya dibatasi sementara</string>
+    <string name="defender_post_notify_des">Pengisian daya dibatasi hingga %1$s mulai %2$s sampai %3$s untuk menjaga kesehatan baterai</string>
+    <string name="defender_post_notify_title">Mengisi daya secara normal</string>
+    <string name="extreme_battery_saver_text">Ekstrem</string>
+    <string name="generic_smartspace_concatenated_desc">%1$s, %2$s</string>
+    <string name="home_controls_tile_title">Beranda</string>
+    <string name="keyguard_indication_trust_unlocked">Tetap tidak dikunci oleh Smart Lock</string>
+    <string name="low_battery_label">Daya baterai lemah</string>
+    <string name="no_content_in_select_mode">Tidak ada teks atau gambar untuk dipilih</string>
+    <string name="quick_settings_rotation_posture_folded">dilipat</string>
+    <string name="quick_settings_rotation_posture_unfolded">dibentangkan</string>
+    <string name="reverse_charging_device_name_text">Pixel Lain</string>
+    <string name="reverse_charging_device_providing_charge_text">%1$s menyediakan pengisian daya (%2$s)</string>
+    <string name="reverse_charging_on_notification_title">Berbagi Baterai aktif</string>
+    <string name="reverse_charging_title">Berbagi Baterai</string>
+    <string name="saver_confirmation_dialog_text">Penghemat Baterai Super akan menjeda sebagian besar aplikasi dan notifikasi.</string>
+    <string name="selectable_url_description">URL yang dapat dipilih</string>
+    <string name="severe_low_battery_dialog_checkbox_title">Jangan tanya lagi</string>
+    <string name="severe_low_battery_dialog_text">Daya baterai tersisa %s. Penghemat Baterai Super akan menjeda sebagian besar aplikasi dan notifikasi.</string>
+    <string name="severe_low_battery_dialog_title">Aktifkan Penghemat Baterai Super?</string>
+    <string name="smartspace_flight_card_gate_header">Gerbang</string>
+    <string name="smartspace_flight_card_seat_header">Kursi</string>
+    <string name="smartspace_flight_qr_code">Kode QR</string>
+    <string name="smartspace_hours_mins">%1$s %2$s</string>
+    <string name="smartspace_now">Sekarang</string>
+    <string name="smartspace_shopping_list_overflow">+%1$d lainnya</string>
+    <string name="too_hot_label">Pixel terlalu panas</string>
+    <string name="url_menu_copy">Salin</string>
+    <string name="url_menu_share">Bagikan</string>
+    <string name="wireless_charging_label">Mengisi daya secara nirkabel</string>
+</resources>

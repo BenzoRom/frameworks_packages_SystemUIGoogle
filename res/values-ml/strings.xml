@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="accessibility_next_alarm">അടുത്ത അലാറം %s-നാണ്</string>
+    <string name="accessibility_settings_gear">Pixel Stand ക്രമീകരണം</string>
+    <string name="accessibility_smartspace_page">%1$d പേജുകളിൽ %2$d-ാമത്തേത്</string>
+    <string name="adaptive_charging_notify_des">%1$s-ഓടെ ബാറ്ററി പൂർണ്ണമായി ചാർജാകും. ബാറ്ററിയുടെ ആയുസ്സ് വർദ്ധിപ്പിക്കുന്നതിന് സ്ഥിരമായി ചാർജ് ചെയ്യുന്നു.</string>
+    <string name="adaptive_charging_notify_title">അഡാപ്റ്റീവ് ചാർജിംഗ് ഓണാണ്</string>
+    <string name="adaptive_charging_notify_turn_off_once">ഒറ്റത്തവണത്തേക്ക് ഓഫാക്കുക</string>
+    <string name="adaptive_charging_time_estimate">%1$s • അഡാപ്റ്റീവ് ചാർജിംഗ് (%2$s-ന് പൂർത്തിയാകും)</string>
+    <string name="battery_health_notify_learn_more">കൂടുതലറിയുക</string>
+    <string name="charging_reverse_text">ബാറ്ററി പങ്കിടുന്നു</string>
+    <string name="copied_text_label">പകർത്തിയ ടെക്‌സ്‌റ്റ്</string>
+    <string name="copy_url_description">ടെക്‌സ്റ്റ് പകർത്തി</string>
+    <string name="defender_notify_des">ബാറ്ററിയുടെ ആരോഗ്യം സംരക്ഷിക്കുന്നതിന് നിങ്ങളുടെ ഫോൺ ചാർജ് ചെയ്യൽ പരിമിതപ്പെടുത്തുന്നു</string>
+    <string name="defender_notify_resume_charge">ചാർജിംഗ് പുനരാരംഭിക്കുക</string>
+    <string name="defender_notify_title">ചാർജിംഗ് താൽക്കാലികമായി പരിമിതപ്പെടുത്തിയിരിക്കുന്നു</string>
+    <string name="defender_post_notify_des">ബാറ്ററിയുടെ ആരോഗ്യം സംരക്ഷിക്കാൻ, ചാർജ് ചെയ്യൽ %2$s മുതൽ %3$sവരെ %1$s ആയി പരിമിതപ്പെടുത്തി</string>
+    <string name="defender_post_notify_title">സാധാരണ ഗതിയിൽ ചാർജ് ചെയ്യുന്നു</string>
+    <string name="extreme_battery_saver_text">എക്‌സ്‌ട്രീം</string>
+    <string name="generic_smartspace_concatenated_desc">%1$s, %2$s</string>
+    <string name="home_controls_tile_title">ഹോം</string>
+    <string name="keyguard_indication_trust_unlocked">Smart Lock ഉപയോഗിച്ച് അൺലോക്ക് ചെയ്‌തത്</string>
+    <string name="low_battery_label">ബാറ്ററി ചാർജ് കുറവാണ്</string>
+    <string name="no_content_in_select_mode">തിരഞ്ഞെടുക്കാൻ ടെക്‌സ്റ്റോ ചിത്രമോ ഇല്ല</string>
+    <string name="quick_settings_rotation_posture_folded">ഫോൾഡ് ചെയ്തിരിക്കുന്നു</string>
+    <string name="quick_settings_rotation_posture_unfolded">അൺഫോൾഡ് ചെയ്തിരിക്കുന്നു</string>
+    <string name="reverse_charging_device_name_text">മറ്റ് Pixel</string>
+    <string name="reverse_charging_device_providing_charge_text">%1$s ചാർജ് നൽകുന്നു (%2$s)</string>
+    <string name="reverse_charging_on_notification_title">ബാറ്ററി പങ്കിടൽ ഓണാണ്</string>
+    <string name="reverse_charging_title">ബാറ്ററി പങ്കിടൽ</string>
+    <string name="saver_confirmation_dialog_text">പരമാവധി ബാറ്ററി ലാഭിക്കൽ ഒട്ടുമിക്ക ആപ്പുകളെയും അറിയിപ്പുകളെയും താൽക്കാലികമായി നിർത്തും.</string>
+    <string name="selectable_url_description">തിരഞ്ഞെടുക്കാവുന്ന URL</string>
+    <string name="severe_low_battery_dialog_checkbox_title">വീണ്ടും ആവശ്യപ്പെടരുത്</string>
+    <string name="severe_low_battery_dialog_text">നിങ്ങളുടെ ബാറ്ററിയിൽ %s ചാർജ് ശേഷിക്കുന്നു. പരമാവധി ബാറ്ററി ലാഭിക്കൽ ഒട്ടുമിക്ക ആപ്പുകളെയും അറിയിപ്പുകളെയും താൽക്കാലികമായി നിർത്തും.</string>
+    <string name="severe_low_battery_dialog_title">പരമാവധി ബാറ്ററി ലാഭിക്കൽ ഓണാക്കണോ?</string>
+    <string name="smartspace_flight_card_gate_header">ഗേറ്റ്</string>
+    <string name="smartspace_flight_card_seat_header">സീറ്റ്</string>
+    <string name="smartspace_flight_qr_code">QR കോഡ്</string>
+    <string name="smartspace_hours_mins">%1$s %2$s</string>
+    <string name="smartspace_now">ഇപ്പോൾ</string>
+    <string name="smartspace_shopping_list_overflow">+ %1$d എണ്ണം കൂടി</string>
+    <string name="too_hot_label">Pixel വളരെയധികം ചൂടായിരിക്കുന്നു</string>
+    <string name="url_menu_copy">പകർത്തുക</string>
+    <string name="url_menu_share">പങ്കിടുക</string>
+    <string name="wireless_charging_label">വയർലെസ്സ് ആയി ചാർജ് ചെയ്യുന്നു</string>
+</resources>

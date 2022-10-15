@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="accessibility_next_alarm">Prochaine alarme à %s</string>
+    <string name="accessibility_settings_gear">Paramètres du Pixel Stand</string>
+    <string name="accessibility_smartspace_page">Page %1$d sur %2$d</string>
+    <string name="adaptive_charging_notify_des">Recharge terminée dans %1$s. La pile est rechargée progressivement afin de prolonger sa durée de vie.</string>
+    <string name="adaptive_charging_notify_title">La recharge adaptative est activée</string>
+    <string name="adaptive_charging_notify_turn_off_once">Désactiver une fois</string>
+    <string name="adaptive_charging_time_estimate">%1$s • Recharge adaptative (pile chargée d\'ici %2$s)</string>
+    <string name="battery_health_notify_learn_more">En savoir plus</string>
+    <string name="charging_reverse_text">Partage de la pile</string>
+    <string name="copied_text_label">Texte copié</string>
+    <string name="copy_url_description">Texte copié</string>
+    <string name="defender_notify_des">Votre téléphone limite la recharge pour aider à préserver la santé de la pile</string>
+    <string name="defender_notify_resume_charge">Reprendre la recharge</string>
+    <string name="defender_notify_title">Recharge temporairement limitée</string>
+    <string name="defender_post_notify_des">De %2$s à %3$s, la recharge était limitée à %1$s pour préserver la santé de la pile</string>
+    <string name="defender_post_notify_title">Recharge normale</string>
+    <string name="extreme_battery_saver_text">Extrême</string>
+    <string name="generic_smartspace_concatenated_desc">%1$s, %2$s</string>
+    <string name="home_controls_tile_title">Accueil</string>
+    <string name="keyguard_indication_trust_unlocked">Maintenu déverrouillé par Smart Lock</string>
+    <string name="low_battery_label">Pile faible</string>
+    <string name="no_content_in_select_mode">Aucun texte ni aucune image à sélectionner</string>
+    <string name="quick_settings_rotation_posture_folded">plié</string>
+    <string name="quick_settings_rotation_posture_unfolded">déplié</string>
+    <string name="reverse_charging_device_name_text">Autre Pixel</string>
+    <string name="reverse_charging_device_providing_charge_text">Appareil fournissant la recharge : %1$s (%2$s)</string>
+    <string name="reverse_charging_on_notification_title">Le partage de la pile est activé</string>
+    <string name="reverse_charging_title">Partage de la pile</string>
+    <string name="saver_confirmation_dialog_text">L\'économiseur de pile extrême suspendra la plupart des applications et des notifications.</string>
+    <string name="selectable_url_description">URL sélectionnable</string>
+    <string name="severe_low_battery_dialog_checkbox_title">Ne plus me demander</string>
+    <string name="severe_low_battery_dialog_text">Il vous reste %s d\'autonomie. L\'économiseur de pile extrême suspendra la plupart des applications et des notifications.</string>
+    <string name="severe_low_battery_dialog_title">Activer l\'économiseur de pile extrême?</string>
+    <string name="smartspace_flight_card_gate_header">Porte</string>
+    <string name="smartspace_flight_card_seat_header">Siège</string>
+    <string name="smartspace_flight_qr_code">Code QR</string>
+    <string name="smartspace_hours_mins">%1$s %2$s</string>
+    <string name="smartspace_now">Maintenant</string>
+    <string name="smartspace_shopping_list_overflow">+ %1$d autres</string>
+    <string name="too_hot_label">Le Pixel surchauffe</string>
+    <string name="url_menu_copy">Copier</string>
+    <string name="url_menu_share">Partager</string>
+    <string name="wireless_charging_label">En recharge sans fil</string>
+</resources>
