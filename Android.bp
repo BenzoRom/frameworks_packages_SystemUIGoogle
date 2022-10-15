@@ -1,0 +1,115 @@
+// Copyright (C) 2022 Benzo Rom
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+//
+
+soong_config_module_type_import {
+    from: "frameworks/base/packages/SystemUI/Android.bp",
+    module_types: ["systemui_optimized_java_defaults"],
+}
+
+android_library {
+    name: "SystemUIGoogle-core",
+    srcs: [
+        "src/**/*.java",
+        "src/**/*.kt",
+    ],
+    resource_dirs: [
+        "res",
+    ],
+    static_libs: [
+        "SystemUI-core",
+        "SystemUIPluginLib",
+        "SystemUISharedLib",
+        "guava-android",
+        "android.frameworks.stats-V1-java",
+        "android.hidl.base-V1.0-java-shallow",
+        "//hardware/google/interfaces:com.google.hardware.pixel.display-V6-java",
+        "autorotate-proto",
+        "pixelatoms-google-java",
+        "smartspace-proto",
+        "tensorflowlite_java",
+        "SystemUIGoogleLib",
+    ],
+    aaptflags: [
+        "--extra-packages",
+        "com.android.systemui",
+    ],
+    manifest: "AndroidManifest.xml",
+
+    kotlincflags: ["-Xjvm-default=enable"],
+
+    plugins: ["dagger2-compiler"],
+}
+
+systemui_optimized_java_defaults {
+    name: "SystemUIGoogle_app_defaults",
+    soong_config_variables: {
+        SYSTEMUI_OPTIMIZE_JAVA: {
+            optimize: {
+                enabled: true,
+                optimize: true,
+                shrink: true,
+                proguard_flags_files: ["systemui-google.pro"],
+            },
+            conditions_default: {
+                optimize: {
+                    proguard_flags_files: ["systemui-google.pro"],
+                },
+            },
+        },
+    },
+}
+
+android_app {
+    name: "SystemUIGoogle",
+    defaults: [
+        "platform_app_defaults",
+        "SystemUIGoogle_app_defaults",
+    ],
+    static_libs: [
+        "SystemUIGoogle-core"
+    ],
+    overrides: [
+        "SystemUI",
+    ],
+    resource_dirs: [],
+    asset_dirs: ["assets"],
+    aaptflags: [
+        "-0 .tflite",
+        "-0 .vocab",
+    ],
+
+    jni_libs: ["libtensorflowlite_jni"],
+    use_embedded_native_libs: true,
+
+    platform_apis: true,
+    system_ext_specific: true,
+    certificate: "platform",
+    privileged: true,
+
+    kotlincflags: ["-Xjvm-default=enable"],
+
+    dxflags: ["--multi-dex"],
+    required: [
+        "privapp_whitelist_com.google.android.systemui",
+    ],
+}
+
+prebuilt_etc {
+    name: "privapp_whitelist_com.google.android.systemui",
+    sub_dir: "permissions",
+    src: "com.google.android.systemui.xml",
+    filename_from_src: true,
+    system_ext_specific: true,
+}
