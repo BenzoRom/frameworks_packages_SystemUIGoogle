@@ -60,6 +60,7 @@ systemui_optimized_java_defaults {
                 enabled: true,
                 optimize: true,
                 shrink: true,
+                proguard_compatibility: false,
                 proguard_flags_files: ["systemui-google.pro"],
             },
             conditions_default: {
