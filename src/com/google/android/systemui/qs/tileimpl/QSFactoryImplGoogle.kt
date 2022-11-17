@@ -65,6 +65,10 @@ class QSFactoryImplGoogle @Inject constructor(
     qrCodeScannerTileProvider: Provider<QRCodeScannerTile>,
     oneHandedModeTileProvider: Provider<OneHandedModeTile>,
     colorCorrectionTileProvider: Provider<ColorCorrectionTile>,
+    dreamTileProvider: Provider<DreamTile>,
+    syncTileProvider: Provider<SyncTile>,
+    caffeineTileProvider: Provider<CaffeineTile>,
+    aodTileProvider: Provider<AlwaysOnDisplayTile>
 ) : QSFactoryImpl(
     qsHostLazy,
     customTileBuilderProvider,
@@ -96,7 +100,11 @@ class QSFactoryImplGoogle @Inject constructor(
     quickAccessWalletTileProvider,
     qrCodeScannerTileProvider,
     oneHandedModeTileProvider,
-    colorCorrectionTileProvider
+    colorCorrectionTileProvider,
+    dreamTileProvider,
+    syncTileProvider,
+    caffeineTileProvider,
+    aodTileProvider
 ) {
     override fun createTileInternal(tileSpec: String): QSTileImpl<*>? {
         return when (tileSpec) {

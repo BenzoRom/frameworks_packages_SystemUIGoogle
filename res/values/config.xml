@@ -26,4 +26,9 @@
         <item>com.android.systemui</item>
         <item>com.google.android.systemui</item>
     </string-array>
+
+    <!-- Tiles native to System UI. Order should match "quick_settings_tiles_default" -->
+    <string name="quick_settings_tiles_stock" translatable="false">
+        internet,wifi,cell,bt,flashlight,dnd,alarm,airplane,controls,wallet,rotation,battery,cast,screenrecord,mictoggle,cameratoggle,caffeine,location,nfc,hotspot,inversion,saver,sync,aod,dark,work,night,reverse,reduce_brightness,qr_code_scanner,onehanded,color_correction,dream,ott
+    </string>
 </resources>
