@@ -57,13 +57,11 @@ import com.android.systemui.settings.brightness.BrightnessSliderController
 import com.android.systemui.shared.plugins.PluginManager
 import com.android.systemui.statusbar.*
 import com.android.systemui.statusbar.charging.WiredChargingRippleController
-import com.android.systemui.statusbar.connectivity.NetworkController
 import com.android.systemui.statusbar.notification.DynamicPrivacyController
 import com.android.systemui.statusbar.notification.NotifPipelineFlags
 import com.android.systemui.statusbar.notification.NotificationEntryManager
 import com.android.systemui.statusbar.notification.NotificationWakeUpCoordinator
 import com.android.systemui.statusbar.notification.collection.legacy.VisualStabilityManager
-import com.android.systemui.statusbar.notification.collection.render.NotifShadeEventSource
 import com.android.systemui.statusbar.notification.init.NotificationsController
 import com.android.systemui.statusbar.notification.interruption.NotificationInterruptStateProvider
 import com.android.systemui.statusbar.notification.logging.NotificationLogger
@@ -80,7 +78,6 @@ import com.android.systemui.util.WallpaperController
 import com.android.systemui.util.concurrency.DelayableExecutor
 import com.android.systemui.util.concurrency.MessageRouter
 import com.android.systemui.volume.VolumeComponent
-import com.android.systemui.wmshell.BubblesManager
 import com.android.wm.shell.bubbles.Bubbles
 import com.android.wm.shell.startingsurface.StartingSurface
 import com.google.android.systemui.NotificationLockscreenUserManagerGoogle
@@ -119,7 +116,6 @@ class CentralSurfacesGoogle @Inject constructor(
     falsingManager: FalsingManager,
     falsingCollector: FalsingCollector,
     broadcastDispatcher: BroadcastDispatcher,
-    notifShadeEventSource: NotifShadeEventSource,
     notificationEntryManager: NotificationEntryManager,
     notificationGutsManager: NotificationGutsManager,
     notificationLogger: NotificationLogger,
@@ -134,13 +130,11 @@ class CentralSurfacesGoogle @Inject constructor(
     private val notificationLockscreenUserManager: NotificationLockscreenUserManagerGoogle,
     remoteInputManager: NotificationRemoteInputManager,
     userSwitcherController: UserSwitcherController,
-    networkController: NetworkController,
     private val batteryController: BatteryController,
     colorExtractor: SysuiColorExtractor,
     screenLifecycle: ScreenLifecycle,
     wakefulnessLifecycle: WakefulnessLifecycle,
     statusBarStateController: SysuiStatusBarStateController,
-    bubblesManagerOptional: Optional<BubblesManager>,
     bubblesOptional: Optional<Bubbles>,
     visualStabilityManager: VisualStabilityManager,
     deviceProvisionedController: DeviceProvisionedController,
@@ -152,7 +146,6 @@ class CentralSurfacesGoogle @Inject constructor(
     dozeParameters: DozeParameters,
     scrimController: ScrimController,
     lockscreenWallpaperLazy: Lazy<LockscreenWallpaper>,
-    lockscreenGestureLogger: LockscreenGestureLogger,
     biometricUnlockControllerLazy: Lazy<BiometricUnlockController>,
     dozeServiceHost: DozeServiceHost,
     powerManager: PowerManager,
@@ -185,7 +178,6 @@ class CentralSurfacesGoogle @Inject constructor(
     lockscreenShadeTransitionController: LockscreenShadeTransitionController,
     featureFlags: FeatureFlags,
     keyguardUnlockAnimationController: KeyguardUnlockAnimationController,
-    @Main mainHandler: Handler,
     @Main delayableExecutor: DelayableExecutor,
     @Main messageRouter: MessageRouter,
     wallpaperManager: WallpaperManager,
@@ -217,7 +209,6 @@ class CentralSurfacesGoogle @Inject constructor(
     falsingManager,
     falsingCollector,
     broadcastDispatcher,
-    notifShadeEventSource,
     notificationEntryManager,
     notificationGutsManager,
     notificationLogger,
@@ -232,13 +223,11 @@ class CentralSurfacesGoogle @Inject constructor(
     notificationLockscreenUserManager,
     remoteInputManager,
     userSwitcherController,
-    networkController,
     batteryController,
     colorExtractor,
     screenLifecycle,
     wakefulnessLifecycle,
     statusBarStateController,
-    bubblesManagerOptional,
     bubblesOptional,
     visualStabilityManager,
     deviceProvisionedController,
@@ -250,7 +239,6 @@ class CentralSurfacesGoogle @Inject constructor(
     dozeParameters,
     scrimController,
     lockscreenWallpaperLazy,
-    lockscreenGestureLogger,
     biometricUnlockControllerLazy,
     dozeServiceHost,
     powerManager,
@@ -283,7 +271,6 @@ class CentralSurfacesGoogle @Inject constructor(
     lockscreenShadeTransitionController,
     featureFlags,
     keyguardUnlockAnimationController,
-    mainHandler,
     delayableExecutor,
     messageRouter,
     wallpaperManager,

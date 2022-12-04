@@ -28,6 +28,7 @@ import android.os.IThermalService;
 import android.os.Looper;
 import android.os.UserManager;
 import android.service.dreams.IDreamManager;
+import android.view.accessibility.AccessibilityManager;
 
 import com.android.internal.app.IBatteryStats;
 import com.android.internal.logging.UiEventLogger;
@@ -226,7 +227,8 @@ public interface DependencyProviderGoogle {
             LockPatternUtils lockPatternUtils,
             ScreenLifecycle screenLifecycle,
             IActivityManager iActivityManager,
-            KeyguardBypassController keyguardBypassController) {
+            KeyguardBypassController keyguardBypassController,
+            AccessibilityManager accessibilityManager) {
         return new KeyguardIndicationControllerGoogle(
                 context,
                 mainLooper,
@@ -247,7 +249,8 @@ public interface DependencyProviderGoogle {
                 lockPatternUtils,
                 screenLifecycle,
                 iActivityManager,
-                keyguardBypassController);
+                keyguardBypassController,
+                accessibilityManager);
     }
 
     @Provides
