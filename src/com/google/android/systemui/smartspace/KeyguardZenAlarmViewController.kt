@@ -36,7 +36,9 @@ import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
 @SysUISingleton
-class KeyguardZenAlarmViewController @Inject constructor(
+class KeyguardZenAlarmViewController
+@Inject
+constructor(
     private val context: Context,
     private val plugin: BcSmartspaceDataPlugin,
     private val zenModeController: ZenModeController,
@@ -48,43 +50,46 @@ class KeyguardZenAlarmViewController @Inject constructor(
     private val nextAlarmCallback = NextAlarmChangeCallback { updateNextAlarm() }
     private val showNextAlarm = OnAlarmListener { showAlarm() }
     private var smartspaceViews = mutableSetOf<SmartspaceView>()
-    private val zenModeCallback = object : ZenModeController.Callback {
-        override fun onZenChanged(zen: Int) = updateDnd()
-    }
+    private val zenModeCallback =
+        object : ZenModeController.Callback {
+            override fun onZenChanged(zen: Int) = updateDnd()
+        }
 
     @VisibleForTesting
     fun getSmartspaceViews(): MutableSet<SmartspaceView> = smartspaceViews
 
     fun init() {
         with(plugin) {
-            addOnAttachStateChangeListener(object : View.OnAttachStateChangeListener {
-                override fun onViewAttachedToWindow(v: View) {
-                    smartspaceViews.add(v as SmartspaceView)
-                    if (smartspaceViews.size == 1) {
-                        zenModeController.addCallback(zenModeCallback)
-                        nextAlarmController.addCallback(nextAlarmCallback)
+            addOnAttachStateChangeListener(
+                object : View.OnAttachStateChangeListener {
+                    override fun onViewAttachedToWindow(v: View) {
+                        smartspaceViews.add(v as SmartspaceView)
+                        if (smartspaceViews.size == 1) {
+                            zenModeController.addCallback(zenModeCallback)
+                            nextAlarmController.addCallback(nextAlarmCallback)
+                        }
+                        refresh()
                     }
-                    refresh()
-                }
 
-                override fun onViewDetachedFromWindow(v: View) {
-                    smartspaceViews.remove(v as SmartspaceView)
-                    if (smartspaceViews.isEmpty()) {
-                        zenModeController.removeCallback(zenModeCallback)
-                        nextAlarmController.removeCallback(nextAlarmCallback)
+                    override fun onViewDetachedFromWindow(v: View) {
+                        smartspaceViews.remove(v as SmartspaceView)
+                        if (smartspaceViews.isEmpty()) {
+                            zenModeController.removeCallback(zenModeCallback)
+                            nextAlarmController.removeCallback(nextAlarmCallback)
+                        }
                     }
                 }
-            })
+            )
         }
         updateNextAlarm()
     }
 
     private fun loadDndImage(): Drawable? {
-        val drawable = context.resources.getDrawable(
-            R.drawable.stat_sys_dnd, null
-        ) ?: throw NullPointerException(
-            "null cannot be cast to non-null type android.graphics.drawable.InsetDrawable"
-        )
+        val drawable =
+            context.resources.getDrawable(R.drawable.stat_sys_dnd, null)
+                ?: throw NullPointerException(
+                    "null cannot be cast to non-null type android.graphics.drawable.InsetDrawable"
+                )
         return (drawable as InsetDrawable).drawable
     }
 
@@ -95,9 +100,7 @@ class KeyguardZenAlarmViewController @Inject constructor(
                 smartspaceViews.forEach {
                     it.setDnd(
                         dndImage,
-                        context.resources.getString(
-                            R.string.accessibility_quick_settings_dnd
-                        )
+                        context.resources.getString(R.string.accessibility_quick_settings_dnd)
                     )
                 }
             }
@@ -110,9 +113,7 @@ class KeyguardZenAlarmViewController @Inject constructor(
     private fun updateNextAlarm() {
         alarmManager.cancel(showNextAlarm)
         if (zenModeController.nextAlarm > 0) {
-            val exactTime = zenModeController.nextAlarm.minus(
-                TimeUnit.HOURS.toMillis(12L)
-            )
+            val exactTime = zenModeController.nextAlarm.minus(TimeUnit.HOURS.toMillis(12L))
             if (exactTime > 0) {
                 alarmManager.setExact(
                     AlarmManager.RTC,
@@ -132,12 +133,8 @@ class KeyguardZenAlarmViewController @Inject constructor(
             within12Hours(zenModeController.nextAlarm) -> {
                 smartspaceViews.forEach {
                     it.setNextAlarm(
-                        context.resources.getDrawable(
-                            R.drawable.ic_access_alarms_big, null
-                        ),
-                        DateFormat.format(
-                            whichDateFormat, zenModeController.nextAlarm
-                        ).toString()
+                        context.resources.getDrawable(R.drawable.ic_access_alarms_big, null),
+                        DateFormat.format(whichDateFormat, zenModeController.nextAlarm).toString()
                     )
                 }
             }
@@ -147,16 +144,15 @@ class KeyguardZenAlarmViewController @Inject constructor(
         }
     }
 
-    private val whichDateFormat: String get() =
-        when {
-            DateFormat.is24HourFormat(context) -> "HH:mm"
-            else -> "h:mm"
-        }
+    private val whichDateFormat: String
+        get() =
+            when {
+                DateFormat.is24HourFormat(context) -> "HH:mm"
+                else -> "h:mm"
+            }
 
     private fun within12Hours(alarm: Long): Boolean {
-        return alarm > 0 && alarm <= System.currentTimeMillis().plus(
-            TimeUnit.HOURS.toMillis(12L)
-        )
+        return alarm > 0 && alarm <= System.currentTimeMillis().plus(TimeUnit.HOURS.toMillis(12L))
     }
 
     private fun refresh() {

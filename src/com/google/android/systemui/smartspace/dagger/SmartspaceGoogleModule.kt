@@ -21,10 +21,9 @@ import com.android.systemui.smartspace.dagger.SmartspaceModule.Companion.DREAM_S
 import com.android.systemui.smartspace.dagger.SmartspaceModule.Companion.DREAM_SMARTSPACE_TARGET_FILTER
 import com.google.android.systemui.smartspace.*
 import com.google.android.systemui.smartspace.filters.DreamTargetFilter
-import javax.inject.Named
 import dagger.Binds
 import dagger.Module
-import dagger.Provides
+import javax.inject.Named
 
 @Module
 abstract class SmartspaceGoogleModule {

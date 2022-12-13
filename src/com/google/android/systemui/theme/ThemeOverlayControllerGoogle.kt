@@ -40,7 +40,9 @@ import java.util.concurrent.Executor
 import javax.inject.Inject
 
 @SysUISingleton
-class ThemeOverlayControllerGoogle @Inject constructor(
+class ThemeOverlayControllerGoogle
+@Inject
+constructor(
     private val context: Context,
     broadcastDispatcher: BroadcastDispatcher,
     @Background bgHandler: Handler,
@@ -58,12 +60,24 @@ class ThemeOverlayControllerGoogle @Inject constructor(
     featureFlags: FeatureFlags,
     wakefulnessLifecycle: WakefulnessLifecycle,
     configurationController: ConfigurationController
-) : ThemeOverlayController(
-    context, broadcastDispatcher, bgHandler, mainExecutor,
-    bgExecutor, themeOverlayApplier, secureSettings, wallpaperManager,
-    userManager, deviceProvisionedController, userTracker, dumpManager,
-    featureFlags, resources, wakefulnessLifecycle
-) {
+) :
+    ThemeOverlayController(
+        context,
+        broadcastDispatcher,
+        bgHandler,
+        mainExecutor,
+        bgExecutor,
+        themeOverlayApplier,
+        secureSettings,
+        wallpaperManager,
+        userManager,
+        deviceProvisionedController,
+        userTracker,
+        dumpManager,
+        featureFlags,
+        resources,
+        wakefulnessLifecycle
+    ) {
     init {
         configurationController.addCallback(
             object : ConfigurationController.ConfigurationListener {
@@ -74,38 +88,34 @@ class ThemeOverlayControllerGoogle @Inject constructor(
         )
         bootColors.indices.forEach {
             val color = bootColors[it]
-            Log.d(
-                TAG,
-                "Boot animation colors ${it.plus(1)}: #${Integer.toHexString(color)}"
-            )
+            Log.d(TAG, "Boot animation colors ${it.plus(1)}: #${Integer.toHexString(color)}")
         }
     }
 
     private fun setBootColorSystemProps() {
-        if (userTracker.userId == 0) try {
-            bootColors.indices.forEach {
-                val color = bootColors[it]
-                systemProperties.set(
-                    "persist.bootanim.color${it.plus(1)}",
-                    color
-                )
-                Log.d(
-                    TAG,
-                    "Writing boot animation colors ${it.plus(1)}: ${Integer.toHexString(color)}"
-                )
+        if (userTracker.userId == 0)
+            try {
+                bootColors.indices.forEach {
+                    val color = bootColors[it]
+                    systemProperties.set("persist.bootanim.color${it.plus(1)}", color)
+                    Log.d(
+                        TAG,
+                        "Writing boot animation colors ${it.plus(1)}: ${Integer.toHexString(color)}"
+                    )
+                }
+            } catch (ex: RuntimeException) {
+                Log.w(TAG, "Cannot set sysprop. Look for 'init' and 'dmesg' logs for more info.")
             }
-        } catch (ex: RuntimeException) {
-            Log.w(TAG, "Cannot set sysprop. Look for 'init' and 'dmesg' logs for more info.")
-        }
     }
 
     private val bootColors
-        get() = intArrayOf(
-            context.getColor(android.R.color.system_accent3_100),
-            context.getColor(android.R.color.system_accent1_300),
-            context.getColor(android.R.color.system_accent2_500),
-            context.getColor(android.R.color.system_accent1_100)
-        )
+        get() =
+            intArrayOf(
+                context.getColor(android.R.color.system_accent3_100),
+                context.getColor(android.R.color.system_accent1_300),
+                context.getColor(android.R.color.system_accent2_500),
+                context.getColor(android.R.color.system_accent1_100)
+            )
 
     override fun dump(pw: PrintWriter, args: Array<String?>) {
         super.dump(pw, args)

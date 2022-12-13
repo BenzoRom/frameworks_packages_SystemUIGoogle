@@ -31,7 +31,9 @@ import javax.inject.Inject
 import javax.inject.Provider
 
 @SysUISingleton
-class QSFactoryImplGoogle @Inject constructor(
+class QSFactoryImplGoogle
+@Inject
+constructor(
     qsHostLazy: Lazy<QSHost>,
     customTileBuilderProvider: Provider<CustomTile.Builder>,
     wifiTileProvider: Provider<WifiTile>,
@@ -69,48 +71,49 @@ class QSFactoryImplGoogle @Inject constructor(
     syncTileProvider: Provider<SyncTile>,
     caffeineTileProvider: Provider<CaffeineTile>,
     aodTileProvider: Provider<AlwaysOnDisplayTile>
-) : QSFactoryImpl(
-    qsHostLazy,
-    customTileBuilderProvider,
-    wifiTileProvider,
-    internetTileProvider,
-    bluetoothTileProvider,
-    cellularTileProvider,
-    dndTileProvider,
-    colorInversionTileProvider,
-    airplaneModeTileProvider,
-    workModeTileProvider,
-    rotationLockTileGoogleProvider::get,
-    flashlightTileProvider,
-    locationTileProvider,
-    castTileProvider,
-    hotspotTileProvider,
-    batterySaverTileGoogleProvider::get,
-    dataSaverTileProvider,
-    nightDisplayTileProvider,
-    nfcTileProvider,
-    memoryTileProvider,
-    uiModeNightTileProvider,
-    screenRecordTileProvider,
-    reduceBrightColorsTileProvider,
-    cameraToggleTileProvider,
-    microphoneToggleTileProvider,
-    deviceControlsTileProvider,
-    alarmTileProvider,
-    quickAccessWalletTileProvider,
-    qrCodeScannerTileProvider,
-    oneHandedModeTileProvider,
-    colorCorrectionTileProvider,
-    dreamTileProvider,
-    syncTileProvider,
-    caffeineTileProvider,
-    aodTileProvider
-) {
+) :
+    QSFactoryImpl(
+        qsHostLazy,
+        customTileBuilderProvider,
+        wifiTileProvider,
+        internetTileProvider,
+        bluetoothTileProvider,
+        cellularTileProvider,
+        dndTileProvider,
+        colorInversionTileProvider,
+        airplaneModeTileProvider,
+        workModeTileProvider,
+        rotationLockTileGoogleProvider::get,
+        flashlightTileProvider,
+        locationTileProvider,
+        castTileProvider,
+        hotspotTileProvider,
+        batterySaverTileGoogleProvider::get,
+        dataSaverTileProvider,
+        nightDisplayTileProvider,
+        nfcTileProvider,
+        memoryTileProvider,
+        uiModeNightTileProvider,
+        screenRecordTileProvider,
+        reduceBrightColorsTileProvider,
+        cameraToggleTileProvider,
+        microphoneToggleTileProvider,
+        deviceControlsTileProvider,
+        alarmTileProvider,
+        quickAccessWalletTileProvider,
+        qrCodeScannerTileProvider,
+        oneHandedModeTileProvider,
+        colorCorrectionTileProvider,
+        dreamTileProvider,
+        syncTileProvider,
+        caffeineTileProvider,
+        aodTileProvider
+    ) {
     override fun createTileInternal(tileSpec: String): QSTileImpl<*>? {
         return when (tileSpec) {
             "rotation" -> rotationLockTileGoogleProvider.get()
-            "ott"      -> overlayToggleTileProvider.get()
-            "reverse"  -> reverseChargingTileProvider.get()
+            "ott" -> overlayToggleTileProvider.get()
+            "reverse" -> reverseChargingTileProvider.get()
             else -> super.createTileInternal(tileSpec)
         }
     }

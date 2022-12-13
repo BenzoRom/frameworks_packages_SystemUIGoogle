@@ -25,15 +25,19 @@
     <string name="adaptive_charging_time_estimate">%1$s • Adaptive charging (full by %2$s)</string>
     <string name="battery_health_notify_learn_more">Learn more</string>
     <string name="charging_reverse_text">Sharing battery</string>
+    <string name="config_dockComponent"/>
+    <string name="config_nest_dock_manager_service_component"/>
+    <string name="config_preferredEmergencySosPackage">com.google.android.apps.safetyhub</string>
     <string name="copied_text_label">Copied text</string>
     <string name="copy_url_description">Text copied</string>
     <string name="def_qr_code_component">com.google.android.gms/.mlkit.barcode.ui.PlatformBarcodeScanningActivityProxy</string>
-    <string name="defender_notify_des">Your phone is limiting charging to help preserve battery health</string>
+    <string name="defender_notify_des">Protecting battery to extend battery lifespan</string>
     <string name="defender_notify_help_url">https://support.google.com/pixelphone?p=android_batterydefender</string>
     <string name="defender_notify_resume_charge">Resume charging</string>
-    <string name="defender_notify_title">Charging temporarily limited</string>
-    <string name="defender_post_notify_des">Charging was limited to %1$s from %2$s to %3$s to preserve battery health</string>
-    <string name="defender_post_notify_title">Charging normally</string>
+    <string name="defender_notify_title">Charging is paused</string>
+    <string name="defender_post_notify_des">Charging was paused from %1$s‐%2$s to extend battery lifespan</string>
+    <string name="defender_post_notify_title">Charging resumed</string>
+    <string name="dock_defender_notify_des">To protect your battery, charging is paused at %1$s while your tablet is docked</string>
     <string name="dock_photo_preview_text">Photo frame starting...</string>
     <string name="dock_promo_text">Swipe left for photo frame</string>
     <string name="extreme_battery_saver_text">Extreme</string>
@@ -46,6 +50,7 @@
     <string name="face_reenroll_notification_content">Setup required to improve security and performance</string>
     <string name="face_reenroll_notification_title">Face unlock needs to be set up again</string>
     <string name="generic_smartspace_concatenated_desc">%1$s, %2$s</string>
+    <string name="google_camera_app_package_name">com.google.android.GoogleCamera</string>
     <string name="high_temp_dialog_help_url">https://support.google.com/pixelphone?p=overheat_emergency</string>
     <string name="home_controls_tile_title">Home</string>
     <string name="image_content_description">Selectable image</string>
@@ -63,6 +68,7 @@
     <string name="reverse_charging_title">Battery Share</string>
     <string name="saver_confirmation_dialog_text">Extreme Battery Saver will pause most apps and notifications.</string>
     <string name="selectable_url_description">Selectable URL</string>
+    <string name="settings_app_package_name">com.android.settings</string>
     <string name="severe_low_battery_dialog_checkbox_title">Don’t ask again</string>
     <string name="severe_low_battery_dialog_text">You have %s battery left. Extreme Battery Saver will pause most apps and notifications.</string>
     <string name="severe_low_battery_dialog_title">Turn on Extreme Battery Saver?</string>

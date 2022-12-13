@@ -13,21 +13,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.google.android.systemui.statusbar.dagger
+package com.google.android.systemui.gesture
 
-import com.android.systemui.CoreStartable
-import com.android.systemui.statusbar.phone.CentralSurfaces
-import com.google.android.systemui.statusbar.phone.CentralSurfacesGoogle
+import com.android.systemui.navigationbar.gestural.BackGestureTfClassifierProvider
+import com.google.android.systemui.gesture.BackGestureTfClassifierProviderGoogle
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.ClassKey
 import dagger.multibindings.IntoMap
 
 @Module
-interface StartCentralSurfacesGoogleModule {
-    /** Start the CentralSurfacesGoogle */
+abstract class GestureModuleGoogle {
     @Binds
     @IntoMap
-    @ClassKey(CentralSurfaces::class)
-    abstract fun bindsCentralSurfaces(centralSurfaces: CentralSurfacesGoogle): CoreStartable
+    @ClassKey(BackGestureTfClassifierProvider::class)
+    abstract fun provideBackGestureProvider(
+        provider: BackGestureTfClassifierProviderGoogle
+    ): BackGestureTfClassifierProvider
 }

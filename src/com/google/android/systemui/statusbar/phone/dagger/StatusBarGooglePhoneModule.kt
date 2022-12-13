@@ -26,23 +26,17 @@ import dagger.Module
 import dagger.Provides
 import java.util.Optional
 
-/**
- * Dagger Module providing [CentralSurfacesGoogle].
- */
+/** Dagger Module providing [CentralSurfacesGoogle]. */
 @Module
 interface StatusBarGooglePhoneModule {
-    /**
-     * Provides our instance of CentralSurfacesGoogle which is considered optional.
-     */
+    /** Provides our instance of CentralSurfacesGoogle which is considered optional. */
     @Binds
     @SysUISingleton
     fun bindsCentralSurfaces(impl: CentralSurfacesGoogle): CentralSurfaces
 
     @Module
     companion object {
-        /**
-         * Provides optional ReverseChargingViewController for CentralSurfacesGoogle.
-         */
+        /** Provides optional ReverseChargingViewController for CentralSurfacesGoogle. */
         @Provides
         @SysUISingleton
         fun provideReverseChargingViewControllerOptional(

@@ -40,7 +40,9 @@ import com.android.systemui.qs.tileimpl.QSTileImpl
 import com.android.systemui.statusbar.policy.BatteryController
 import javax.inject.Inject
 
-class ReverseChargingTile @Inject constructor(
+class ReverseChargingTile
+@Inject
+constructor(
     host: QSHost,
     @Background backgroundLooper: Looper,
     @Main mainHandler: Handler,
@@ -51,10 +53,18 @@ class ReverseChargingTile @Inject constructor(
     qsLogger: QSLogger,
     private val batteryController: BatteryController,
     private val thermalService: IThermalService
-) : QSTileImpl<QSTile.BooleanState>(
-    host, backgroundLooper, mainHandler, falsingManager, metricsLogger,
-    statusBarStateController, activityStarter, qsLogger
-), BatteryController.BatteryStateChangeCallback {
+) :
+    QSTileImpl<QSTile.BooleanState>(
+        host,
+        backgroundLooper,
+        mainHandler,
+        falsingManager,
+        metricsLogger,
+        statusBarStateController,
+        activityStarter,
+        qsLogger
+    ),
+    BatteryController.BatteryStateChangeCallback {
     private var batteryLevel = 0
     private var listen = false
     private var overHeat = false
@@ -77,13 +87,14 @@ class ReverseChargingTile @Inject constructor(
             if (listening) {
                 updateThresholdLevel()
                 mContext.contentResolver.registerContentObserver(
-                    Settings.Global.getUriFor(
-                        "advanced_battery_usage_amount"
-                    ), false, settingsObserver
+                    Settings.Global.getUriFor("advanced_battery_usage_amount"),
+                    false,
+                    settingsObserver
                 )
                 try {
                     thermalService.registerThermalEventListenerWithType(
-                        thermalEventListener, TYPE_SKIN
+                        thermalEventListener,
+                        TYPE_SKIN
                     )
                 } catch (ex: RemoteException) {
                     Log.e(TAG, "Could not register thermal event listener, exception: $ex")
@@ -94,15 +105,17 @@ class ReverseChargingTile @Inject constructor(
                 try {
                     thermalService.unregisterThermalEventListener(thermalEventListener)
                 } catch (ex: RemoteException) {
-                    Log.e(TAG,
-                        "Could not unregister thermal event listener, exception: $ex")
+                    Log.e(TAG, "Could not unregister thermal event listener, exception: $ex")
                 }
             }
-            if (DEBUG) Log.d(TAG,
-                "handleSetListening(): rtx=${if (reverse) 1 else 0}," +
+            if (DEBUG)
+                Log.d(
+                    TAG,
+                    "handleSetListening(): rtx=${if (reverse) 1 else 0}," +
                         "level=$batteryLevel," +
                         "threshold=$thresholdLevel," +
-                        "listening=$listening")
+                        "listening=$listening"
+                )
         }
     }
 
@@ -150,11 +163,14 @@ class ReverseChargingTile @Inject constructor(
             else               -> null
         }.also { state.secondaryLabel = it }
         state.value = isReverseAvailable && reverse
-        if (DEBUG) Log.d(TAG,
-            "handleUpdateState(): ps=${if (powerSave) 1 else 0}," +
+        if (DEBUG)
+            Log.d(
+                TAG,
+                "handleUpdateState(): ps=${if (powerSave) 1 else 0}," +
                     "wlc=${if (isWirelessCharging) 1 else 0},low=$lowBattery," +
                     "over=${if (overHeat) 1 else 0},rtx=${if (reverse) 1 else 0}," +
-                    "this=$this")
+                    "this=$this"
+            )
     }
 
     override fun onBatteryLevelChanged(
@@ -164,10 +180,12 @@ class ReverseChargingTile @Inject constructor(
     ) {
         batteryLevel = level
         reverse = batteryController.isReverseOn
-        if (DEBUG) Log.d(TAG,
-            "onBatteryLevelChanged(): rtx=${if (reverse) 1 else 0}," +
+        if (DEBUG)
+            Log.d(
+                TAG,
+                "onBatteryLevelChanged(): rtx=${if (reverse) 1 else 0}," +
                     "level=$batteryLevel,threshold=$thresholdLevel"
-        )
+            )
         refreshState()
     }
 
@@ -181,9 +199,12 @@ class ReverseChargingTile @Inject constructor(
         level: Int,
         name: String?
     ) {
-        if (DEBUG) Log.d(TAG,
-            "onReverseChanged(): rtx=${if (isReverse) 1 else 0}," +
-                    "level=$level,name=$name,this=$this")
+        if (DEBUG)
+            Log.d(
+                TAG,
+                "onReverseChanged(): rtx=${if (isReverse) 1 else 0}," +
+                    "level=$level,name=$name,this=$this"
+            )
         reverse = isReverse
         refreshState()
     }
@@ -205,17 +226,23 @@ class ReverseChargingTile @Inject constructor(
             mContext.contentResolver,
             "advanced_battery_usage_amount", 2
         ) * 5
-        if (DEBUG) Log.d(TAG,
-            "updateThresholdLevel(): rtx=${if (reverse) 1 else 0}," +
-                    "level=$batteryLevel,threshold=$thresholdLevel")
+        if (DEBUG)
+            Log.d(
+                TAG,
+                "updateThresholdLevel(): rtx=${if (reverse) 1 else 0}," +
+                    "level=$batteryLevel,threshold=$thresholdLevel"
+            )
     }
 
     private val isOverHeat: Boolean
         get() {
             thermalService.getCurrentTemperaturesWithType(TYPE_SKIN).forEach {
                 if (it.status >= THROTTLING_EMERGENCY) {
-                    Log.w(TAG, "isOverHeat(): current skin status = " +
-                            "${it.status},temperature = ${it.value}")
+                    Log.w(
+                        TAG,
+                        "isOverHeat(): current skin status = " +
+                            "${it.status},temperature = ${it.value}"
+                    )
                     return true
                 }
             }
@@ -226,19 +253,19 @@ class ReverseChargingTile @Inject constructor(
         batteryController.observe(lifecycle, this)
 
         object : ContentObserver(mHandler) {
-            override fun onChange(selfChange: Boolean) {
-                updateThresholdLevel()
-            }
-        }.also { settingsObserver = it }
+                override fun onChange(selfChange: Boolean) {
+                    updateThresholdLevel()
+                }
+            }.also { settingsObserver = it }
 
         object : IThermalEventListener.Stub() {
-            override fun notifyThrottling(temp: Temperature) {
-                val status = temp.status
-                overHeat = status >= THROTTLING_EMERGENCY
-                if (DEBUG) {
-                    Log.d(TAG, "notifyThrottling(): status=$status")
+                override fun notifyThrottling(temp: Temperature) {
+                    val status = temp.status
+                    overHeat = status >= THROTTLING_EMERGENCY
+                    if (DEBUG) {
+                        Log.d(TAG, "notifyThrottling(): status=$status")
+                    }
                 }
-            }
-        }.also { thermalEventListener = it }
+            }.also { thermalEventListener = it }
     }
 }

@@ -32,17 +32,18 @@ import com.android.keyguard.KeyguardUpdateMonitor
 import com.android.keyguard.ViewMediatorCallback
 import com.android.systemui.Dependency.TIME_TICK_HANDLER_NAME
 import com.android.systemui.InitController
+import com.android.systemui.KtR
 import com.android.systemui.accessibility.floatingmenu.AccessibilityFloatingMenuController
 import com.android.systemui.animation.ActivityLaunchAnimator
 import com.android.systemui.assist.AssistManager
 import com.android.systemui.broadcast.BroadcastDispatcher
+import com.android.systemui.charging.WiredChargingRippleController
 import com.android.systemui.classifier.FalsingCollector
 import com.android.systemui.colorextraction.SysuiColorExtractor
 import com.android.systemui.dagger.SysUISingleton
 import com.android.systemui.dagger.qualifiers.Main
 import com.android.systemui.dagger.qualifiers.UiBackground
 import com.android.systemui.demomode.DemoModeController
-import com.android.systemui.dreams.DreamOverlayStateController
 import com.android.systemui.flags.FeatureFlags
 import com.android.systemui.fragments.FragmentService
 import com.android.systemui.keyguard.KeyguardUnlockAnimationController
@@ -54,14 +55,11 @@ import com.android.systemui.plugins.FalsingManager
 import com.android.systemui.plugins.PluginDependencyProvider
 import com.android.systemui.recents.ScreenPinningRequest
 import com.android.systemui.settings.brightness.BrightnessSliderController
+import com.android.systemui.shade.ShadeController
 import com.android.systemui.shared.plugins.PluginManager
 import com.android.systemui.statusbar.*
-import com.android.systemui.statusbar.charging.WiredChargingRippleController
 import com.android.systemui.statusbar.notification.DynamicPrivacyController
-import com.android.systemui.statusbar.notification.NotifPipelineFlags
-import com.android.systemui.statusbar.notification.NotificationEntryManager
 import com.android.systemui.statusbar.notification.NotificationWakeUpCoordinator
-import com.android.systemui.statusbar.notification.collection.legacy.VisualStabilityManager
 import com.android.systemui.statusbar.notification.init.NotificationsController
 import com.android.systemui.statusbar.notification.interruption.NotificationInterruptStateProvider
 import com.android.systemui.statusbar.notification.logging.NotificationLogger
@@ -94,7 +92,9 @@ import javax.inject.Inject
 import javax.inject.Named
 
 @SysUISingleton
-class CentralSurfacesGoogle @Inject constructor(
+class CentralSurfacesGoogle
+@Inject
+constructor(
     private val smartSpaceController: SmartSpaceController,
     private val wallpaperNotifier: WallpaperNotifier,
     private val reverseChargingViewControllerOptional: Optional<ReverseChargingViewController>,
@@ -116,18 +116,16 @@ class CentralSurfacesGoogle @Inject constructor(
     falsingManager: FalsingManager,
     falsingCollector: FalsingCollector,
     broadcastDispatcher: BroadcastDispatcher,
-    notificationEntryManager: NotificationEntryManager,
     notificationGutsManager: NotificationGutsManager,
     notificationLogger: NotificationLogger,
     notificationInterruptStateProvider: NotificationInterruptStateProvider,
-    notificationViewHierarchyManager: NotificationViewHierarchyManager,
     panelExpansionStateManager: PanelExpansionStateManager,
     keyguardViewMediator: KeyguardViewMediator,
     displayMetrics: DisplayMetrics,
     metricsLogger: MetricsLogger,
     @UiBackground uiBgExecutor: Executor,
     notificationMediaManager: NotificationMediaManager,
-    private val notificationLockscreenUserManager: NotificationLockscreenUserManagerGoogle,
+    private val lockscreenUserManagerGoogle: NotificationLockscreenUserManagerGoogle,
     remoteInputManager: NotificationRemoteInputManager,
     userSwitcherController: UserSwitcherController,
     private val batteryController: BatteryController,
@@ -136,7 +134,6 @@ class CentralSurfacesGoogle @Inject constructor(
     wakefulnessLifecycle: WakefulnessLifecycle,
     statusBarStateController: SysuiStatusBarStateController,
     bubblesOptional: Optional<Bubbles>,
-    visualStabilityManager: VisualStabilityManager,
     deviceProvisionedController: DeviceProvisionedController,
     navigationBarController: NavigationBarController,
     accessibilityFloatingMenuController: AccessibilityFloatingMenuController,
@@ -165,7 +162,7 @@ class CentralSurfacesGoogle @Inject constructor(
     extensionController: ExtensionController,
     userInfoControllerImpl: UserInfoControllerImpl,
     phoneStatusBarPolicy: PhoneStatusBarPolicy,
-    keyguardIndicationController: KeyguardIndicationControllerGoogle,
+    keyguardIndicationControllerGoogle: KeyguardIndicationControllerGoogle,
     demoModeController: DemoModeController,
     notificationShadeDepthControllerLazy: Lazy<NotificationShadeDepthController>,
     statusBarTouchableRegionManager: StatusBarTouchableRegionManager,
@@ -184,171 +181,171 @@ class CentralSurfacesGoogle @Inject constructor(
     startingSurfaceOptional: Optional<StartingSurface>,
     activityLaunchAnimator: ActivityLaunchAnimator,
     private val alarmManager: AlarmManager,
-    notifPipelineFlags: NotifPipelineFlags,
     jankMonitor: InteractionJankMonitor,
     deviceStateManager: DeviceStateManager,
-    dreamOverlayStateController: DreamOverlayStateController,
     wiredChargingRippleController: WiredChargingRippleController,
     dreamManager: IDreamManager
-) : CentralSurfacesImpl(
-    context,
-    notificationsController,
-    fragmentService,
-    lightBarController,
-    autoHideController,
-    statusBarWindowController,
-    statusBarWindowStateController,
-    keyguardUpdateMonitor,
-    statusBarSignalPolicy,
-    pulseExpansionHandler,
-    notificationWakeUpCoordinator,
-    keyguardBypassController,
-    keyguardStateController,
-    headsUpManagerPhone,
-    dynamicPrivacyController,
-    falsingManager,
-    falsingCollector,
-    broadcastDispatcher,
-    notificationEntryManager,
-    notificationGutsManager,
-    notificationLogger,
-    notificationInterruptStateProvider,
-    notificationViewHierarchyManager,
-    panelExpansionStateManager,
-    keyguardViewMediator,
-    displayMetrics,
-    metricsLogger,
-    uiBgExecutor,
-    notificationMediaManager,
-    notificationLockscreenUserManager,
-    remoteInputManager,
-    userSwitcherController,
-    batteryController,
-    colorExtractor,
-    screenLifecycle,
-    wakefulnessLifecycle,
-    statusBarStateController,
-    bubblesOptional,
-    visualStabilityManager,
-    deviceProvisionedController,
-    navigationBarController,
-    accessibilityFloatingMenuController,
-    assistManagerLazy,
-    configurationController,
-    notificationShadeWindowController,
-    dozeParameters,
-    scrimController,
-    lockscreenWallpaperLazy,
-    biometricUnlockControllerLazy,
-    dozeServiceHost,
-    powerManager,
-    screenPinningRequest,
-    dozeScrimController,
-    volumeComponent,
-    commandQueue,
-    centralSurfacesComponentFactory,
-    pluginManager,
-    shadeController,
-    statusBarKeyguardViewManager,
-    viewMediatorCallback,
-    initController,
-    timeTickHandler,
-    pluginDependencyProvider,
-    keyguardDismissUtil,
-    extensionController,
-    userInfoControllerImpl,
-    phoneStatusBarPolicy,
-    keyguardIndicationController,
-    demoModeController,
-    notificationShadeDepthControllerLazy,
-    statusBarTouchableRegionManager,
-    notificationIconAreaController,
-    brightnessSliderFactory,
-    screenOffAnimationController,
-    wallpaperController,
-    ongoingCallController,
-    statusBarHideIconsForBouncerManager,
-    lockscreenShadeTransitionController,
-    featureFlags,
-    keyguardUnlockAnimationController,
-    delayableExecutor,
-    messageRouter,
-    wallpaperManager,
-    startingSurfaceOptional,
-    activityLaunchAnimator,
-    notifPipelineFlags,
-    jankMonitor,
-    deviceStateManager,
-    dreamOverlayStateController,
-    wiredChargingRippleController,
-    dreamManager
-) {
+) :
+    CentralSurfacesImpl(
+        context,
+        notificationsController,
+        fragmentService,
+        lightBarController,
+        autoHideController,
+        statusBarWindowController,
+        statusBarWindowStateController,
+        keyguardUpdateMonitor,
+        statusBarSignalPolicy,
+        pulseExpansionHandler,
+        notificationWakeUpCoordinator,
+        keyguardBypassController,
+        keyguardStateController,
+        headsUpManagerPhone,
+        dynamicPrivacyController,
+        falsingManager,
+        falsingCollector,
+        broadcastDispatcher,
+        notificationGutsManager,
+        notificationLogger,
+        notificationInterruptStateProvider,
+        panelExpansionStateManager,
+        keyguardViewMediator,
+        displayMetrics,
+        metricsLogger,
+        uiBgExecutor,
+        notificationMediaManager,
+        lockscreenUserManagerGoogle,
+        remoteInputManager,
+        userSwitcherController,
+        batteryController,
+        colorExtractor,
+        screenLifecycle,
+        wakefulnessLifecycle,
+        statusBarStateController,
+        bubblesOptional,
+        deviceProvisionedController,
+        navigationBarController,
+        accessibilityFloatingMenuController,
+        assistManagerLazy,
+        configurationController,
+        notificationShadeWindowController,
+        dozeParameters,
+        scrimController,
+        lockscreenWallpaperLazy,
+        biometricUnlockControllerLazy,
+        dozeServiceHost,
+        powerManager,
+        screenPinningRequest,
+        dozeScrimController,
+        volumeComponent,
+        commandQueue,
+        centralSurfacesComponentFactory,
+        pluginManager,
+        shadeController,
+        statusBarKeyguardViewManager,
+        viewMediatorCallback,
+        initController,
+        timeTickHandler,
+        pluginDependencyProvider,
+        keyguardDismissUtil,
+        extensionController,
+        userInfoControllerImpl,
+        phoneStatusBarPolicy,
+        keyguardIndicationControllerGoogle,
+        demoModeController,
+        notificationShadeDepthControllerLazy,
+        statusBarTouchableRegionManager,
+        notificationIconAreaController,
+        brightnessSliderFactory,
+        screenOffAnimationController,
+        wallpaperController,
+        ongoingCallController,
+        statusBarHideIconsForBouncerManager,
+        lockscreenShadeTransitionController,
+        featureFlags,
+        keyguardUnlockAnimationController,
+        delayableExecutor,
+        messageRouter,
+        wallpaperManager,
+        startingSurfaceOptional,
+        activityLaunchAnimator,
+        jankMonitor,
+        deviceStateManager,
+        wiredChargingRippleController,
+        dreamManager
+    ) {
     private var animStartTime: Long = 0
-    private val batteryStateChangeCallback: BatteryStateChangeCallback
     private var chargingAnimShown = false
     private var receivingBatteryLevel = 0
     private var reverseChargingAnimShown = false
-
-    init {
-        object : BatteryStateChangeCallback {
-            override fun onBatteryLevelChanged(
-                level: Int,
-                pluggedIn: Boolean,
-                charging: Boolean
-            ) {
-                receivingBatteryLevel = level
-                if (!batteryController.isWirelessCharging) {
-                    val uptimeMillis = SystemClock.uptimeMillis()
-                    if (uptimeMillis - animStartTime > 1500) {
-                        chargingAnimShown = false
+    private val batteryStateChangeCallback: BatteryStateChangeCallback
+        get() =
+            object : BatteryStateChangeCallback {
+                override fun onBatteryLevelChanged(
+                    level: Int,
+                    pluggedIn: Boolean,
+                    charging: Boolean
+                ) {
+                    receivingBatteryLevel = level
+                    if (!batteryController.isWirelessCharging) {
+                        val uptimeMillis = SystemClock.uptimeMillis()
+                        if (uptimeMillis - animStartTime > 1500) {
+                            chargingAnimShown = false
+                        }
+                        reverseChargingAnimShown = false
                     }
-                    reverseChargingAnimShown = false
-                }
-                if (DEBUG) {
-                    Log.d(logTag,
-                        "onBatteryLevelChanged(): level=$level," +
+                    if (DEBUG) {
+                        Log.d(
+                            TAG,
+                            "onBatteryLevelChanged(): level=$level," +
                                 "wlc=${if (batteryController.isWirelessCharging) 1 else 0}," +
                                 "wlcs=$chargingAnimShown,rtxs=$reverseChargingAnimShown,this=$this"
-                    )
+                        )
+                    }
                 }
-            }
 
-            override fun onReverseChanged(
-                isReverse: Boolean,
-                level: Int,
-                name: String?
-            ) {
-                if (!isReverse && level >= 0 && !TextUtils.isEmpty(name)) {
-                    reverseChargingAnimShown = true
-                    val uptimeMillis = SystemClock.uptimeMillis() - animStartTime
-                    val animationDelay = if (uptimeMillis > 1500) 0L else 1500 - uptimeMillis
-                    showChargingAnimation(receivingBatteryLevel, level, animationDelay)
-                }
-                if (DEBUG) {
-                    Log.d(logTag,
-                        "onReverseChanged(): rtx=${if (isReverse) 1 else 0}," +
-                                "rxlevel=$receivingBatteryLevel,level=$level,name=$name," +
+                override fun onReverseChanged(isReverse: Boolean, level: Int, name: String?) {
+                    if (!isReverse && level >= 0 && !TextUtils.isEmpty(name)) {
+                        if (
+                            batteryController.isWirelessCharging &&
+                                chargingAnimShown &&
+                                !reverseChargingAnimShown
+                        ) {
+                            reverseChargingAnimShown = true
+                            val uptimeMillis = SystemClock.uptimeMillis() - animStartTime
+                            val animationDelay =
+                                if (uptimeMillis > 1500) 0L else 1500 - uptimeMillis
+                            showChargingAnimation(receivingBatteryLevel, level, animationDelay)
+                        }
+                    }
+                    if (DEBUG) {
+                        Log.d(
+                            TAG,
+                            "onReverseChanged(): rtx=${if (isReverse) 1 else 0}," +
+                                "rxlevel=$receivingBatteryLevel,level=${level},name=$name," +
                                 "wlc=${if (batteryController.isWirelessCharging) 1 else 0}," +
                                 "wlcs=$chargingAnimShown,rtxs=$reverseChargingAnimShown,this=$this"
-                    )
+                        )
+                    }
                 }
             }
-        }.also { batteryStateChangeCallback = it }
-    }
 
     override fun start() {
         super.start()
         batteryController.observe(lifecycle, batteryStateChangeCallback)
-        notificationLockscreenUserManager.run(NotificationLockscreenUserManagerGoogle::updateSmartSpaceVisibilitySettings)
-        if (reverseChargingViewControllerOptional.isPresent) {
-            reverseChargingViewControllerOptional.get().run(ReverseChargingViewController::initialize)
-        }
-        wallpaperNotifier.run(WallpaperNotifier::attach)
-        val ambientIndication = ambientIndicationContainer as AmbientIndicationContainer
-        ambientIndication.initializeView(this)
-        AmbientIndicationService(mContext, ambientIndication, alarmManager).also(
-            AmbientIndicationService::start
+        lockscreenUserManagerGoogle.run(
+            NotificationLockscreenUserManagerGoogle::updateSmartSpaceVisibilitySettings
         )
+        reverseChargingViewControllerOptional.ifPresent(ReverseChargingViewController::initialize)
+        wallpaperNotifier.run(WallpaperNotifier::attach)
+        val ambientIndicationContainer =
+            notificationShadeWindowView.findViewById<AmbientIndicationContainer>(
+                KtR.id.ambient_indication_container
+            )
+        ambientIndicationContainer.initializeView(this)
+        val ambientIndicationService =
+            AmbientIndicationService(mContext, ambientIndicationContainer, alarmManager)
+        ambientIndicationService.run(AmbientIndicationService::start)
     }
 
     override fun setLockscreenUser(newUserId: Int) {
@@ -357,7 +354,7 @@ class CentralSurfacesGoogle @Inject constructor(
     }
 
     override fun showWirelessChargingAnimation(batteryLevel: Int) {
-        if (DEBUG) Log.d(logTag, "showWirelessChargingAnimation()")
+        if (DEBUG) Log.d(TAG, "showWirelessChargingAnimation()")
         chargingAnimShown = true
         super.showWirelessChargingAnimation(batteryLevel)
         animStartTime = SystemClock.uptimeMillis()
@@ -365,10 +362,6 @@ class CentralSurfacesGoogle @Inject constructor(
 
     override fun dump(pw: PrintWriter, args: Array<String>) {
         super.dump(pw, args)
-        with(smartSpaceController) { dump(pw, args) }
-    }
-
-    companion object {
-        private const val logTag = "CentralSurfacesGoogle"
+        smartSpaceController.run { dump(pw, args) }
     }
 }

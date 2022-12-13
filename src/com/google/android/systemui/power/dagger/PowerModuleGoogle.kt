@@ -13,25 +13,26 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.google.android.systemui.power
+package com.google.android.systemui.power.dagger
 
 import com.android.systemui.power.EnhancedEstimates
 import com.android.systemui.power.PowerUI
+import com.android.systemui.power.data.repository.PowerRepositoryModule
 import com.google.android.systemui.power.EnhancedEstimatesGoogleImpl
 import com.google.android.systemui.power.PowerNotificationWarningsGoogleImpl
 import dagger.Binds
 import dagger.Module
 
 /** Dagger Module for code in the power package. */
-@Module
-abstract class PowerModuleGoogle {
+@Module(
+    includes = [
+        PowerRepositoryModule::class
+    ],
+)
+interface PowerModuleGoogle {
     @Binds
-    abstract fun bindEnhancedEstimates(
-        enhancedEstimates: EnhancedEstimatesGoogleImpl
-    ): EnhancedEstimates
+    fun bindEnhancedEstimates(enhancedEstimates: EnhancedEstimatesGoogleImpl): EnhancedEstimates
 
     @Binds
-    abstract fun provideWarningsUi(
-        controllerImpl: PowerNotificationWarningsGoogleImpl
-    ): PowerUI.WarningsUI
+    fun provideWarningsUi(controllerImpl: PowerNotificationWarningsGoogleImpl): PowerUI.WarningsUI
 }

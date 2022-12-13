@@ -37,9 +37,7 @@ import dagger.Module
 import dagger.Provides
 import javax.inject.Named
 
-/**
- * Module for Google QS dependencies
- */
+/** Module for Google QS dependencies */
 @Module(
     subcomponents = [QSFragmentComponent::class],
     includes = [
@@ -48,9 +46,8 @@ import javax.inject.Named
         QSFlagsModule::class
     ])
 interface QSModuleGoogle {
-    /** QSTileHost **/
-    @Binds
-    fun provideQsHost(controllerImpl: QSTileHost): QSHost
+    /** QSTileHost */
+    @Binds fun provideQsHost(controllerImpl: QSTileHost): QSHost
 
     @Module
     companion object {
@@ -74,23 +71,23 @@ interface QSModuleGoogle {
             @Named(QSFlagsModule.RBC_AVAILABLE) isReduceBrightColorsAvailable: Boolean
         ): AutoTileManager {
             return AutoTileManagerGoogle(
-                context,
-                autoAddTrackerBuilder,
-                host,
-                handler,
-                secureSettings,
-                hotspotController,
-                dataSaverController,
-                managedProfileController,
-                nightDisplayListener,
-                castController,
-                batteryController,
-                reduceBrightColorsController,
-                deviceControlsController,
-                walletController,
-                safetyController,
-                isReduceBrightColorsAvailable
-            ).also(AutoTileManagerGoogle::init)
+                    context,
+                    autoAddTrackerBuilder,
+                    host,
+                    handler,
+                    secureSettings,
+                    hotspotController,
+                    dataSaverController,
+                    managedProfileController,
+                    nightDisplayListener,
+                    castController,
+                    batteryController,
+                    reduceBrightColorsController,
+                    deviceControlsController,
+                    walletController,
+                    safetyController,
+                    isReduceBrightColorsAvailable
+                ).also(AutoTileManagerGoogle::init)
         }
     }
 }

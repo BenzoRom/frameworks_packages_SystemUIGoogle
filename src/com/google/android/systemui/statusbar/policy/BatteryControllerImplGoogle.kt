@@ -26,13 +26,14 @@ import com.android.systemui.dagger.SysUISingleton
 import com.android.systemui.dagger.qualifiers.Background
 import com.android.systemui.dagger.qualifiers.Main
 import com.android.systemui.demomode.DemoModeController
+import com.android.systemui.dump.DumpManager
 import com.android.systemui.power.EnhancedEstimates
 import com.android.systemui.settings.UserContentResolverProvider
 import com.android.systemui.statusbar.policy.BatteryController.BatteryStateChangeCallback
 import com.android.systemui.statusbar.policy.BatteryControllerImpl
 import com.google.android.systemui.reversecharging.ReverseChargingController
+import com.google.android.systemui.reversecharging.ReverseChargingController.ReverseChargingChangeCallback
 import java.io.PrintWriter
-import java.util.function.Consumer
 
 @SysUISingleton
 open class BatteryControllerImplGoogle(
@@ -41,41 +42,45 @@ open class BatteryControllerImplGoogle(
     powerManager: PowerManager,
     broadcastDispatcher: BroadcastDispatcher,
     demoModeController: DemoModeController,
+    dumpManager: DumpManager,
     @Main mainHandler: Handler,
     @Background bgHandler: Handler,
     private val contentResolverProvider: UserContentResolverProvider,
     private val reverseChargingController: ReverseChargingController
-) : BatteryControllerImpl(
-    context,
-    enhancedEstimates,
-    powerManager,
-    broadcastDispatcher,
-    demoModeController,
-    mainHandler,
-    bgHandler
-), ReverseChargingController.ReverseChargingChangeCallback {
+) :
+    BatteryControllerImpl(
+        context,
+        enhancedEstimates,
+        powerManager,
+        broadcastDispatcher,
+        demoModeController,
+        dumpManager,
+        mainHandler,
+        bgHandler
+    ),
+    ReverseChargingChangeCallback {
     protected val contentObserver: ContentObserver
     private var extremeSaver = false
-    private var reverse = false
     private var rtxLevel = 0
     private var rtxName: String? = null
+    private var rtxReverse = false
 
     init {
         object : ContentObserver(bgHandler) {
-            override fun onChange(selfChange: Boolean, uri: Uri?) {
-                if (DEBUG) {
-                    Log.d(TAG, "Change in EBS value $uri")
+                override fun onChange(selfChange: Boolean, uri: Uri?) {
+                    if (DEBUG) {
+                        Log.d(TAG, "Change in EBS value $uri")
+                    }
+                    setExtremeSaver(isExtremeSaver)
                 }
-                setExtremeSaver(isExtremeBatterySaving)
-            }
-        }.also { contentObserver = it }
+            }.also { contentObserver = it }
     }
 
     override fun init() {
         super.init()
         resetReverseInfo()
         reverseChargingController.init(this)
-        reverseChargingController.addCallback(this as ReverseChargingController.ReverseChargingChangeCallback)
+        reverseChargingController.addCallback(this as ReverseChargingChangeCallback)
         try {
             contentResolverProvider.userContentResolver.apply {
                 registerContentObserver(
@@ -96,7 +101,7 @@ open class BatteryControllerImplGoogle(
         level: Int,
         name: String?
     ) {
-        reverse = isReverse
+        rtxReverse = isReverse
         rtxLevel = level
         rtxName = name
         if (DEBUG) {
@@ -111,7 +116,7 @@ open class BatteryControllerImplGoogle(
     override fun addCallback(cb: BatteryStateChangeCallback) {
         super.addCallback(cb)
         cb.run {
-            onReverseChanged(reverse, rtxLevel, rtxName)
+            onReverseChanged(rtxReverse, rtxLevel, rtxName)
             onExtremeBatterySaverChanged(extremeSaver)
         }
     }
@@ -126,15 +131,17 @@ open class BatteryControllerImplGoogle(
     }
 
     override fun isReverseOn(): Boolean {
-        return reverse
+        return rtxReverse
     }
 
     override fun setReverseState(isReverse: Boolean) {
-        reverseChargingController.run { setReverseState(isReverse) }
+        if (isReverseSupported) {
+            reverseChargingController.run { setReverseState(isReverse) }
+        }
     }
 
     private fun resetReverseInfo() {
-        reverse = false
+        rtxReverse = false
         rtxLevel = -1
         rtxName = null
     }
@@ -156,31 +163,32 @@ open class BatteryControllerImplGoogle(
 
     private fun fireReverseChanged() {
         synchronized(mChangeCallbacks) {
-            mChangeCallbacks.forEach(Consumer { cb: BatteryStateChangeCallback ->
-                cb.onReverseChanged(reverse, rtxLevel, rtxName)
-            })
+            mChangeCallbacks.indices.forEach {
+                mChangeCallbacks[it].onReverseChanged(rtxReverse, rtxLevel, rtxName)
+            }
         }
     }
 
-    open val isExtremeBatterySaving: Boolean
+    open val isExtremeSaver: Boolean
         get() {
-            val bundle = try {
-                contentResolverProvider.userContentResolver.call(
-                    EBS_STATE_AUTHORITY,
-                    "get_flipendo_state",
-                    null,
+            val bundle =
+                try {
+                    contentResolverProvider.userContentResolver.call(
+                        EBS_STATE_AUTHORITY,
+                        "get_flipendo_state",
+                        null,
+                        Bundle()
+                    )
+                } catch (ex: IllegalArgumentException) {
                     Bundle()
-                )
-            } catch (ex: IllegalArgumentException) {
-                Bundle()
-            }
+                }
             return bundle?.getBoolean("flipendo_state", false) ?: false
         }
 
     override fun dump(pw: PrintWriter, args: Array<String>) {
         super.dump(pw, args)
         pw.print("  mReverse=")
-        pw.println(reverse)
+        pw.println(rtxReverse)
         pw.print("  mExtremeSaver=")
         pw.println(extremeSaver)
     }

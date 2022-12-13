@@ -48,26 +48,35 @@ class AutoTileManagerGoogle(
     walletController: WalletController,
     safetyController: SafetyController,
     @Named(QSFlagsModule.RBC_AVAILABLE) isReduceBrightColorsAvailable: Boolean
-) : AutoTileManager(
-    context, autoAddTrackerBuilder, host, handler, secureSettings, hotspotController,
-    dataSaverController, managedProfileController, nightDisplayListener,
-    castController, reduceBrightColorsController, deviceControlsController,
-    walletController, safetyController, isReduceBrightColorsAvailable
-) {
+) :
+    AutoTileManager(
+        context,
+        autoAddTrackerBuilder,
+        host,
+        handler,
+        secureSettings,
+        hotspotController,
+        dataSaverController,
+        managedProfileController,
+        nightDisplayListener,
+        castController,
+        reduceBrightColorsController,
+        deviceControlsController,
+        walletController,
+        safetyController,
+        isReduceBrightColorsAvailable
+    ) {
     private val batteryControllerCallback: BatteryStateChangeCallback
-        get() = object : BatteryStateChangeCallback {
-            override fun onReverseChanged(
-                isReverse: Boolean,
-                level: Int,
-                name: String?
-            ) {
-                if (!mAutoTracker.isAdded(reverseChargingTile) && isReverse) {
-                    with(mHost) { addTile(reverseChargingTile) }
-                    with(mAutoTracker) { setTileAdded(reverseChargingTile) }
-                    mHandler.post { batteryController.removeCallback(this) }
+        get() =
+            object : BatteryStateChangeCallback {
+                override fun onReverseChanged(isReverse: Boolean, level: Int, name: String?) {
+                    if (!mAutoTracker.isAdded(reverseChargingTile) && isReverse) {
+                        with(mHost) { addTile(reverseChargingTile) }
+                        with(mAutoTracker) { setTileAdded(reverseChargingTile) }
+                        mHandler.post { batteryController.removeCallback(this) }
+                    }
                 }
             }
-        }
     override fun init() {
         super.init()
         if (!mAutoTracker.isAdded(overlayToggleTile) && isDebuggable) {

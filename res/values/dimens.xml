@@ -29,6 +29,7 @@
     <dimen name="enhanced_smartspace_combination_sub_card_corner_radius">20dp</dimen>
     <dimen name="enhanced_smartspace_dismiss_margin">16dp</dimen>
     <dimen name="enhanced_smartspace_height">104dp</dimen>
+    <dimen name="enhanced_smartspace_icon_inset">2dp</dimen>
     <dimen name="enhanced_smartspace_icon_margin">4dp</dimen>
     <dimen name="enhanced_smartspace_icon_size">20dp</dimen>
     <dimen name="enhanced_smartspace_margin_start_launcher">16dp</dimen>

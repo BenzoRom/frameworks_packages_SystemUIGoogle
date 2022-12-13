@@ -38,50 +38,53 @@ import com.android.systemui.util.concurrency.DelayableExecutor
 import javax.inject.Inject
 
 @SysUISingleton
-class KeyguardMediaViewController @Inject constructor(
+class KeyguardMediaViewController
+@Inject
+constructor(
     private val context: Context,
     private val plugin: BcSmartspaceDataPlugin,
     @Main private val uiExecutor: DelayableExecutor,
     private val mediaManager: NotificationMediaManager,
-    private val broadcastDispatcher: BroadcastDispatcher,
+    private val broadcastDispatcher: BroadcastDispatcher
 ) {
     private var mediaArtist: CharSequence? = null
     private var mediaTitle: CharSequence? = null
     private val mediaComponent: ComponentName
     private val mediaListener: MediaListener
     private var userTracker: CurrentUserTracker? = null
-    @get:VisibleForTesting
-    var smartspaceView: SmartspaceView? = null
+    @get:VisibleForTesting var smartspaceView: SmartspaceView? = null
 
     init {
         object : MediaListener {
-            override fun onPrimaryMetadataOrStateChanged(
-                metadata: MediaMetadata,
-                @PlaybackState.State state: Int,
-            ) {
-                uiExecutor.execute { updateMediaInfo(metadata, state) }
-            }
-        }.also { mediaListener = it }
+                override fun onPrimaryMetadataOrStateChanged(
+                    metadata: MediaMetadata,
+                    @PlaybackState.State state: Int
+                ) {
+                    uiExecutor.execute { updateMediaInfo(metadata, state) }
+                }
+            }.also { mediaListener = it }
         mediaComponent = ComponentName(context, KeyguardMediaViewController::class.java)
     }
 
     fun init() {
         with(plugin) {
-            addOnAttachStateChangeListener(object : View.OnAttachStateChangeListener {
-                override fun onViewAttachedToWindow(v: View) {
-                    smartspaceView = v as SmartspaceView
-                    with(mediaManager) { addCallback(mediaListener) }
-                }
+            addOnAttachStateChangeListener(
+                object : View.OnAttachStateChangeListener {
+                    override fun onViewAttachedToWindow(v: View) {
+                        smartspaceView = v as SmartspaceView
+                        with(mediaManager) { addCallback(mediaListener) }
+                    }
 
-                override fun onViewDetachedFromWindow(v: View) {
-                    smartspaceView = null
-                    with(mediaManager) { removeCallback(mediaListener) }
+                    override fun onViewDetachedFromWindow(v: View) {
+                        smartspaceView = null
+                        with(mediaManager) { removeCallback(mediaListener) }
+                    }
                 }
-            })
+            )
         }
         object : CurrentUserTracker(broadcastDispatcher) {
-            override fun onUserSwitched(newUserId: Int) = reset()
-        }.also { userTracker = it }
+                override fun onUserSwitched(newUserId: Int) = reset()
+            }.also { userTracker = it }
     }
 
     fun updateMediaInfo(metadata: MediaMetadata?, @PlaybackState.State state: Int) {
@@ -93,28 +96,32 @@ class KeyguardMediaViewController @Inject constructor(
         var title: CharSequence? = null
         if (metadata != null) {
             title = metadata.getText(MediaMetadata.METADATA_KEY_TITLE)
-            if (TextUtils.isEmpty(metadata.getText(MediaMetadata.METADATA_KEY_TITLE))) {
+            if (TextUtils.isEmpty(title)) {
                 title = context.resources.getString(R.string.music_controls_no_title)
             }
         }
         val artist = metadata?.getText(MediaMetadata.METADATA_KEY_ARTIST)
-        if (!TextUtils.equals(mediaTitle, title) && !TextUtils.equals(mediaArtist, artist)) {
+        if (!TextUtils.equals(mediaTitle, title) || !TextUtils.equals(mediaArtist, artist)) {
             mediaTitle = title
             mediaArtist = artist
             if (mediaTitle != null) {
-                val smartspaceAction = SmartspaceAction.Builder(
-                    "deviceMediaTitle", mediaTitle as String
-                ).setSubtitle(mediaArtist).setIcon(mediaManager.mediaIcon).build()
+                val deviceMediaTitle: SmartspaceAction =
+                    SmartspaceAction.Builder("deviceMediaTitle", mediaTitle as String)
+                        .setSubtitle(mediaArtist)
+                        .setIcon(mediaManager.mediaIcon)
+                        .build()
                 val currentUserTracker: CurrentUserTracker = userTracker
                     ?: throw UninitializedPropertyAccessException("userTracker")
                 if (smartspaceView != null) {
-                    smartspaceView!!.setMediaTarget(
+                    val deviceMedia: SmartspaceTarget.Builder =
                         SmartspaceTarget.Builder(
-                            "deviceMedia",
-                            mediaComponent,
-                            UserHandle.of(currentUserTracker.currentUserId)
-                        ).setFeatureType(41).setHeaderAction(smartspaceAction).build()
-                    )
+                                "deviceMedia",
+                                mediaComponent,
+                                UserHandle.of(currentUserTracker.currentUserId)
+                            )
+                            .setFeatureType(41)
+                            .setHeaderAction(deviceMediaTitle)
+                    smartspaceView?.setMediaTarget(deviceMedia.build())
                     unit = Unit
                 }
             }
@@ -126,7 +133,7 @@ class KeyguardMediaViewController @Inject constructor(
         mediaTitle = null
         mediaArtist = null
         if (smartspaceView != null) {
-            smartspaceView!!.setMediaTarget(null)
+            smartspaceView?.setMediaTarget(null)
         }
     }
 }

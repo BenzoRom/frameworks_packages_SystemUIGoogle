@@ -23,11 +23,13 @@ import android.os.Handler
 import android.os.IThermalService
 import android.os.PowerManager
 import android.os.ServiceManager
+import com.android.internal.logging.UiEventLogger
 import com.android.keyguard.KeyguardViewController
-import com.android.systemui.KtR
 import com.android.systemui.Dependency.*
+import com.android.systemui.KtR
 import com.android.systemui.biometrics.AlternateUdfpsTouchProvider
-import com.android.systemui.biometrics.UdfpsHbmProvider
+import com.android.systemui.biometrics.AuthController
+import com.android.systemui.biometrics.UdfpsDisplayModeProvider
 import com.android.systemui.broadcast.BroadcastDispatcher
 import com.android.systemui.dagger.GlobalRootComponent
 import com.android.systemui.dagger.SysUISingleton
@@ -37,7 +39,9 @@ import com.android.systemui.demomode.DemoModeController
 import com.android.systemui.dock.DockManager
 import com.android.systemui.dock.DockManagerImpl
 import com.android.systemui.doze.DozeHost
+import com.android.systemui.dump.DumpManager
 import com.android.systemui.media.dagger.MediaModule
+import com.android.systemui.navigationbar.gestural.GestureModule
 import com.android.systemui.plugins.BcSmartspaceDataPlugin
 import com.android.systemui.plugins.qs.QSFactory
 import com.android.systemui.plugins.statusbar.StatusBarStateController
@@ -45,22 +49,27 @@ import com.android.systemui.power.EnhancedEstimates
 import com.android.systemui.recents.Recents
 import com.android.systemui.recents.RecentsImplementation
 import com.android.systemui.settings.UserContentResolverProvider
+import com.android.systemui.shade.NotificationShadeWindowControllerImpl
+import com.android.systemui.shade.ShadeController
+import com.android.systemui.shade.ShadeControllerImpl
 import com.android.systemui.statusbar.*
-import com.android.systemui.statusbar.notification.NotificationEntryManager
 import com.android.systemui.statusbar.notification.collection.provider.VisualStabilityProvider
 import com.android.systemui.statusbar.notification.collection.render.GroupMembershipManager
 import com.android.systemui.statusbar.phone.*
 import com.android.systemui.statusbar.policy.*
 import com.android.systemui.volume.dagger.VolumeModule
+import com.android.systemui.util.concurrency.Execution
 import com.google.android.systemui.NotificationLockscreenUserManagerGoogle
 import com.google.android.systemui.fingerprint.FingerprintExtProvider
-import com.google.android.systemui.fingerprint.UdfpsHbmController
+import com.google.android.systemui.fingerprint.UdfpsDisplayMode
 import com.google.android.systemui.fingerprint.UdfpsTouchProvider
-import com.google.android.systemui.power.PowerModuleGoogle
+import com.google.android.systemui.gesture.GestureModuleGoogle
+import com.google.android.systemui.power.dagger.PowerModuleGoogle
 import com.google.android.systemui.qs.dagger.QSModuleGoogle
 import com.google.android.systemui.qs.tileimpl.QSFactoryImplGoogle
 import com.google.android.systemui.reversecharging.ReverseChargingController
 import com.google.android.systemui.reversecharging.ReverseWirelessCharger
+import com.google.android.systemui.screenshot.ScreenshotModuleGoogle
 import com.google.android.systemui.smartspace.BcSmartspaceDataProvider
 import com.google.android.systemui.smartspace.dagger.SmartspaceGoogleModule
 import com.google.android.systemui.statusbar.KeyguardIndicationControllerGoogle
@@ -69,7 +78,7 @@ import com.google.android.systemui.statusbar.policy.BatteryControllerImplGoogle
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
-import java.util.Optional
+import java.util.*
 import javax.inject.Named
 
 /**
@@ -78,9 +87,12 @@ import javax.inject.Named
  */
 @Module(
     includes = [
+        GestureModule::class,
+        GestureModuleGoogle::class,
         MediaModule::class,
         PowerModuleGoogle::class,
         QSModuleGoogle::class,
+        ScreenshotModuleGoogle::class,
         SmartspaceGoogleModule::class,
         StartCentralSurfacesGoogleModule::class,
         VolumeModule::class
@@ -106,19 +118,10 @@ abstract class SystemUIGoogleModule {
     abstract fun bindDockManager(dockManager: DockManagerImpl): DockManager
 
     @Binds
-    abstract fun bindKeyguardEnvironment(
-        keyguardEnvironment: KeyguardEnvironmentImpl
-    ): NotificationEntryManager.KeyguardEnvironment
+    abstract fun provideShadeController(shadeController: ShadeControllerImpl): ShadeController
 
     @Binds
-    abstract fun provideShadeController(
-        shadeController: ShadeControllerImpl
-    ): ShadeController
-
-    @Binds
-    abstract fun bindHeadsUpManagerPhone(
-        headsUpManagerPhone: HeadsUpManagerPhone
-    ): HeadsUpManager
+    abstract fun bindHeadsUpManagerPhone(headsUpManagerPhone: HeadsUpManagerPhone): HeadsUpManager
 
     @Binds
     abstract fun bindKeyguardViewController(
@@ -139,14 +142,10 @@ abstract class SystemUIGoogleModule {
     ): KeyguardIndicationController
 
     @Binds
-    abstract fun bindUdfpsHbmProvider(
-        udfps: UdfpsHbmController
-    ): UdfpsHbmProvider
+    abstract fun bindUdfpsDisplayMode(udfps: UdfpsDisplayMode): UdfpsDisplayModeProvider
 
     @Binds
-    abstract fun bindUdfpsTouchProvider(
-        udfpsTouch: UdfpsTouchProvider
-    ): AlternateUdfpsTouchProvider
+    abstract fun bindUdfpsTouchProvider(udfpsTouch: UdfpsTouchProvider): AlternateUdfpsTouchProvider
 
     @Module
     companion object {
@@ -165,6 +164,7 @@ abstract class SystemUIGoogleModule {
             powerManager: PowerManager,
             broadcastDispatcher: BroadcastDispatcher,
             demoModeController: DemoModeController,
+            dumpManager: DumpManager,
             @Main mainHandler: Handler,
             @Background bgHandler: Handler,
             contentResolver: UserContentResolverProvider,
@@ -177,6 +177,7 @@ abstract class SystemUIGoogleModule {
                     powerManager,
                     broadcastDispatcher,
                     demoModeController,
+                    dumpManager,
                     mainHandler,
                     bgHandler,
                     contentResolver,
@@ -228,12 +229,8 @@ abstract class SystemUIGoogleModule {
 
         @Provides
         @SysUISingleton
-        fun provideUsbManager(
-            context: Context
-        ): Optional<UsbManager> {
-            return Optional.ofNullable(
-                context.getSystemService(UsbManager::class.java)
-            )
+        fun provideUsbManager(context: Context): Optional<UsbManager> {
+            return Optional.ofNullable(context.getSystemService(UsbManager::class.java))
         }
 
         @Provides
@@ -245,9 +242,7 @@ abstract class SystemUIGoogleModule {
         @Provides
         @SysUISingleton
         fun provideIThermalService(): IThermalService {
-            return IThermalService.Stub.asInterface(
-                ServiceManager.getService("thermalservice")
-            )
+            return IThermalService.Stub.asInterface(ServiceManager.getService("thermalservice"))
         }
 
         @Provides
@@ -259,7 +254,10 @@ abstract class SystemUIGoogleModule {
             bypassController: KeyguardBypassController,
             groupManager: GroupMembershipManager,
             visualStabilityProvider: VisualStabilityProvider,
-            configurationController: ConfigurationController
+            configurationController: ConfigurationController,
+            @Main handler: Handler,
+            accessibilityManagerWrapper: AccessibilityManagerWrapper,
+            uiEventLogger: UiEventLogger
         ): HeadsUpManagerPhone {
             return HeadsUpManagerPhone(
                 context,
@@ -268,7 +266,10 @@ abstract class SystemUIGoogleModule {
                 bypassController,
                 groupManager,
                 visualStabilityProvider,
-                configurationController
+                configurationController,
+                handler,
+                accessibilityManagerWrapper,
+                uiEventLogger
             )
         }
 

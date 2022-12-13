@@ -1,5 +1,6 @@
--keep class com.google.android.systemui.SystemUIGoogleFactory
--keep,allowoptimization,allowaccessmodification class com.google.android.systemui.dagger.DaggerSysUIGoogleGlobalRootComponent$SysUIGoogleSysUIComponentImpl { !synthetic *; }
+-keep class com.google.android.systemui.SystemUIGoogleInitializer
+-keep class ** extends com.android.systemui.SystemUIInitializer { *;}
+-keep class com.google.android.systemui.dagger.DaggerSysUIGoogleGlobalRootComponent$SysUIGoogleSysUIComponentImpl { *; }
 -keep class com.google.** { *; }
 -keep class vendor.google.** { *; }
 

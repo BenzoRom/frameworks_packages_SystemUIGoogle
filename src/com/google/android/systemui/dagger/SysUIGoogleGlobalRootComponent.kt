@@ -17,25 +17,19 @@ package com.google.android.systemui.dagger
 
 import com.android.systemui.dagger.GlobalModule
 import com.android.systemui.dagger.GlobalRootComponent
-import javax.inject.Singleton
 import dagger.Component
+import javax.inject.Singleton
 
-/**
- * Root component for Dagger injection for System UI Google.
- */
+/** Root component for Dagger injection for System UI Google. */
 @Singleton
 @Component(modules = [GlobalModule::class])
 interface SysUIGoogleGlobalRootComponent : GlobalRootComponent {
-    /**
-     * Component Builder interface. This allows to bind Context instance in the component
-     */
+    /** Component Builder interface. This allows to bind Context instance in the component */
     @Component.Builder
     interface Builder : GlobalRootComponent.Builder {
         override fun build(): SysUIGoogleGlobalRootComponent
     }
 
-    /**
-     * Builder method for the Google System UI subcomponent.
-     */
+    /** Builder method for the Google System UI subcomponent. */
     override fun getSysUIComponent(): SysUIGoogleSysUIComponent.Builder
 }

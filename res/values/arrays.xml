@@ -15,12 +15,43 @@
      limitations under the License.
 -->
 <resources>
+    <array name="config_dock_bound_components"/>
     <array name="config_nfc_conflict_with_usb_audio_productid"/>
     <array name="config_nfc_conflict_with_usb_audio_vendorid"/>
+
+    <!-- Messages that should NOT be shown to the user during face authentication on keyguard.
+         This includes both lockscreen and bouncer. This should be used to hide messages that may be
+         too chatty or messages that the user can't do much about. Entries are defined in
+         android.hardware.biometrics.face@1.0 types.hal. -->
+     <integer-array name="config_face_acquire_device_entry_ignorelist" translatable="false">
+        <item>1</item>
+        <item>2</item>
+        <item>4</item>
+        <item>5</item>
+        <item>11</item>
+        <item>12</item>
+        <item>14</item>
+        <item>15</item>
+        <item>19</item>
+    </integer-array>
+
+    <!-- Which face help messages to defer until face auth times out. If face auth is cancelled
+         or ends on another error, then the message is never surfaced. May also never surface
+         if it doesn't meet a threshold % of authentication frames specified by.
+         config_face_help_msgs_defer_until_timeout_threshold. -->
+    <integer-array name="config_face_help_msgs_defer_until_timeout">
+        <item>3</item>
+    </integer-array>
+
+    <!-- SystemUI Plugins that can be loaded on user builds. -->
     <string-array name="config_pluginWhitelist">
         <item>com.android.systemui</item>
         <item>com.android.systemui.plugin.globalactions.wallet</item>
     </string-array>
+
+    <!-- Tiles to auto add to Quick Settings upon first change of a given secure setting.
+         The syntax is setting-name:spec. If the tile is a TileService, the spec should be specified
+         as custom(package/class). Relative class name is supported. -->
     <string-array name="config_quickSettingsAutoAdd">
         <item>accessibility_display_daltonizer_enabled:color_correction</item>
         <item>accessibility_display_inversion_enabled:inversion</item>

@@ -37,7 +37,9 @@ import com.android.systemui.util.settings.SecureSettings
 import javax.inject.Inject
 import javax.inject.Named
 
-class RotationLockTileGoogle @Inject constructor(
+class RotationLockTileGoogle
+@Inject
+constructor(
     host: QSHost,
     @Background backgroundLooper: Looper,
     @Main mainHandler: Handler,
@@ -50,14 +52,24 @@ class RotationLockTileGoogle @Inject constructor(
     sensorPrivacyManager: SensorPrivacyManager,
     batteryController: BatteryController,
     secureSettings: SecureSettings,
-    @Named(DEVICE_STATE_ROTATION_LOCK_DEFAULTS) private val deviceStateRotationLockDefaults: Array<String?>,
+    @Named(DEVICE_STATE_ROTATION_LOCK_DEFAULTS)
+    private val deviceStateRotationLockDefaults: Array<String?>,
     private val controller: DevicePostureController,
-) : RotationLockTile(
-    host, backgroundLooper, mainHandler, falsingManager, metricsLogger,
-    statusBarStateController, activityStarter, qsLogger,
-    rotationLockController, sensorPrivacyManager, batteryController,
-    secureSettings
-) {
+) :
+    RotationLockTile(
+        host,
+        backgroundLooper,
+        mainHandler,
+        falsingManager,
+        metricsLogger,
+        statusBarStateController,
+        activityStarter,
+        qsLogger,
+        rotationLockController,
+        sensorPrivacyManager,
+        batteryController,
+        secureSettings
+    ) {
     private val isPerDeviceStateRotationLockEnabled: Boolean
         get() = deviceStateRotationLockDefaults.isNotEmpty()
 
@@ -78,10 +90,14 @@ class RotationLockTileGoogle @Inject constructor(
         builder.append(" / ")
         when (controller.devicePosture) {
             DevicePostureController.DEVICE_POSTURE_CLOSED -> {
-                builder.append(mContext.getString(KtR.string.quick_settings_rotation_posture_folded))
+                builder.append(
+                    mContext.getString(KtR.string.quick_settings_rotation_posture_folded)
+                )
             }
             else -> {
-                builder.append(mContext.getString(KtR.string.quick_settings_rotation_posture_unfolded))
+                builder.append(
+                    mContext.getString(KtR.string.quick_settings_rotation_posture_unfolded)
+                )
             }
         }
         return builder.toString()

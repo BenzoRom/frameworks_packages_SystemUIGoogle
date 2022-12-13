@@ -27,6 +27,7 @@ public class KtR {
     }
 
     public static final class bool {
+        public static int config_battery_index_enabled = R.bool.config_battery_index_enabled;
         public static int config_touch_context_enabled = R.bool.config_touch_context_enabled;
         public static int config_wlc_support_enabled = R.bool.config_wlc_support_enabled;
     }
@@ -37,6 +38,10 @@ public class KtR {
 
     public static final class drawable {
         public static int ic_qs_reverse_charging = R.drawable.ic_qs_reverse_charging;
+    }
+
+    public static final class id {
+        public static int ambient_indication_container = R.id.ambient_indication_container;
     }
 
     public static final class string {

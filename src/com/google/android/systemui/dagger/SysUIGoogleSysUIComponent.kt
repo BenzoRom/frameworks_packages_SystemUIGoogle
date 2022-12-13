@@ -20,13 +20,11 @@ import com.android.systemui.dagger.*
 import com.android.systemui.keyguard.dagger.KeyguardModule
 import com.android.systemui.recents.RecentsModule
 import com.google.android.systemui.keyguard.KeyguardSliceProviderGoogle
-import com.google.android.systemui.smartspace.KeyguardSmartspaceController
+import com.google.android.systemui.smartspace.KeyguardSmartspaceStartable
 import com.google.android.systemui.statusbar.dagger.CentralSurfacesGoogleModule
 import dagger.Subcomponent
 
-/**
- * Dagger Subcomponent for Core SysUI.
- */
+/** Dagger Subcomponent for Core SysUI. */
 @SysUISingleton
 @Subcomponent(
     modules = [
@@ -42,9 +40,7 @@ import dagger.Subcomponent
     ]
 )
 interface SysUIGoogleSysUIComponent : SysUIComponent {
-    /**
-     * Builder for a SysUIComponent.
-     */
+    /** Builder for a SysUIComponent. */
     @SysUISingleton
     @Subcomponent.Builder
     interface Builder : SysUIComponent.Builder {
@@ -52,10 +48,8 @@ interface SysUIGoogleSysUIComponent : SysUIComponent {
     }
 
     @SysUISingleton
-    fun createKeyguardSmartspaceController(): KeyguardSmartspaceController
+    fun createKeyguardSmartspaceController(): KeyguardSmartspaceStartable
 
-    /**
-     * Member injection into KeyguardSliceProviderGoogle.
-     */
+    /** Member injection into KeyguardSliceProviderGoogle. */
     fun KeyguardSliceProviderGoogle.inject()
 }

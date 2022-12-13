@@ -33,7 +33,9 @@ import com.android.systemui.statusbar.policy.BatteryController
 import com.android.systemui.util.settings.SecureSettings
 import javax.inject.Inject
 
-class BatterySaverTileGoogle @Inject constructor(
+class BatterySaverTileGoogle
+@Inject
+constructor(
     host: QSHost,
     @Background backgroundLooper: Looper,
     @Main mainHandler: Handler,
@@ -44,11 +46,19 @@ class BatterySaverTileGoogle @Inject constructor(
     qsLogger: QSLogger,
     batteryController: BatteryController,
     secureSettings: SecureSettings
-) : BatterySaverTile(
-    host, backgroundLooper, mainHandler, falsingManager, metricsLogger,
-    statusBarStateController, activityStarter, qsLogger, batteryController,
-    secureSettings
-) {
+) :
+    BatterySaverTile(
+        host,
+        backgroundLooper,
+        mainHandler,
+        falsingManager,
+        metricsLogger,
+        statusBarStateController,
+        activityStarter,
+        qsLogger,
+        batteryController,
+        secureSettings
+    ) {
     var isExtremeEnabled = false
     override fun handleUpdateState(state: BooleanState, arg: Any) {
         super.handleUpdateState(state, arg)

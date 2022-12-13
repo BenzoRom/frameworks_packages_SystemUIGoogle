@@ -38,8 +38,7 @@ import com.google.android.systemui.smartspace.SmartSpaceUpdateListener
 import java.lang.ref.WeakReference
 import javax.inject.Inject
 
-class KeyguardSliceProviderGoogle : KeyguardSliceProvider(),
-    SmartSpaceUpdateListener {
+class KeyguardSliceProviderGoogle : KeyguardSliceProvider(), SmartSpaceUpdateListener {
 
     @Inject lateinit var smartSpaceController: SmartSpaceController
     private var smartSpaceData: SmartSpaceData? = null
@@ -60,20 +59,19 @@ class KeyguardSliceProviderGoogle : KeyguardSliceProvider(),
     }
 
     override fun onBindSlice(sliceUri: Uri): Slice {
-        val builder = ListBuilder(
-            context!!,
-            mSliceUri,
-            INFINITY
-        )
+        val builder = ListBuilder(context!!, mSliceUri, INFINITY)
         synchronized(this) {
             var hasAction = false
             val currentCard = smartSpaceData!!.currentCard
-            if (currentCard != null && !currentCard.isExpired
-                && !TextUtils.isEmpty(currentCard.title)
+            if (
+                currentCard != null &&
+                    !currentCard.isExpired &&
+                    !TextUtils.isEmpty(currentCard.title)
             ) {
-                if (!currentCard.isSensitive
-                    || !hideSensitiveContent && !currentCard.isWorkProfile
-                    || !hideWorkContent && currentCard.isWorkProfile
+                if (
+                    !currentCard.isSensitive ||
+                        !hideSensitiveContent && !currentCard.isWorkProfile ||
+                        !hideWorkContent && currentCard.isWorkProfile
                 ) hasAction = true
             }
             if (hasAction) {
@@ -136,8 +134,7 @@ class KeyguardSliceProviderGoogle : KeyguardSliceProvider(),
             val builder = RowBuilder(weatherUri).setTitle(weatherCard.title)
             if (weatherCard.icon != null) {
                 builder.addEndItem(
-                    IconCompat.createWithBitmap(weatherCard.icon)
-                        .setTintMode(Mode.DST),
+                    IconCompat.createWithBitmap(weatherCard.icon).setTintMode(Mode.DST),
                     SMALL_IMAGE
                 )
             }
@@ -168,10 +165,7 @@ class KeyguardSliceProviderGoogle : KeyguardSliceProvider(),
         when {
             weatherCard?.icon != null && !weatherCard.isIconProcessed -> {
                 weatherCard.isIconProcessed = true
-                AddShadowTask(
-                    this,
-                    weatherCard
-                ).execute(weatherCard.icon)
+                AddShadowTask(this, weatherCard).execute(weatherCard.icon)
             }
             else -> notifyChange()
         }
@@ -208,9 +202,7 @@ class KeyguardSliceProviderGoogle : KeyguardSliceProvider(),
                 )
                 alpha.recycle()
                 paint.alpha = 255
-                drawBitmap(
-                    bitmap, 0.0f, 0.0f, paint
-                )
+                drawBitmap(bitmap, 0.0f, 0.0f, paint)
             }
             return result
         }
@@ -228,9 +220,10 @@ class KeyguardSliceProviderGoogle : KeyguardSliceProvider(),
         }
 
         init {
-            blurRadius = keyguardSliceProviderGoogle.context!!.resources.getDimension(
-                KtR.dimen.smartspace_icon_shadow
-            )
+            blurRadius =
+                keyguardSliceProviderGoogle.context!!
+                    .resources
+                    .getDimension(KtR.dimen.smartspace_icon_shadow)
             providerReference = WeakReference(keyguardSliceProviderGoogle)
             weatherCard = card
         }

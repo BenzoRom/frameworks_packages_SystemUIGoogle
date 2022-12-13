@@ -16,13 +16,14 @@
 package com.google.android.systemui.dagger;
 
 import android.app.AlarmManager;
-import android.app.IActivityManager;
 import android.app.KeyguardManager;
 import android.app.StatsManager;
 import android.app.admin.DevicePolicyManager;
 import android.content.Context;
+import android.content.res.Resources;
 import android.hardware.SensorManager;
 import android.hardware.usb.UsbManager;
+import android.net.ConnectivityManager;
 import android.os.Handler;
 import android.os.IThermalService;
 import android.os.Looper;
@@ -36,6 +37,7 @@ import com.android.internal.widget.LockPatternUtils;
 import com.android.keyguard.KeyguardUpdateMonitor;
 import com.android.systemui.BootCompleteCache;
 import com.android.systemui.animation.DialogLaunchAnimator;
+import com.android.systemui.biometrics.FaceHelpMessageDeferral;
 import com.android.systemui.broadcast.BroadcastDispatcher;
 import com.android.systemui.broadcast.BroadcastSender;
 import com.android.systemui.controls.controller.ControlsController;
@@ -49,8 +51,10 @@ import com.android.systemui.keyguard.ScreenLifecycle;
 import com.android.systemui.plugins.ActivityStarter;
 import com.android.systemui.plugins.FalsingManager;
 import com.android.systemui.plugins.statusbar.StatusBarStateController;
+import com.android.systemui.power.EnhancedEstimates;
+import com.android.systemui.settings.UserFileManager;
+import com.android.systemui.settings.UserTracker;
 import com.android.systemui.statusbar.NotificationClickNotifier;
-import com.android.systemui.statusbar.notification.NotificationEntryManager;
 import com.android.systemui.statusbar.notification.collection.notifcollection.CommonNotifCollection;
 import com.android.systemui.statusbar.notification.collection.render.NotificationVisibilityProvider;
 import com.android.systemui.statusbar.phone.CentralSurfaces;
@@ -59,8 +63,6 @@ import com.android.systemui.statusbar.phone.StatusBarIconController;
 import com.android.systemui.statusbar.policy.BatteryController;
 import com.android.systemui.statusbar.policy.DeviceProvisionedController;
 import com.android.systemui.statusbar.policy.KeyguardStateController;
-import com.android.systemui.statusbar.policy.NextAlarmController;
-import com.android.systemui.statusbar.policy.ZenModeController;
 import com.android.systemui.tuner.TunerService;
 import com.android.systemui.util.DeviceConfigProxy;
 import com.android.systemui.util.concurrency.DelayableExecutor;
@@ -71,13 +73,18 @@ import com.google.android.systemui.NotificationLockscreenUserManagerGoogle;
 import com.google.android.systemui.autorotate.AutorotateDataService;
 import com.google.android.systemui.autorotate.DataLogger;
 import com.google.android.systemui.controls.GoogleControlsTileResourceConfigurationImpl;
+import com.google.android.systemui.face.FaceNotificationService;
 import com.google.android.systemui.power.PowerNotificationWarningsGoogleImpl;
+import com.google.android.systemui.power.batteryhealth.HealthManager;
+import com.google.android.systemui.power.batteryhealth.HealthService;
 import com.google.android.systemui.reversecharging.ReverseChargingController;
 import com.google.android.systemui.reversecharging.ReverseChargingViewController;
 import com.google.android.systemui.reversecharging.ReverseWirelessCharger;
 import com.google.android.systemui.smartspace.SmartSpaceController;
 import com.google.android.systemui.statusbar.KeyguardIndicationControllerGoogle;
 import com.google.android.systemui.statusbar.phone.WallpaperNotifier;
+import com.google.android.systemui.vpn.AdaptivePPNService;
+import com.google.android.systemui.vpn.VpnNetworkMonitor;
 
 import java.util.Optional;
 import java.util.concurrent.Executor;
@@ -151,12 +158,12 @@ public interface DependencyProviderGoogle {
     @SysUISingleton
     static WallpaperNotifier provideWallpaperNotifier(
             Context context,
-            NotificationEntryManager entryManager,
+            CommonNotifCollection commonNotifCollection,
             BroadcastDispatcher broadcastDispatcher,
             BroadcastSender broadcastSender) {
         return new WallpaperNotifier(
                 context,
-                entryManager,
+                commonNotifCollection,
                 broadcastDispatcher,
                 broadcastSender);
     }
@@ -226,9 +233,9 @@ public interface DependencyProviderGoogle {
             FalsingManager falsingManager,
             LockPatternUtils lockPatternUtils,
             ScreenLifecycle screenLifecycle,
-            IActivityManager iActivityManager,
             KeyguardBypassController keyguardBypassController,
-            AccessibilityManager accessibilityManager) {
+            AccessibilityManager accessibilityManager,
+            FaceHelpMessageDeferral faceHelpMessageDeferral) {
         return new KeyguardIndicationControllerGoogle(
                 context,
                 mainLooper,
@@ -248,17 +255,18 @@ public interface DependencyProviderGoogle {
                 falsingManager,
                 lockPatternUtils,
                 screenLifecycle,
-                iActivityManager,
                 keyguardBypassController,
-                accessibilityManager);
+                accessibilityManager,
+                faceHelpMessageDeferral);
     }
 
     @Provides
     @SysUISingleton
     static GoogleServices provideGoogleServices(
             Context context,
-            AutorotateDataService autorotateDataService) {
-        return new GoogleServices(context, autorotateDataService);
+            AutorotateDataService autorotateDataService,
+            Lazy<FaceNotificationService> faceNotificationService) {
+        return new GoogleServices(context, autorotateDataService, faceNotificationService);
     }
 
     @Provides
@@ -271,8 +279,10 @@ public interface DependencyProviderGoogle {
             UiEventLogger uiEventLogger,
             Lazy<BatteryController> batteryControllerLazy,
             DialogLaunchAnimator dialogLaunchAnimator,
+            EnhancedEstimates enhancedEstimates,
             KeyguardStateController keyguardStateController,
-            IDreamManager dreamManager) {
+            IDreamManager dreamManager,
+            Executor executor) {
         return new PowerNotificationWarningsGoogleImpl(
                 context,
                 activityStarter,
@@ -281,8 +291,10 @@ public interface DependencyProviderGoogle {
                 uiEventLogger,
                 batteryControllerLazy,
                 dialogLaunchAnimator,
+                enhancedEstimates,
                 keyguardStateController,
-                dreamManager);
+                dreamManager,
+                executor);
     }
 
     @Provides
@@ -312,7 +324,57 @@ public interface DependencyProviderGoogle {
     @Provides
     @SysUISingleton
     static ControlsTileResourceConfiguration
-             provideControlsTileResourceConfiguration(ControlsController controlsController) {
+    provideControlsTileResourceConfiguration(ControlsController controlsController) {
         return new GoogleControlsTileResourceConfigurationImpl(controlsController);
+    }
+
+    @Provides
+    @SysUISingleton
+    static HealthService provideHealthService(
+            Context context,
+            HealthManager healthManager,
+            Resources resources) {
+        return new HealthService(context, healthManager, resources);
+    }
+
+    @Provides
+    @SysUISingleton
+    static FaceNotificationService providesFaceNotificationService(
+            Context context, KeyguardUpdateMonitor keyguardUpdateMonitor) {
+        return new FaceNotificationService(context, keyguardUpdateMonitor);
+    }
+
+    @Provides
+    @SysUISingleton
+    static AdaptivePPNService provideAdaptivePPNService(
+            ConnectivityManager connectivityManager,
+            BroadcastSender broadcastSender,
+            BroadcastDispatcher broadcastDispatcher,
+            @Main Executor uiExecutor,
+            @Background Executor executor,
+            UserFileManager userFileManager,
+            UserTracker userTracker) {
+        return new AdaptivePPNService(
+                connectivityManager,
+                broadcastSender,
+                broadcastDispatcher,
+                uiExecutor,
+                executor,
+                userFileManager,
+                userTracker);
+    }
+
+    @Provides
+    @SysUISingleton
+    static VpnNetworkMonitor provideVpnNetworkMonitor(
+            Context context,
+            Resources resources,
+            Lazy<VpnNetworkMonitor> networkMonitor,
+            AdaptivePPNService adaptivePPNService) {
+        return new VpnNetworkMonitor(
+                context,
+                resources,
+                networkMonitor,
+                adaptivePPNService);
     }
 }

@@ -40,7 +40,9 @@ import com.android.systemui.qs.logging.QSLogger
 import com.android.systemui.qs.tileimpl.QSTileImpl
 import javax.inject.Inject
 
-class OverlayToggleTile @Inject constructor(
+class OverlayToggleTile
+@Inject
+constructor(
     host: QSHost,
     @Background backgroundLooper: Looper,
     @Main mainHandler: Handler,
@@ -50,10 +52,17 @@ class OverlayToggleTile @Inject constructor(
     activityStarter: ActivityStarter,
     qsLogger: QSLogger,
     private val om: OverlayManager
-) : QSTileImpl<QSTile.BooleanState>(
-    host, backgroundLooper, mainHandler, falsingManager, metricsLogger,
-    statusBarStateController, activityStarter, qsLogger
-) {
+) :
+    QSTileImpl<QSTile.BooleanState>(
+        host,
+        backgroundLooper,
+        mainHandler,
+        falsingManager,
+        metricsLogger,
+        statusBarStateController,
+        activityStarter,
+        qsLogger
+    ) {
     private var overlayLabel: CharSequence? = null
     private var overlayInfosForTarget: List<OverlayInfo> = emptyList()
     private var overlayPackage: String? = null
@@ -86,9 +95,8 @@ class OverlayToggleTile @Inject constructor(
     override fun handleUpdateState(state: QSTile.BooleanState, arg: Any?) {
         val packageManager: PackageManager = mContext.packageManager
         var overlayInfo: OverlayInfo? = null
-        overlayInfosForTarget = om.getOverlayInfosForTarget(
-            "com.android.systemui", UserHandle.CURRENT
-        )
+        overlayInfosForTarget =
+            om.getOverlayInfosForTarget("com.android.systemui", UserHandle.CURRENT)
         if (overlayInfosForTarget.isNotEmpty()) {
             for (currentOverlay in overlayInfosForTarget) {
                 if (currentOverlay.packageName.contains("gxoverlay", true)) {
@@ -106,17 +114,19 @@ class OverlayToggleTile @Inject constructor(
                     ).applicationInfo.loadLabel(packageManager)
                 }
                 state.value = overlayInfo.isEnabled
-                state.state = when {
-                    overlayInfo.isEnabled -> Tile.STATE_ACTIVE
-                    else                  -> Tile.STATE_INACTIVE
-                }
+                state.state =
+                    when {
+                        overlayInfo.isEnabled -> Tile.STATE_ACTIVE
+                        else -> Tile.STATE_INACTIVE
+                    }
                 state.icon = ResourceIcon.get(com.android.internal.R.drawable.stat_sys_adb)
                 state.label = overlayLabel
-                state.secondaryLabel = when {
-                    arg != null           -> "$arg"
-                    overlayInfo.isEnabled -> "Enabled"
-                    else                  -> "Disabled"
-                }
+                state.secondaryLabel =
+                    when {
+                        arg != null           -> "$arg"
+                        overlayInfo.isEnabled -> "Enabled"
+                        else                  -> "Disabled"
+                    }
             }
         }
     }

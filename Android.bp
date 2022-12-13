@@ -23,6 +23,7 @@ android_library {
     srcs: [
         "src/**/*.java",
         "src/**/*.kt",
+        "src/**/I*.aidl",
     ],
     resource_dirs: [
         "res",
@@ -33,7 +34,7 @@ android_library {
         "SystemUISharedLib",
         "guava-android",
         "android.frameworks.stats-V1-java",
-        "android.hidl.base-V1.0-java-shallow",
+        "android.hidl.base-V1.0-java",
         "//hardware/google/interfaces:com.google.hardware.pixel.display-V6-java",
         "autorotate-proto",
         "pixelatoms-google-java",

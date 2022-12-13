@@ -22,10 +22,13 @@ class EnhancedEstimatesGoogleImpl @Inject constructor(
     override fun isHybridNotificationEnabled(): Boolean {
         return try {
             when {
-                !mContext.packageManager.getPackageInfo(
-                    "com.google.android.apps.turbo",
-                    PackageInfoFlags.of(MATCH_DISABLED_COMPONENTS.toLong())
-                ).applicationInfo.enabled -> return false
+                !mContext.packageManager
+                    .getPackageInfo(
+                        "com.google.android.apps.turbo",
+                        PackageInfoFlags.of(MATCH_DISABLED_COMPONENTS.toLong())
+                    )
+                    .applicationInfo
+                    .enabled -> return false
             }
             updateFlags()
             keyParser.getBoolean("hybrid_enabled", true)
@@ -38,13 +41,15 @@ class EnhancedEstimatesGoogleImpl @Inject constructor(
         var averageDischargeTime = -1L
         var query: Cursor? = null
         try {
-            query = mContext.contentResolver.query(
-                Uri.Builder()
-                    .scheme("content")
-                    .authority("com.google.android.apps.turbo.estimated_time_remaining")
-                    .appendPath("time_remaining")
-                    .build(),
-                null, null, null, null)
+            query =
+                mContext.contentResolver.query(
+                    Uri.Builder()
+                        .scheme("content")
+                        .authority("com.google.android.apps.turbo.estimated_time_remaining")
+                        .appendPath("time_remaining")
+                        .build(),
+                    null, null, null, null
+                )
         } catch (ex: Exception) {
             Log.d(logTag, "Something went wrong when getting an estimate from Turbo", ex)
         }
@@ -59,13 +64,13 @@ class EnhancedEstimatesGoogleImpl @Inject constructor(
                 val isBasedOnUsage = query.getColumnIndex("is_based_on_usage") == 1
                 if (averageBatteryLife != -1L) {
                     PowerUtil.roundTimeToNearestThreshold(
-                        averageBatteryLife,
-                        when {
-                            Duration.ofMillis(averageBatteryLife) >= Duration.ofDays(1L) ->
-                                Duration.ofHours(1L).toMillis()
-                            else -> Duration.ofMinutes(15L).toMillis()
-                        }
-                    ).also { averageDischargeTime = it }
+                            averageBatteryLife,
+                            when {
+                                Duration.ofMillis(averageBatteryLife) >= Duration.ofDays(1L) ->
+                                    Duration.ofHours(1L).toMillis()
+                                else -> Duration.ofMinutes(15L).toMillis()
+                            }
+                        ).also { averageDischargeTime = it }
                 }
                 query.close()
                 return Estimate(
@@ -79,26 +84,17 @@ class EnhancedEstimatesGoogleImpl @Inject constructor(
 
     override fun getLowWarningEnabled(): Boolean {
         updateFlags()
-        return keyParser.getBoolean(
-            "low_warning_enabled",
-            false
-        )
+        return keyParser.getBoolean("low_warning_enabled", false)
     }
 
     override fun getLowWarningThreshold(): Long {
         updateFlags()
-        return keyParser.getLong(
-            "low_threshold",
-            Duration.ofHours(3L).toMillis()
-        )
+        return keyParser.getLong("low_threshold", Duration.ofHours(3L).toMillis())
     }
 
     override fun getSevereWarningThreshold(): Long {
         updateFlags()
-        return keyParser.getLong(
-            "severe_threshold",
-            Duration.ofHours(1L).toMillis()
-        )
+        return keyParser.getLong("severe_threshold", Duration.ofHours(1L).toMillis())
     }
 
     private fun updateFlags() {

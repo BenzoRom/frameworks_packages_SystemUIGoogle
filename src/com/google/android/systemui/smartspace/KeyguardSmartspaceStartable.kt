@@ -18,21 +18,29 @@ package com.google.android.systemui.smartspace
 import android.content.ComponentName
 import android.content.Context
 import android.content.pm.PackageManager
+import com.android.systemui.CoreStartable
 import com.android.systemui.dagger.SysUISingleton
 import com.android.systemui.flags.FeatureFlags
-import com.android.systemui.flags.Flags.SMARTSPACE
+import com.android.systemui.flags.Flags
+import com.android.systemui.util.InitializationChecker
 import javax.inject.Inject
 
 @SysUISingleton
-class KeyguardSmartspaceController @Inject constructor(
-    context: Context,
-    featureFlags: FeatureFlags,
-    zenController: KeyguardZenAlarmViewController,
-    mediaController: KeyguardMediaViewController
-) {
-    init {
+class KeyguardSmartspaceStartable
+@Inject
+constructor(
+    private val context: Context,
+    private val featureFlags: FeatureFlags,
+    private val zenController: KeyguardZenAlarmViewController,
+    private val mediaController: KeyguardMediaViewController,
+    private val initializationChecker: InitializationChecker
+) : CoreStartable(context) {
+    override fun start() {
         when {
-            featureFlags.isEnabled(SMARTSPACE) -> {
+            !initializationChecker.initializeComponents() -> {
+                return
+            }
+            featureFlags.isEnabled(Flags.SMARTSPACE) -> {
                 zenController.init()
                 mediaController.init()
             }
