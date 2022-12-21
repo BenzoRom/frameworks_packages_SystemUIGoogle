@@ -25,6 +25,7 @@ import android.os.PowerManager
 import android.os.ServiceManager
 import com.android.internal.logging.UiEventLogger
 import com.android.keyguard.KeyguardViewController
+import com.android.systemui.assist.AssistManager
 import com.android.systemui.Dependency.*
 import com.android.systemui.KtR
 import com.android.systemui.biometrics.AlternateUdfpsTouchProvider
@@ -59,6 +60,7 @@ import com.android.systemui.statusbar.phone.*
 import com.android.systemui.statusbar.policy.*
 import com.android.systemui.volume.dagger.VolumeModule
 import com.android.systemui.util.concurrency.Execution
+import com.google.android.systemui.assist.AssistManagerGoogle
 import com.google.android.systemui.NotificationLockscreenUserManagerGoogle
 import com.google.android.systemui.fingerprint.FingerprintExtProvider
 import com.google.android.systemui.fingerprint.UdfpsDisplayMode
@@ -146,6 +148,9 @@ abstract class SystemUIGoogleModule {
 
     @Binds
     abstract fun bindUdfpsTouchProvider(udfpsTouch: UdfpsTouchProvider): AlternateUdfpsTouchProvider
+
+    @Binds
+    abstract fun bindAssistManagerGoogle(assistManager: AssistManagerGoogle): AssistManager
 
     @Module
     companion object {

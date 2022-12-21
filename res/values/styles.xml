@@ -15,6 +15,16 @@
      limitations under the License.
 -->
 <resources>
+    <style name="DotStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:alpha">0</item>
+    </style>
+    <style name="ElmyraDotStyle" parent="@style/DotStyle">
+        <item name="android:layout_gravity">bottom|center</item>
+    </style>
     <style name="EnhancedSmartspaceTextTitle" parent="@android:style/Theme.DeviceDefault.DayNight">
         <item name="android:textSize">@dimen/enhanced_smartspace_title_size</item>
         <item name="android:textColor">?android:attr/textColorPrimary</item>
@@ -31,5 +41,10 @@
         <item name="android:fontFamily">google-sans-text</item>
         <item name="android:letterSpacing">@dimen/smartspaceLetterSpacing</item>
         <item name="android:lineHeight">24sp</item>
+    </style>
+    <style name="LockscreenDotStyle" parent="@style/DotStyle">
+        <item name="android:alpha">0</item>
+        <item name="android:scaleX">0.8</item>
+        <item name="android:scaleY">0.8</item>
     </style>
 </resources>

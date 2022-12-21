@@ -16,14 +16,32 @@
 -->
 <resources>
     <color name="ambient_text_shadow_color">#40000000</color>
+    <color name="assist_chip_background_dark">#171717</color>
+    <color name="assist_chip_background_light">#ffffff</color>
+    <color name="assist_chip_border_dark">#292a2d</color>
+    <color name="assist_chip_border_light">#e8eaed</color>
+    <color name="assist_chip_ripple_dark">#42ffffff</color>
+    <color name="assist_chip_ripple_light">#1f000000</color>
+    <color name="assist_chip_text_dark">#f5f7fa</color>
+    <color name="assist_chip_text_light">#202124</color>
+    <color name="chip_hint_background_color2">#f1f3f4</color>
+    <color name="chip_hint_foreground_color2">#3c4043</color>
     <color name="default_gleam_background_color">#000000</color>
     <color name="default_gleam_highlight_color">#ffffff</color>
     <color name="default_selection_highlight_color">#7baaf7</color>
     <color name="default_selection_image_highlight_color">#7baaf7</color>
     <color name="default_selection_stroke_color">#4285f4</color>
     <color name="dock_photo_text">#ffffff</color>
+    <color name="edge_light_blue">#4185f4</color>
+    <color name="edge_light_green">#3aa853</color>
+    <color name="edge_light_red">#ea4234</color>
+    <color name="edge_light_yellow">#fbbc06</color>
     <color name="indicator_icon_color">#191c18</color>
     <color name="key_text_shadow_color">#89000000</color>
     <color name="smartspace_button_background">@android:color/system_accent2_200</color>
     <color name="smartspace_button_text">@android:color/system_accent2_700</color>
+    <color name="transcription_icon_dark">#8affffff</color>
+    <color name="transcription_icon_light">#8a000000</color>
+    <color name="transcription_text_dark">#ffffff</color>
+    <color name="transcription_text_light">#de000000</color>
 </resources>

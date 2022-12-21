@@ -25,7 +25,9 @@
     <item type="id" name="card_prompt"/>
     <item type="id" name="card_prompt_icon"/>
     <item type="id" name="charging_status_text_view"/>
+    <item type="id" name="chip_background"/>
     <item type="id" name="chip_container"/>
+    <item type="id" name="chip_element_padding"/>
     <item type="id" name="chips_inline_container"/>
     <item type="id" name="debug_container"/>
     <item type="id" name="docked_top_icon"/>

@@ -72,7 +72,13 @@ import com.google.android.systemui.GoogleServices;
 import com.google.android.systemui.NotificationLockscreenUserManagerGoogle;
 import com.google.android.systemui.autorotate.AutorotateDataService;
 import com.google.android.systemui.autorotate.DataLogger;
+import com.google.android.systemui.assist.AssistGoogleModule;
+import com.google.android.systemui.assist.AssistManagerGoogle;
+import com.google.android.systemui.columbus.ColumbusModule;
+import com.google.android.systemui.columbus.ColumbusServiceWrapper;
 import com.google.android.systemui.controls.GoogleControlsTileResourceConfigurationImpl;
+import com.google.android.systemui.elmyra.ElmyraModule;
+import com.google.android.systemui.elmyra.ServiceConfigurationGoogle;
 import com.google.android.systemui.face.FaceNotificationService;
 import com.google.android.systemui.power.PowerNotificationWarningsGoogleImpl;
 import com.google.android.systemui.power.batteryhealth.HealthManager;
@@ -96,7 +102,12 @@ import dagger.Provides;
 /**
  * Provides dependencies for sysui injection.
  */
-@Module
+@Module(
+    includes = {
+        AssistGoogleModule.class,
+        ColumbusModule.class,
+        ElmyraModule.class
+    })
 public interface DependencyProviderGoogle {
     @Provides
     @SysUISingleton
@@ -264,9 +275,18 @@ public interface DependencyProviderGoogle {
     @SysUISingleton
     static GoogleServices provideGoogleServices(
             Context context,
+            Lazy<ServiceConfigurationGoogle> serviceConfigurationGoogleLazy,
+            UiEventLogger uiEventLogger,
+            Lazy<ColumbusServiceWrapper> columbusServiceLazy,
             AutorotateDataService autorotateDataService,
             Lazy<FaceNotificationService> faceNotificationService) {
-        return new GoogleServices(context, autorotateDataService, faceNotificationService);
+        return new GoogleServices(
+                context,
+                serviceConfigurationGoogleLazy,
+                uiEventLogger,
+                columbusServiceLazy,
+                autorotateDataService,
+                faceNotificationService);
     }
 
     @Provides

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2022 Benzo Rom
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<com.google.android.systemui.assist.LockscreenOpaLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/lockscreen_opa"
+    android:layout_gravity="bottom|center_horizontal"
+    android:paddingBottom="@dimen/opa_lockscreen_padding_bottom"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/red"
+                android:layout_gravity="end"
+                android:src="@drawable/ic_sysbar_opa_red"
+                android:importantForAccessibility="no"
+                android:layout_marginEnd="-10dp"
+                style="@style/LockscreenDotStyle"/>
+
+            <ImageView
+                android:id="@+id/blue"
+                android:layout_gravity="end"
+                android:src="@drawable/ic_sysbar_opa_blue"
+                android:importantForAccessibility="no"
+                android:layout_marginEnd="-10dp"
+                style="@style/LockscreenDotStyle"/>
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/green"
+                android:layout_gravity="start"
+                android:src="@drawable/ic_sysbar_opa_green"
+                android:importantForAccessibility="no"
+                android:layout_marginStart="-10dp"
+                style="@style/LockscreenDotStyle"/>
+
+            <ImageView
+                android:id="@+id/yellow"
+                android:layout_gravity="start"
+                android:src="@drawable/ic_sysbar_opa_yellow"
+                android:importantForAccessibility="no"
+                android:layout_marginStart="-10dp"
+                style="@style/LockscreenDotStyle"/>
+
+        </FrameLayout>
+
+    </LinearLayout>
+</com.google.android.systemui.assist.LockscreenOpaLayout>

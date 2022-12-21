@@ -23,6 +23,16 @@ java_library {
 }
 
 java_library {
+    name: "columbus-proto",
+    proto: {
+        type: "nano",
+    },
+    srcs: [
+        "columbus.proto",
+    ],
+}
+
+java_library {
     name: "pixelatoms-google-java",
     sdk_version: "current",
     proto: {

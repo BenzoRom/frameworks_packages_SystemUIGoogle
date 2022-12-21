@@ -199,10 +199,15 @@
         <permission name="com.android.systemui.permission.SELF"/>
         <permission name="com.breel.wallpapers.notifications"/>
         <permission name="com.google.android.ambientindication.permission.AMBIENT_INDICATION"/>
+        <permission name="com.google.android.apps.dreamliner.permission.DREAMLINER_SERVICE"/>
+        <permission name="com.google.android.apps.nest.DOCK_MANAGER_SERVICE"/>
         <permission name="com.google.android.apps.nexuslauncher.permission.QSB"/>
+        <permission name="com.google.android.columbus.permission.CONFIGURE_COLUMBUS_GESTURE"/>
         <permission name="com.google.android.deskclock.permission.RECEIVE_ALERT_BROADCASTS"/>
+        <permission name="com.google.android.elmyra.permission.CONFIGURE_ASSIST_GESTURE"/>
         <permission name="com.google.android.wildlife.permission.UPDATE_NETWORK_MONITOR"/>
         <permission name="com.google.restricted_assist_gesture.permission.RESTRICTED_ASSIST_GESTURE_PROVIDER"/>
+        <permission name="com.google.sensor.elmyra.permission.USE_RAW_SENSOR"/>
     </privapp-permissions>
 
 </permissions>
