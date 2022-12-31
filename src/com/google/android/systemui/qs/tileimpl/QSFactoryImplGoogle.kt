@@ -70,7 +70,8 @@ constructor(
     dreamTileProvider: Provider<DreamTile>,
     syncTileProvider: Provider<SyncTile>,
     caffeineTileProvider: Provider<CaffeineTile>,
-    aodTileProvider: Provider<AlwaysOnDisplayTile>
+    aodTileProvider: Provider<AlwaysOnDisplayTile>,
+    onTheGoTileProvider: Provider<OnTheGoTile>
 ) :
     QSFactoryImpl(
         qsHostLazy,
@@ -107,8 +108,9 @@ constructor(
         dreamTileProvider,
         syncTileProvider,
         caffeineTileProvider,
-        aodTileProvider
-    ) {
+        aodTileProvider,
+        onTheGoTileProvider
+) {
     override fun createTileInternal(tileSpec: String): QSTileImpl<*>? {
         return when (tileSpec) {
             "rotation" -> rotationLockTileGoogleProvider.get()
