@@ -35,6 +35,7 @@ import com.android.systemui.statusbar.policy.DeviceProvisionedController
 import com.android.systemui.theme.ThemeOverlayApplier
 import com.android.systemui.theme.ThemeOverlayController
 import com.android.systemui.util.settings.SecureSettings
+import com.android.systemui.util.settings.SystemSettings
 import java.io.PrintWriter
 import java.util.concurrent.Executor
 import javax.inject.Inject
@@ -59,7 +60,8 @@ constructor(
     private val userTracker: UserTracker,
     featureFlags: FeatureFlags,
     wakefulnessLifecycle: WakefulnessLifecycle,
-    configurationController: ConfigurationController
+    configurationController: ConfigurationController,
+    systemSettings: SystemSettings
 ) :
     ThemeOverlayController(
         context,
@@ -76,7 +78,8 @@ constructor(
         dumpManager,
         featureFlags,
         resources,
-        wakefulnessLifecycle
+        wakefulnessLifecycle,
+        systemSettings
     ) {
     init {
         configurationController.addCallback(
